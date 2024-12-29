@@ -2,10 +2,10 @@
 import { Shield, Sparkles, Trophy } from "lucide-react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import Assistant from "../components/Assistant";
 
-const TryAssistant = () => {
+const TryAssistantComp = () => {
   const searchParams = useSearchParams();
   const isModalTrue = searchParams.get("isModalTrue");
 
@@ -205,6 +205,14 @@ const TryAssistant = () => {
       </>
       {showAssistant && <Assistant />}
     </div>
+  );
+};
+
+const TryAssistant = () => {
+  return (
+    <Suspense fallback={<p>Loading...</p>}>
+      <TryAssistantComp />
+    </Suspense>
   );
 };
 
