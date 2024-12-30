@@ -18,11 +18,11 @@ html {
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
   animation-direction: alternate;
-  background: #f32968; /* Change the color for the bars */
+  background: #f32968;
   margin: 0 1.5px;
   height: 10px;
-  width: 1px; /* Change the number for the bar width */
-  animation-play-state: paused; /* Initially paused */
+  width: 1px;
+  animation-play-state: paused;
 }
 
 .bar:nth-child(-n + 7),

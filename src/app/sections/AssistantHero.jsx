@@ -1,6 +1,6 @@
 "use client";
-import { ArrowDown, Award, CheckCircle, Play } from "lucide-react";
 import React, { useState } from "react";
+import { ArrowDown, Award, CheckCircle, Play } from "lucide-react";
 
 const AssistantHero = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -12,40 +12,40 @@ const AssistantHero = () => {
 
   return (
     <div className="bg-gradient-to-b from-blue-50 to-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="flex justify-between items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+        <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-8 lg:gap-12">
           <div className="max-w-3xl">
             <div className="flex items-center gap-2 mb-4">
-              <Award className="w-5 h-5 text-blue-600" />
-              <span className="text-blue-600 font-semibold">
+              <Award className="w-4 h-4 md:w-5 md:h-5 text-blue-600" />
+              <span className="text-blue-600 font-semibold text-sm md:text-base">
                 #1 Rated Real Estate AI Assistant
               </span>
             </div>
-            <h1 className="text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
               Turn Missed Calls into Closed Deals{" "}
               <span className="text-blue-600">While You Sleep</span>
             </h1>
-            <p className="text-xl text-gray-600 mb-8">
+            <p className="text-lg md:text-xl text-gray-600 mb-6 md:mb-8">
               Your AI assistant handles unlimited calls, schedules viewings, and
               qualifies leads 24/7 - so you never miss a potential sale.
             </p>
-            <div className="flex items-center gap-4 mb-8">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-6 md:mb-8">
               <a
-                className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center"
+                className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center justify-center sm:justify-start"
                 href="#try-assistant"
               >
                 Try AI Assistant for free
-                <ArrowDown className="w-5 h-5 ml-2" />
+                <ArrowDown className="w-4 h-4 md:w-5 md:h-5 ml-2" />
               </a>
               <button
-                className="px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 flex items-center"
+                className="px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 flex items-center justify-center sm:justify-start"
                 onClick={() => setIsVideoModalOpen(true)}
               >
                 Watch 2-Min Demo
-                <Play className="w-5 h-5 ml-2" />
+                <Play className="w-4 h-4 md:w-5 md:h-5 ml-2" />
               </button>
             </div>
-            <div className="flex items-center gap-4 text-sm text-gray-600">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 text-sm text-gray-600">
               <div className="flex items-center">
                 <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
                 No credit card required
@@ -61,51 +61,50 @@ const AssistantHero = () => {
             </div>
           </div>
 
-          <div className="hidden lg:block w-96 bg-white rounded-lg shadow-xl p-6">
-            <div className="max-w-3xl mx-auto">
-              <div className="text-center mb-4">
-                <div className="inline-block px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm mb-2">
-                  Live Demo
-                </div>
-                <h3 className="font-semibold">See It In Action</h3>
+          <div className="w-full lg:w-96 bg-white rounded-lg shadow-xl p-4 md:p-6">
+            <div className="text-center mb-4">
+              <div className="inline-block px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm mb-2">
+                Live Demo
               </div>
+              <h3 className="font-semibold">See It In Action</h3>
+            </div>
 
-              {isLoading && (
-                <div className="bg-gray-50 rounded-lg p-4 mb-4">
-                  <div className="animate-pulse space-y-3">
-                    <div className="h-4 bg-gray-200 rounded w-3/4"></div>
-                    <div className="h-4 bg-gray-200 rounded w-1/2"></div>
-                  </div>
+            {isLoading && (
+              <div className="bg-gray-50 rounded-lg p-4 mb-4">
+                <div className="animate-pulse space-y-3">
+                  <div className="h-4 bg-gray-200 rounded w-3/4"></div>
+                  <div className="h-4 bg-gray-200 rounded w-1/2"></div>
                 </div>
-              )}
+              </div>
+            )}
 
-              <div
-                className={`rounded-lg overflow-hidden ${
-                  isLoading ? "hidden" : "block"
-                }`}
+            <div
+              className={`rounded-lg overflow-hidden ${
+                isLoading ? "hidden" : "block"
+              }`}
+            >
+              <video
+                className="w-full h-auto"
+                controls
+                onLoadedData={handleVideoLoad}
+                onError={() => setIsLoading(false)}
               >
-                <video
-                  className="w-full h-auto"
-                  controls
-                  onLoadedData={handleVideoLoad}
-                  onError={() => setIsLoading(false)}
-                >
-                  <source src="/dummy.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              </div>
+                <source src="/dummy.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
             </div>
           </div>
         </div>
       </div>
+
       {isVideoModalOpen && (
-        <div className="fixed inset-0 bg-blue-900 bg-opacity-50 flex justify-center items-center z-50">
+        <div className="fixed inset-0 bg-blue-900 bg-opacity-50 flex justify-center items-center z-50 p-4">
           <div
-            className="relative bg-white rounded-lg shadow-lg w-[90%] max-w-2xl p-6"
+            className="relative bg-white rounded-lg shadow-lg w-full max-w-2xl p-4 md:p-6"
             onClick={(e) => e.stopPropagation()}
           >
             <button
-              className="absolute top-3 right-3 text-blue-600 hover:text-blue-800 transition focus:outline-none"
+              className="absolute top-2 right-2 md:top-3 md:right-3 text-blue-600 hover:text-blue-800 transition focus:outline-none"
               onClick={() => setIsVideoModalOpen(false)}
             >
               <svg
@@ -124,10 +123,10 @@ const AssistantHero = () => {
               </svg>
             </button>
             <div className="text-center mb-4">
-              <h2 className="text-2xl font-bold text-blue-600">
+              <h2 className="text-xl md:text-2xl font-bold text-blue-600">
                 Watch the Demo
               </h2>
-              <p className="text-blue-500">
+              <p className="text-sm md:text-base text-blue-500">
                 Explore the interactive demo by watching this video.
               </p>
             </div>
@@ -135,7 +134,7 @@ const AssistantHero = () => {
               {isLoading && (
                 <div className="aspect-video animate-pulse bg-blue-200/50 flex items-center justify-center">
                   <svg
-                    className="w-12 h-12 text-blue-500 animate-spin"
+                    className="w-8 h-8 md:w-12 md:h-12 text-blue-500 animate-spin"
                     fill="none"
                     viewBox="0 0 24 24"
                   >
