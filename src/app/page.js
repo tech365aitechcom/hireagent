@@ -217,29 +217,30 @@ const LandingPage = () => {
         </div>
       </section>
 
-      <section className="py-24 bg-gradient-to-b from-white to-blue-50">
+      <section className="py-12 md:py-24 bg-gradient-to-b from-white to-blue-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-5xl font-bold mb-20 text-center">
+          <h2 className="text-3xl md:text-5xl font-bold mb-10 md:mb-20 text-center">
             Available{" "}
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">
               Now
             </span>
           </h2>
+
           {Object.entries(existingCard).map(([name, features]) => (
-            <div key={name} className="max-w-5xl mx-auto">
+            <div key={name} className="max-w-5xl mx-auto mb-8">
               <div className="relative">
                 <div className="absolute -left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-600 to-indigo-600" />
-                <div className="bg-white rounded-r-3xl p-12 shadow-lg hover:shadow-xl transition-shadow">
-                  <div className="grid grid-cols-12 gap-8">
-                    <div className="col-span-4">
-                      <h3 className="text-3xl font-bold text-gray-900 mb-6">
+                <div className="bg-white md:rounded-r-3xl rounded-lg p-6 md:p-12 shadow-lg hover:shadow-xl transition-shadow">
+                  <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+                    <div className="md:col-span-4">
+                      <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
                         {name}
                       </h3>
                       <div className="space-y-4">
                         <button
                           onClick={() => (window.location.href = "/pricing")}
                           className="w-full py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl 
-                                    flex items-center justify-center group"
+                                flex items-center justify-center group"
                         >
                           Subscribe{" "}
                           <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -247,7 +248,7 @@ const LandingPage = () => {
                         <button
                           onClick={handleScheduleMeeting}
                           className="w-full py-3 bg-gray-50 text-gray-900 rounded-xl hover:bg-gray-100 
-                                    transition-colors flex items-center justify-center"
+                                transition-colors flex items-center justify-center"
                         >
                           Schedule Demo <Calendar className="ml-2 w-4 h-4" />
                         </button>
@@ -257,26 +258,26 @@ const LandingPage = () => {
                               "/assistants?isModalTrue=true#try-assistant")
                           }
                           className="w-full py-3 bg-green-500 text-white rounded-xl hover:bg-green-600 
-                                    transition-colors flex items-center justify-center"
+                                transition-colors flex items-center justify-center"
                         >
                           Try Now <Play className="ml-2 w-4 h-4" />
                         </button>
                       </div>
                     </div>
-                    <div className="col-span-8">
-                      <div className="grid grid-cols-2 gap-8">
+                    <div className="md:col-span-8">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-8">
                         {features.map((feature, index) => (
                           <div
                             key={index}
-                            className="group bg-gray-50 rounded-xl p-6 hover:bg-blue-50 transition-colors"
+                            className="group bg-gray-50 rounded-xl p-4 md:p-6 hover:bg-blue-50 transition-colors"
                           >
                             <div className="flex items-center space-x-3 mb-2">
                               <div className="w-2 h-2 bg-blue-600 rounded-full group-hover:scale-150 transition-transform" />
-                              <p className="font-medium text-gray-900">
+                              <p className="font-medium text-gray-900 text-sm md:text-base">
                                 {feature}
                               </p>
                             </div>
-                            <p className="text-gray-500 ml-5">
+                            <p className="text-gray-500 ml-5 text-sm md:text-base">
                               Streamline your workflow with automated{" "}
                               {feature.toLowerCase()}
                             </p>
