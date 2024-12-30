@@ -3,111 +3,127 @@ import React, { useState } from "react";
 import { ArrowRight, Calendar, Play } from "lucide-react";
 import { ScheduleMeetingModal } from "./sections/SheduleMeetingModal";
 
+export const upcomingCard = {
+  "Skills Evaluator AI": [
+    "Conduct interviews",
+    "Analyze skills",
+    "Share detailed results",
+    "Track performance",
+    "Integrate with Google Sheets",
+    "Automated assessment",
+  ],
+  "Smart Receptionist AI": [
+    "Handle inquiries",
+    "Book appointments",
+    "Send follow-ups",
+    "Forward calls",
+    "Manage calendar",
+    "Personalized communication",
+  ],
+  "Realty Scheduler AI": [
+    "Manage appointments",
+    "Send follow-ups",
+    "Extract user details",
+    "Track scheduling",
+    "Integrate with calendars",
+    "Communication management",
+  ],
+  "SolarSync Scheduler AI": [
+    "Schedule site visits",
+    "Send follow-ups",
+    "Provide product info",
+    "Organize user information",
+    "Calendar integration",
+    "Efficient booking",
+  ],
+  "PlaySchool Scheduler AI": [
+    "Handle inquiries",
+    "Book appointments",
+    "Manage scheduling",
+    "Parent communication",
+    "Follow-up management",
+    "Easy booking",
+  ],
+  "Hospital Scheduler AI": [
+    "Book appointments",
+    "Send follow-ups",
+    "Provide general info",
+    "Patient communication",
+    "Calendar management",
+    "Efficient scheduling",
+  ],
+  "Education Scheduler AI": [
+    "Schedule demo classes",
+    "Manage follow-ups",
+    "Student communication",
+    "Class scheduling",
+    "Engagement tracking",
+    "Smooth coordination",
+  ],
+  "CarLead Qualifier AI": [
+    "Qualify leads",
+    "Schedule appointments",
+    "Answer FAQs",
+    "Escalate complex issues",
+    "Lead management",
+    "Automated follow-ups",
+  ],
+  "CarSales Recommender AI": [
+    "Schedule appointments",
+    "Real-time recommendations",
+    "Manage lead collection",
+    "Car matching",
+    "Inquiry handling",
+    "Preference-based suggestions",
+  ],
+  "HR Scheduler AI": [
+    "Schedule interviews",
+    "Send reminders",
+    "Organize candidate data",
+    "Interview coordination",
+    "Communication tracking",
+    "Candidate management",
+  ],
+  "Interview Insights AI": [
+    "Conduct interviews",
+    "Analyze responses",
+    "Generate detailed reports",
+    "Automated assessment",
+    "Insights generation",
+    "Decision support",
+  ],
+};
+
+export const existingCard = {
+  "Space Real Estate": [
+    "Search properties",
+    "Book appointments",
+    "Filter preferences",
+    "Tailored recommendations",
+    "CRM integration",
+    "Efficient scheduling",
+  ],
+  "Real Estate New": [
+    "Search properties",
+    "Book appointments",
+    "Filter preferences",
+    "Tailored recommendations",
+    "CRM integration",
+    "Efficient scheduling",
+  ],
+  "Domus NY": [
+    "Search properties",
+    "Book appointments",
+    "Filter preferences",
+    "Tailored recommendations",
+    "CRM integration",
+    "Efficient scheduling",
+  ],
+};
+
 const LandingPage = () => {
   const [isScheduleModalOpen, setScheduleModalOpen] = useState(false);
   console.log(isScheduleModalOpen, "raju");
-
-  const upcomingCard = {
-    "Skills Evaluator AI": [
-      "Conduct interviews",
-      "Analyze skills",
-      "Share detailed results",
-      "Track performance",
-      "Integrate with Google Sheets",
-      "Automated assessment",
-    ],
-    "Smart Receptionist AI": [
-      "Handle inquiries",
-      "Book appointments",
-      "Send follow-ups",
-      "Forward calls",
-      "Manage calendar",
-      "Personalized communication",
-    ],
-    "Realty Scheduler AI": [
-      "Manage appointments",
-      "Send follow-ups",
-      "Extract user details",
-      "Track scheduling",
-      "Integrate with calendars",
-      "Communication management",
-    ],
-    "SolarSync Scheduler AI": [
-      "Schedule site visits",
-      "Send follow-ups",
-      "Provide product info",
-      "Organize user information",
-      "Calendar integration",
-      "Efficient booking",
-    ],
-    "PlaySchool Scheduler AI": [
-      "Handle inquiries",
-      "Book appointments",
-      "Manage scheduling",
-      "Parent communication",
-      "Follow-up management",
-      "Easy booking",
-    ],
-    "Hospital Scheduler AI": [
-      "Book appointments",
-      "Send follow-ups",
-      "Provide general info",
-      "Patient communication",
-      "Calendar management",
-      "Efficient scheduling",
-    ],
-    "Education Scheduler AI": [
-      "Schedule demo classes",
-      "Manage follow-ups",
-      "Student communication",
-      "Class scheduling",
-      "Engagement tracking",
-      "Smooth coordination",
-    ],
-    "CarLead Qualifier AI": [
-      "Qualify leads",
-      "Schedule appointments",
-      "Answer FAQs",
-      "Escalate complex issues",
-      "Lead management",
-      "Automated follow-ups",
-    ],
-    "CarSales Recommender AI": [
-      "Schedule appointments",
-      "Real-time recommendations",
-      "Manage lead collection",
-      "Car matching",
-      "Inquiry handling",
-      "Preference-based suggestions",
-    ],
-    "HR Scheduler AI": [
-      "Schedule interviews",
-      "Send reminders",
-      "Organize candidate data",
-      "Interview coordination",
-      "Communication tracking",
-      "Candidate management",
-    ],
-    "Interview Insights AI": [
-      "Conduct interviews",
-      "Analyze responses",
-      "Generate detailed reports",
-      "Automated assessment",
-      "Insights generation",
-      "Decision support",
-    ],
-  };
-
-  const existingCard = {
-    "Property Finder AI": [
-      "Search properties",
-      "Book appointments",
-      "Filter preferences",
-      "Tailored recommendations",
-      "CRM integration",
-      "Efficient scheduling",
-    ],
-  };
 
   const handleScheduleMeeting = () => {
     setScheduleModalOpen(true);
