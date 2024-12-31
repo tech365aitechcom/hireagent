@@ -37,13 +37,13 @@ const AssistantHero = () => {
                 Try AI Assistant for free
                 <ArrowDown className="w-4 h-4 md:w-5 md:h-5 ml-2" />
               </a>
-              <button
+              {/* <button
                 className="px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 flex items-center justify-center sm:justify-start"
                 onClick={() => setIsVideoModalOpen(true)}
               >
                 Watch 2-Min Demo
                 <Play className="w-4 h-4 md:w-5 md:h-5 ml-2" />
-              </button>
+              </button> */}
             </div>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 text-sm text-gray-600">
               <div className="flex items-center">

@@ -95,30 +95,28 @@ export const upcomingCard = {
 };
 
 export const existingCard = {
-  "Space Real Estate": [
-    "Search properties",
-    "Book appointments",
-    "Filter preferences",
-    "Tailored recommendations",
-    "CRM integration",
-    "Efficient scheduling",
-  ],
-  "Real Estate New": [
-    "Search properties",
-    "Book appointments",
-    "Filter preferences",
-    "Tailored recommendations",
-    "CRM integration",
-    "Efficient scheduling",
-  ],
-  "Domus NY": [
-    "Search properties",
-    "Book appointments",
-    "Filter preferences",
-    "Tailored recommendations",
-    "CRM integration",
-    "Efficient scheduling",
-  ],
+  "Real Estate New": {
+    id: "Real-estate-New-iSKHignjLL9LrPsz-8Ajb",
+    features: [
+      "Search properties",
+      "Book appointments",
+      "Filter preferences",
+      "Tailored recommendations",
+      "CRM integration",
+      "Efficient scheduling",
+    ],
+  },
+  "Domus NY": {
+    id: "Domus-NY-cJXPHulKHcOrm7kIZ-YaC",
+    features: [
+      "Search properties",
+      "Book appointments",
+      "Filter preferences",
+      "Tailored recommendations",
+      "CRM integration",
+      "Efficient scheduling",
+    ],
+  },
 };
 
 const LandingPage = () => {
@@ -242,8 +240,8 @@ const LandingPage = () => {
             </span>
           </h2>
 
-          {Object.entries(existingCard).map(([name, features]) => (
-            <div key={name} className="max-w-5xl mx-auto mb-8">
+          {Object.entries(existingCard).map(([name, { id, features }]) => (
+            <div key={id} className="max-w-5xl mx-auto mb-8">
               <div className="relative">
                 <div className="absolute -left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-600 to-indigo-600" />
                 <div className="bg-white md:rounded-r-3xl rounded-lg p-6 md:p-12 shadow-lg hover:shadow-xl transition-shadow">
@@ -256,7 +254,7 @@ const LandingPage = () => {
                         <button
                           onClick={() => (window.location.href = "/pricing")}
                           className="w-full py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl 
-                                flex items-center justify-center group"
+                      flex items-center justify-center group"
                         >
                           Subscribe{" "}
                           <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -264,7 +262,7 @@ const LandingPage = () => {
                         <button
                           onClick={handleScheduleMeeting}
                           className="w-full py-3 bg-gray-50 text-gray-900 rounded-xl hover:bg-gray-100 
-                                transition-colors flex items-center justify-center"
+                      transition-colors flex items-center justify-center"
                         >
                           Schedule Demo <Calendar className="ml-2 w-4 h-4" />
                         </button>
@@ -274,7 +272,7 @@ const LandingPage = () => {
                               "/assistants?isModalTrue=true#try-assistant")
                           }
                           className="w-full py-3 bg-green-500 text-white rounded-xl hover:bg-green-600 
-                                transition-colors flex items-center justify-center"
+                      transition-colors flex items-center justify-center"
                         >
                           Try Now <Play className="ml-2 w-4 h-4" />
                         </button>

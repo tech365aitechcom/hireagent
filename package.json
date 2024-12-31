@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@firebase/app": "^0.10.17",
     "axios": "^1.7.9",
     "firebase": "^11.1.0",
     "lucide-react": "^0.469.0",
