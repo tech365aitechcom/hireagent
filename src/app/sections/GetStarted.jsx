@@ -12,9 +12,9 @@ const GetStarted = () => {
           Join thousands of successful real estate agents who have transformed
           their business with AI assistance.
         </p>
-        <Link href={"/login"}>
+        <Link href={"#try-assistant"}>
           <button className="px-8 py-4 bg-white text-blue-600 rounded-lg hover:bg-blue-50 font-semibold">
-            Start Your Free Trial
+            Try AI Assistant for free
           </button>
         </Link>
       </div>

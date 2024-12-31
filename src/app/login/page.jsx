@@ -6,15 +6,14 @@ import { useRouter } from "next/navigation";
 
 import { googleLogin, subscribeToAuthState } from "../utils/googleLogin";
 
-
 const page = () => {
   const router = useRouter();
   const [error, setError] = useState("");
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [user, setUser] = useState({});
 
-  // Goggle login related function start here
   useEffect(() => {
     const unSubscribe = subscribeToAuthState((currentUser) => {
       setUser(currentUser);
@@ -29,27 +28,24 @@ const page = () => {
   const handleGoogleLogin = async () => {
     try {
       const result = await googleLogin();
-      console.log("result.user",result.user);
+      console.log("result.user", result.user);
       if (result.user) {
         // Extracting necessary user details
         const { accessToken } = result.user;
         const { displayName, email, phoneNumber, photoURL } = result.user;
-  
+
         // Storing accessToken in localStorage
         localStorage.setItem("authToken", accessToken);
-  
+
         // Creating user profile object and storing it in localStorage
         const userProfile = { displayName, email, phoneNumber, photoURL };
         localStorage.setItem("userProfile", JSON.stringify(userProfile));
         router.push("/assistants?isModalTrue=true#try-assistant");
-         
-        
       }
     } catch (err) {
       setError(err.message);
     }
   };
-
 
   // Goggle login related function end here
 
@@ -141,7 +137,7 @@ const page = () => {
           </button>
         </form>
         <div className="py-2">
-        <button
+          <button
             type="submit"
             disabled={loading}
             className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg font-medium transition-colors disabled:opacity-50"

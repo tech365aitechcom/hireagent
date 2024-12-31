@@ -1,5 +1,4 @@
 import WithWithout from "../sections/WithWithout";
-import VideoPlayer from "../sections/VideoPlayer";
 import AssistantHero from "../sections/AssistantHero";
 import Features from "../sections/Features";
 import Testimonial from "../sections/Testimonial";
@@ -10,7 +9,6 @@ const page = () => {
   return (
     <div className="min-h-screen bg-white">
       <AssistantHero />
-      <VideoPlayer />
       <WithWithout />
       <TryAssistant />
       <Features />
