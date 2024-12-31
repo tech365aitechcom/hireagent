@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { userLogout } from "../utils/googleLogin";
 
 const NavBar = () => {
   const router = useRouter();
@@ -9,6 +10,7 @@ const NavBar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);
+  console.log('isl ogged in ', isLoggedIn)
 
   useEffect(() => {
     setMounted(true);
@@ -36,6 +38,7 @@ const NavBar = () => {
       localStorage.removeItem("authToken");
       localStorage.removeItem("userProfile");
       setIsLoggedIn(false);
+      userLogout()
       router.push("/login");
     }
   };

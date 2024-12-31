@@ -1,8 +1,11 @@
 "use client";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { baseURL } from "../urls";
 import { useRouter } from "next/navigation";
+
+import { googleLogin, subscribeToAuthState } from "../utils/googleLogin";
+
 
 const page = () => {
   const router = useRouter();
@@ -10,6 +13,45 @@ const page = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+
+  // Goggle login related function start here
+  useEffect(() => {
+    const unSubscribe = subscribeToAuthState((currentUser) => {
+      setUser(currentUser);
+      setLoading(false);
+    });
+
+    return () => {
+      unSubscribe();
+    };
+  }, []);
+
+  const handleGoogleLogin = async () => {
+    try {
+      const result = await googleLogin();
+      console.log("result.user",result.user);
+      if (result.user) {
+        // Extracting necessary user details
+        const { accessToken } = result.user;
+        const { displayName, email, phoneNumber, photoURL } = result.user;
+  
+        // Storing accessToken in localStorage
+        localStorage.setItem("authToken", accessToken);
+  
+        // Creating user profile object and storing it in localStorage
+        const userProfile = { displayName, email, phoneNumber, photoURL };
+        localStorage.setItem("userProfile", JSON.stringify(userProfile));
+        router.push("/assistants?isModalTrue=true#try-assistant");
+         
+        
+      }
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
+
+  // Goggle login related function end here
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -98,6 +140,16 @@ const page = () => {
             {loading ? "Logging in..." : "Login"}
           </button>
         </form>
+        <div className="py-2">
+        <button
+            type="submit"
+            disabled={loading}
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg font-medium transition-colors disabled:opacity-50"
+            onClick={handleGoogleLogin}
+          >
+            {loading ? "Logging in..." : "Google Login"}
+          </button>
+        </div>
         <p className="mt-4 text-center text-sm text-gray-600">
           By signing in, you agree to our{" "}
           <a href="#" className="font-medium text-blue-600 hover:text-blue-500">
