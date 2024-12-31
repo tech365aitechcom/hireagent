@@ -30,14 +30,9 @@ const page = () => {
       const result = await googleLogin();
       console.log("result.user", result.user);
       if (result.user) {
-        // Extracting necessary user details
         const { accessToken } = result.user;
         const { displayName, email, phoneNumber, photoURL } = result.user;
-
-        // Storing accessToken in localStorage
         localStorage.setItem("authToken", accessToken);
-
-        // Creating user profile object and storing it in localStorage
         const userProfile = { displayName, email, phoneNumber, photoURL };
         localStorage.setItem("userProfile", JSON.stringify(userProfile));
         router.push("/assistants?isModalTrue=true#try-assistant");
@@ -46,8 +41,6 @@ const page = () => {
       setError(err.message);
     }
   };
-
-  // Goggle login related function end here
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -76,52 +69,54 @@ const page = () => {
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-      <div className="bg-white rounded-xl max-w-md w-full p-6 shadow-2xl">
-        <div className="flex justify-center items-center mb-6">
+    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+      <div className="bg-white rounded-2xl max-w-md w-full p-8 shadow-2xl">
+        <div className="flex justify-center items-center mb-8">
           <img src="/logo.png" alt="logo" className="h-20" />
         </div>
 
-        <form onSubmit={handleLogin} className="space-y-4">
+        <form onSubmit={handleLogin} className="space-y-5">
           {error && (
-            <div className="p-3 bg-red-50 text-red-600 rounded-lg text-sm">
+            <div className="p-4 bg-red-50 border border-red-100 text-red-600 rounded-xl text-sm animate-shake">
               {error}
             </div>
           )}
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+          <div className="space-y-1.5">
+            <label className="block text-sm font-semibold text-gray-800">
               Email
             </label>
             <input
               type="email"
               required
-              className="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+              className="w-full p-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
               value={formData.email}
               onChange={(e) =>
                 setFormData({ ...formData, email: e.target.value })
               }
+              placeholder="Enter your email"
             />
           </div>
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+          <div className="space-y-1.5">
+            <label className="block text-sm font-semibold text-gray-800">
               Password
             </label>
             <div className="relative">
               <input
                 type={showPassword ? "text" : "password"}
                 required
-                className="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                className="w-full p-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all pr-20"
                 value={formData.password}
                 onChange={(e) =>
                   setFormData({ ...formData, password: e.target.value })
                 }
+                placeholder="Enter your password"
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute inset-y-0 right-3 flex items-center text-sm text-gray-600 hover:text-gray-900 focus:outline-none"
+                className="absolute right-3 inset-y-0 flex items-center px-2 text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors"
               >
                 {showPassword ? "Hide" : "Show"}
               </button>
@@ -131,37 +126,97 @@ const page = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg font-medium transition-colors disabled:opacity-50"
+            className="w-full bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white p-3 rounded-xl font-semibold transition-all transform hover:scale-[0.99] active:scale-[0.97] disabled:opacity-50 disabled:hover:scale-100"
           >
-            {loading ? "Logging in..." : "Login"}
+            {loading ? (
+              <span className="flex items-center justify-center gap-2">
+                <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                    fill="none"
+                  />
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                  />
+                </svg>
+                Logging in...
+              </span>
+            ) : (
+              "Login"
+            )}
+          </button>
+
+          <div className="relative">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-gray-200"></div>
+            </div>
+            <div className="relative flex justify-center text-sm">
+              <span className="px-2 bg-white text-gray-500">
+                Or continue with
+              </span>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            disabled={loading}
+            onClick={handleGoogleLogin}
+            className="w-full flex items-center justify-center gap-3 bg-white hover:bg-gray-50 active:bg-gray-100 text-gray-700 border border-gray-200 p-3 rounded-xl font-semibold transition-all transform hover:scale-[0.99] active:scale-[0.97] disabled:opacity-50 disabled:hover:scale-100"
+          >
+            <svg width="20" height="20" viewBox="0 0 18 18">
+              <path
+                fill="#4285F4"
+                d="M16.51 8H8.98v3h4.3c-.18 1-.74 1.48-1.6 2.04v2.01h2.6a7.8 7.8 0 0 0 2.38-5.88c0-.57-.05-.66-.15-1.18z"
+              />
+              <path
+                fill="#34A853"
+                d="M8.98 17c2.16 0 3.97-.72 5.3-1.94l-2.6-2a4.8 4.8 0 0 1-7.18-2.54H1.83v2.07A8 8 0 0 0 8.98 17z"
+              />
+              <path
+                fill="#FBBC05"
+                d="M4.5 10.52a4.8 4.8 0 0 1 0-3.04V5.41H1.83a8 8 0 0 0 0 7.18l2.67-2.07z"
+              />
+              <path
+                fill="#EA4335"
+                d="M8.98 4.18c1.17 0 2.23.4 3.06 1.2l2.3-2.3A8 8 0 0 0 1.83 5.4L4.5 7.49a4.8 4.8 0 0 1 4.48-3.3z"
+              />
+            </svg>
+            {loading ? "Signing in..." : "Sign in with Google"}
           </button>
         </form>
-        <div className="py-2">
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg font-medium transition-colors disabled:opacity-50"
-            onClick={handleGoogleLogin}
-          >
-            {loading ? "Logging in..." : "Google Login"}
-          </button>
-        </div>
-        <p className="mt-4 text-center text-sm text-gray-600">
+
+        <p className="mt-6 text-center text-sm text-gray-500">
           By signing in, you agree to our{" "}
-          <a href="#" className="font-medium text-blue-600 hover:text-blue-500">
+          <a
+            href="#"
+            className="font-medium text-blue-600 hover:text-blue-500 transition-colors"
+          >
             Terms of Service
           </a>{" "}
           and{" "}
-          <a href="#" className="font-medium text-blue-600 hover:text-blue-500">
+          <a
+            href="#"
+            className="font-medium text-blue-600 hover:text-blue-500 transition-colors"
+          >
             Privacy Policy
           </a>
         </p>
-        <Link
-          href={"/assistants"}
-          className="text-blue-600 hover:text-blue-700 text-sm underline"
-        >
-          Go back
-        </Link>
+
+        <div className="mt-6 text-center">
+          <Link
+            href="/assistants"
+            className="inline-flex text-blue-600 hover:text-blue-700 text-sm font-medium transition-colors"
+          >
+            ← Go back
+          </Link>
+        </div>
       </div>
     </div>
   );
