@@ -8,9 +8,8 @@ import AssistantDescriptionModal from "../components/AssistantDescriptionModal";
 
 const TryAssistantComp = () => {
   const searchParams = useSearchParams();
-  const isModalTrue = searchParams.get("isModalTrue");
+  const id = searchParams.get("aiId");
   const [activeCard, setActiveCard] = useState(null);
-  const [showModal, setShowModal] = useState(false);
   const [authToken, setAuthToken] = useState(null);
   const [showAssistant, setShowAssistant] = useState(false);
   const [aiId, setAIId] = useState("");
@@ -21,10 +20,12 @@ const TryAssistantComp = () => {
   }, []);
 
   useEffect(() => {
-    if (isModalTrue) {
-      setShowModal(true);
+    if (id !== "null") {
+      setAIId(id);
+      setActiveCard(id);
     }
-  }, [isModalTrue]);
+  }, [id]);
+  console.log(activeCard, "raju");
 
   return (
     <div className="bg-gray-50 py-16" id="try-assistant">
@@ -121,6 +122,7 @@ const TryAssistantComp = () => {
                     authToken={authToken}
                     desc={desc}
                     testStep={testStep}
+                    aiId={aiId}
                   />
                 )}
               </div>

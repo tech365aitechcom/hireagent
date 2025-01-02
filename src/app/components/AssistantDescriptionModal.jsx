@@ -9,6 +9,7 @@ const AssistantDescriptionModal = ({
   setShowAssistant,
   desc,
   testStep,
+  aiId,
 }) => {
   const [activeTab, setActiveTab] = useState("description");
 
@@ -87,7 +88,7 @@ const AssistantDescriptionModal = ({
         <div className="pt-6">
           {!authToken ? (
             <Link
-              href={"/login"}
+              href={`/login?id=${aiId}`}
               className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-4 px-6 
                 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg
                 hover:from-blue-700 hover:to-indigo-700 flex items-center justify-center gap-2"

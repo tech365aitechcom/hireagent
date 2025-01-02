@@ -64,7 +64,7 @@ const Assistant = ({ id }) => {
     if (streamRef.current) {
       const audioTrack = streamRef.current.getAudioTracks()[0];
       if (audioTrack) {
-        audioTrack.enabled = !isMuted;
+        audioTrack.enabled = isMuted;
         setIsMuted(!isMuted);
       }
     }

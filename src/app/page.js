@@ -770,8 +770,7 @@ const LandingPage = () => {
                         </button>
                         <button
                           onClick={() =>
-                            (window.location.href =
-                              "/real-estate?isModalTrue=true#try-assistant")
+                            (window.location.href = `/real-estate?aiId=${id}#try-assistant`)
                           }
                           className="w-full py-3 bg-green-500 text-white rounded-xl hover:bg-green-600 
                       transition-colors flex items-center justify-center"
