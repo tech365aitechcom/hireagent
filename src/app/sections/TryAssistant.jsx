@@ -27,8 +27,7 @@ const TryAssistantComp = () => {
   }, [isModalTrue]);
 
   return (
-    <div className="bg-gray-50 py-16">
-      {/* Enhanced Header Section */}
+    <div className="bg-gray-50 py-16" id="try-assistant">
       <div className="max-w-7xl mx-auto px-4 mb-12 text-center">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">
           Our Assistants
