@@ -4,11 +4,13 @@ import Features from "../sections/Features";
 import Testimonial from "../sections/Testimonial";
 import GetStarted from "../sections/GetStarted";
 import TryAssistant from "../sections/TryAssistant";
+import ROI from "../sections/ROI";
 
 const page = () => {
   return (
     <div className="min-h-screen bg-white">
       <AssistantHero />
+      <ROI />
       <WithWithout />
       <TryAssistant />
       <Features />

@@ -121,7 +121,6 @@ export const existingCard = {
 
 const LandingPage = () => {
   const [isScheduleModalOpen, setScheduleModalOpen] = useState(false);
-  console.log(isScheduleModalOpen, "raju");
 
   const handleScheduleMeeting = () => {
     setScheduleModalOpen(true);

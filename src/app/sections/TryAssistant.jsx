@@ -35,8 +35,6 @@ const TryAssistantComp = () => {
     { icon: <Trophy className="w-5 h-5" />, text: "Award-winning support" },
   ];
 
-  console.log(aiId, "raju");
-
   return (
     <div
       id="try-assistant"
@@ -79,7 +77,7 @@ const TryAssistantComp = () => {
                   <div className="text-blue-100 text-sm">Availability</div>
                 </div>
                 <div className="bg-white/10 rounded-lg p-4">
-                  <div className="text-3xl font-bold">∞</div>
+                  <div className="text-3xl font-bold">1000+</div>
                   <div className="text-blue-100 text-sm">Use Cases</div>
                 </div>
               </div>
@@ -111,19 +109,15 @@ const TryAssistantComp = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
             {Object.entries(existingCard).map(([name, { id, features }]) => (
               <div key={id} className="relative group">
-                {/* Enhanced gradient background with animation */}
                 <div
                   className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl 
                   opacity-80 blur-sm transform group-hover:translate-x-2 group-hover:translate-y-2 
                   transition-all duration-300 ease-out"
                 />
-
-                {/* Main card content */}
                 <div
                   className="relative bg-white rounded-2xl p-8 border-0 shadow-lg backdrop-blur-sm
                   transition-all duration-300 hover:shadow-xl"
                 >
-                  {/* Enhanced checkmark design */}
                   <div className="absolute top-4 right-4 w-20 h-20 opacity-75">
                     <svg viewBox="0 0 100 100" className="w-full h-full">
                       <circle

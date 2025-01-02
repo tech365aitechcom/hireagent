@@ -208,15 +208,20 @@ const page = () => {
             Privacy Policy
           </a>
         </p>
-
-        <div className="mt-6 text-center">
+        <p className="text-sm text-gray-500 mt-5 text-center">
+          Don't have an account?{" "}
           <Link
-            href="/assistants"
-            className="inline-flex text-blue-600 hover:text-blue-700 text-sm font-medium transition-colors"
+            href="/signup"
+            className="text-blue-600 hover:underline font-medium"
           >
-            ← Go back
+            Sign up
           </Link>
-        </div>
+        </p>
+        <p className="text-sm text-gray-500 mt-5 text-center">
+          <Link href="/" className="text-blue-600 hover:underline font-medium">
+            Go to home
+          </Link>
+        </p>
       </div>
     </div>
   );
