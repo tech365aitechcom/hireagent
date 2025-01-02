@@ -16,18 +16,18 @@ const ROI = () => {
   );
 
   return (
-    <div className="py-20 bg-gray-50 border-y">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+    <div className="py-8 md:py-20 bg-gray-50 border-y">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2 md:mb-4">
             Calculate Your Revenue Potential
           </h2>
-          <p className="text-gray-600">
+          <p className="text-sm md:text-base text-gray-600">
             See how much more you could earn by never missing a lead
           </p>
         </div>
-        <div className="bg-white rounded-xl shadow-lg p-8">
-          <div className="grid grid-cols-2 gap-8">
+        <div className="bg-white rounded-xl shadow-lg p-4 md:p-8">
+          <div className="flex flex-col md:grid md:grid-cols-2 gap-6 md:gap-8">
             <div>
               <h3 className="font-semibold mb-4">Your Current Numbers</h3>
               <div className="space-y-4">
@@ -37,7 +37,7 @@ const ROI = () => {
                   </label>
                   <input
                     type="number"
-                    className="w-full border rounded-lg px-3 py-2"
+                    className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     placeholder="20"
                     value={missedCalls}
                     onChange={(e) => setMissedCalls(Number(e.target.value))}
@@ -49,7 +49,7 @@ const ROI = () => {
                   </label>
                   <input
                     type="number"
-                    className="w-full border rounded-lg px-3 py-2"
+                    className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     placeholder="$10,000"
                     value={dealValue}
                     onChange={(e) => setDealValue(Number(e.target.value))}
@@ -57,20 +57,22 @@ const ROI = () => {
                 </div>
               </div>
             </div>
-            <div className="bg-blue-50 rounded-lg p-6">
+            <div className="bg-blue-50 rounded-lg p-4 md:p-6">
               <h3 className="font-semibold mb-4">
                 Your Potential with AI Assistant
               </h3>
               <div className="space-y-4">
-                <div className="flex justify-between items-center">
-                  <span>Additional Monthly Revenue</span>
-                  <span className="text-2xl font-bold text-blue-600">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
+                  <span className="text-sm md:text-base mb-1 md:mb-0">
+                    Additional Monthly Revenue
+                  </span>
+                  <span className="text-xl md:text-2xl font-bold text-blue-600">
                     ${additionalRevenue.toLocaleString()}
                   </span>
                 </div>
-                <div className="flex justify-between items-center">
-                  <span>ROI</span>
-                  <span className="text-2xl font-bold text-green-600">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
+                  <span className="text-sm md:text-base mb-1 md:mb-0">ROI</span>
+                  <span className="text-xl md:text-2xl font-bold text-green-600">
                     {roi.toLocaleString()}%
                   </span>
                 </div>

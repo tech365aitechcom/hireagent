@@ -1,13 +1,15 @@
 "use client";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { baseURL } from "../urls";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 import { googleLogin, subscribeToAuthState } from "../utils/googleLogin";
 
-const page = () => {
+const LoginComp = () => {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const aiId = searchParams.get("id");
   const [error, setError] = useState("");
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [loading, setLoading] = useState(false);
@@ -60,7 +62,7 @@ const page = () => {
 
       localStorage.setItem("authToken", data.authToken);
       localStorage.setItem("userProfile", JSON.stringify(data.profile));
-      router.push("/real-estate?isModalTrue=true#try-assistant");
+      router.push(`/real-estate?aiId=${aiId}#try-assistant`);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -227,4 +229,12 @@ const page = () => {
   );
 };
 
-export default page;
+const LoginPage = () => {
+  return (
+    <Suspense fallback={<p>Loading...</p>}>
+      <LoginComp />
+    </Suspense>
+  );
+};
+
+export default LoginPage;
