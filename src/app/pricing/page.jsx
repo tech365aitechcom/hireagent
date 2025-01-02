@@ -1,9 +1,10 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { baseURL } from "../urls";
 
 const Check = () => (
   <svg
-    className="h-5 w-5 text-blue-600 mr-3"
+    className="h-5 w-5 text-blue-600 mr-3 flex-shrink-0"
     fill="none"
     stroke="currentColor"
     viewBox="0 0 24 24"
@@ -24,9 +25,7 @@ const PricingCards = () => {
   useEffect(() => {
     const fetchPlans = async () => {
       try {
-        const response = await fetch(
-          "https://configstaging.trainright.fit/api/plans/getAllPlans"
-        );
+        const response = await fetch(`${baseURL}/api/plans/getAllPlans`);
         const result = await response.json();
         setPlans(result.data.sort((a, b) => a.price - b.price));
       } catch (error) {
@@ -38,19 +37,19 @@ const PricingCards = () => {
   }, []);
 
   return (
-    <div className="h-[100vh] bg-gradient-to-b from-blue-50 to-white flex items-center justify-center">
-      <div className="max-w-7xl mx-auto px-4 py-20 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-extrabold text-gray-900 mb-4">
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white flex items-center justify-center w-full py-14">
+      <div className="w-full max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
+        <div className="text-center mb-8 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">
             Choose Your Perfect Plan
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto px-4">
             Select the plan that best fits your needs. Upgrade or downgrade at
             any time.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto px-4 sm:px-6">
           {plans.map((plan) => {
             const isSelected = selectedPlan === plan.id;
             const isFreePlan = plan.id === "free";
@@ -66,34 +65,36 @@ const PricingCards = () => {
               >
                 {isFreePlan && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-semibold shadow-md">
+                    <span className="bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-semibold shadow-md whitespace-nowrap">
                       Default Plan
                     </span>
                   </div>
                 )}
 
-                <div className="text-center p-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                <div className="text-center p-6 sm:p-8">
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
                     {plan.name}
                   </h3>
                   <div className="flex items-baseline justify-center mb-6">
-                    <span className="text-5xl font-extrabold text-blue-600">
+                    <span className="text-4xl sm:text-5xl font-extrabold text-blue-600">
                       ${plan.price}
                     </span>
-                    <span className="ml-2 text-gray-500 text-lg">/month</span>
+                    <span className="ml-2 text-gray-500 text-base sm:text-lg">
+                      /month
+                    </span>
                   </div>
 
                   <ul className="space-y-4 text-left mb-8">
                     <li className="flex items-start">
                       <Check />
-                      <span className="text-gray-700">
+                      <span className="text-sm sm:text-base text-gray-700">
                         <span className="font-semibold">{plan.credits}</span>{" "}
                         credits included
                       </span>
                     </li>
                     <li className="flex items-start">
                       <Check />
-                      <span className="text-gray-700">
+                      <span className="text-sm sm:text-base text-gray-700">
                         <span className="font-semibold">
                           {plan.callDuration}
                         </span>{" "}
@@ -102,7 +103,7 @@ const PricingCards = () => {
                     </li>
                     <li className="flex items-start">
                       <Check />
-                      <span className="text-gray-700">
+                      <span className="text-sm sm:text-base text-gray-700">
                         <span className="font-semibold">
                           {plan.creditsUsedPerMin}
                         </span>{" "}
@@ -113,7 +114,7 @@ const PricingCards = () => {
 
                   <button
                     onClick={() => setSelectedPlan(plan.id)}
-                    className={`w-full rounded-xl py-4 px-6 font-semibold text-lg transition-all duration-200 ${
+                    className={`w-full rounded-xl py-3 sm:py-4 px-4 sm:px-6 font-semibold text-base sm:text-lg transition-all duration-200 ${
                       isSelected
                         ? "bg-blue-700 hover:bg-blue-800 text-white shadow-lg"
                         : "bg-blue-600 hover:bg-blue-700 text-white shadow-md hover:shadow-lg"
