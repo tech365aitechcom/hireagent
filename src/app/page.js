@@ -95,27 +95,530 @@ export const upcomingCard = {
 };
 
 export const existingCard = {
-  "Real Estate New": {
-    id: "Real-estate-New-iSKHignjLL9LrPsz-8Ajb",
+  "Space Real Estate": {
+    id: "Space-Real-Esta-rDUob67dmzxq-xZ8sBR90",
     features: [
-      "Search properties",
-      "Book appointments",
-      "Filter preferences",
-      "Tailored recommendations",
-      "CRM integration",
-      "Efficient scheduling",
+      "Smart property filtering and search",
+      "Automated appointment scheduling",
+      "Multi-channel communication (Email, SMS)",
+      "Lead capture and CRM integration",
+      "Real-time availability checks",
+      "Automated follow-up management",
     ],
+    desc: `
+    <div style="line-height: 1.8; font-family: Arial, sans-serif; color: #333;">
+      <h2 style="color: #007BFF; margin-bottom: 10px; display: flex; align-items: center;">
+        <img src="https://img.icons8.com/fluency/24/real-estate.png" style="margin-right: 8px; width: 24px; height: 24px;" alt="Icon"/> 
+        Real Estate Product Search and Appointment Scheduling Assistant
+      </h2>
+      
+      <h3 style="color: #007BFF; margin-top: 20px;">
+        <img src="https://img.icons8.com/?size=100&id=63765&format=png&color=000000" style="margin-right: 8px; width: 24px; height: 24px;" alt="Icon"/> 
+        Purpose:
+      </h3>
+      <p>
+        The Real Estate Product Search and Appointment Scheduling Assistant is an AI-powered solution designed to streamline property searches and appointment bookings for potential buyers, sellers, or renters. 
+        It simplifies lead capture and scheduling while integrating seamlessly with tools like Google Calendar, email, SMS, and Google Sheet or CRM. 
+        This assistant enhances efficiency for real estate agents and improves the customer experience by providing quick, accurate, and tailored responses.
+      </p>
+      
+      <h3 style="color: #007BFF; margin-top: 20px;">
+        <img src="https://img.icons8.com/?size=100&id=20523&format=png&color=000000" style="margin-right: 8px; width: 24px; height: 24px;" alt="Icon"/> 
+        How It Works:
+      </h3>
+      <ul style="margin-left: 20px; list-style: none; padding: 0;">
+        <li>
+          <img src="https://img.icons8.com/fluency/16/form.png" style="width: 24px; height: 24px;" alt="Icon"/> 
+          <strong style="color: #007BFF;">Lead Capture:</strong> Extracts user information (name, contact details, preferences) during the interaction. Logs these details into the integrated Google Sheet or CRM for tracking and follow-up. Sends a confirmation email to the user with details of their lead registration.
+        </li>
+        <li>
+          <img src="https://img.icons8.com/fluency/16/calendar.png" style="width: 24px; height: 24px;" alt="Icon"/> 
+          <strong style="color: #007BFF;">Availability Check and Appointment Scheduling:</strong> Checks property or agent availability in real time. Schedules viewings or consultations via Google Calendar, with reminders sent through email and SMS.
+        </li>
+        <li>
+          <img src="https://img.icons8.com/color/16/communication.png" style="width: 24px; height: 24px;" alt="Icon"/> 
+          <strong style="color: #007BFF;">Follow-Up Communication:</strong> Sends personalized follow-up emails or SMS to confirm bookings or share updates.
+        </li>
+        <li>
+          <img src="https://img.icons8.com/color/16/database.png" style="width: 24px; height: 24px;" alt="Icon"/> 
+          <strong style="color: #007BFF;">Data Logging:</strong> Captures and organizes user data into Google Sheet for easy reference and lead management.
+        </li>
+      </ul>
+      
+      <h3 style="color: #007BFF; margin-top: 20px;">
+        <img src="https://img.icons8.com/?size=100&id=13108&format=png&color=000000" style="margin-right: 8px; width: 24px; height: 24px;" alt="Icon"/> 
+        Key Features:
+      </h3>
+      <ul style="margin-left: 20px; list-style: none; padding: 0;">
+        <li><img src="https://img.icons8.com/color/16/calendar.png" style="width: 24px; height: 24px;" alt="Icon"/> <strong style="color: #007BFF;">Integrated Scheduling:</strong> Real-time appointment booking with Google Calendar, including reminders.</li>
+        <li><img src="https://img.icons8.com/?size=100&id=D6fq9I7xyv5X&format=png&color=000000" style="width: 24px; height: 24px;" alt="Icon"/> <strong style="color: #007BFF;">Multi-Channel Communication:</strong> Engages users via email, SMS, and CRM updates.</li>
+        <li><img src="https://img.icons8.com/fluency/16/filter.png" style="width: 24px; height: 24px;" alt="Icon"/> <strong style="color: #007BFF;">Smart Property Filtering:</strong> Filters properties based on user-provided criteria for a personalized experience.</li>
+        <li><img src="https://img.icons8.com/?size=100&id=103772&format=png&color=000000" style="width: 24px; height: 24px;" alt="Icon"/> <strong style="color: #007BFF;">Lead Management:</strong> Captures and organizes leads efficiently in Google Sheet or CRM.</li>
+        <li><img src="https://img.icons8.com/?size=100&id=YW4C8924Lslq&format=png&color=000000" style="width: 24px; height: 24px;" alt="Icon"/> <strong style="color: #007BFF;">Follow-Ups:</strong> Automated follow-up messages to maintain engagement and confirm appointments.</li>
+        <li><img src="https://img.icons8.com/?size=100&id=D9RtvkuOe31p&format=png&color=000000" style="width: 24px; height: 24px;" alt="Icon"/> <strong style="color: #007BFF;">Availability Checks:</strong> Instant updates on property or agent availability to save time.</li>
+        <li><img src="https://img.icons8.com/fluency/16/email-open.png" style="width: 24px; height: 24px;" alt="Icon"/> <strong style="color: #007BFF;">Email Confirmation:</strong> Sends an email summarizing the conversation with a link to view the lead registration flow, ensuring transparency and accuracy.</li>
+      </ul>
+      
+      <h3 style="color: #007BFF; margin-top: 20px;">
+        <img src="https://img.icons8.com/?size=100&id=kHG4p2DyB85t&format=png&color=000000" style="margin-right: 8px; width: 24px; height: 24px;" alt="Icon"/> 
+        Sample Questions Users Can Ask the Bot:
+      </h3>
+      <ul style="margin-left: 20px; list-style: disc;">
+        <li>Do you have any 2-bedroom apartments available?</li>
+        <li>Do any units have washers and dryers?</li>
+        <li>What’s the price range for your 1-bedroom apartments?</li>
+        <li>What are your office hours?</li>
+      </ul>
+      
+      <h3 style="color: #007BFF; margin-top: 20px;">
+        <img src="https://img.icons8.com/?size=100&id=13826&format=png&color=000000" style="margin-right: 8px; width: 24px; height: 24px;" alt="Icon"/> 
+        Demo Call and Email Confirmation:
+      </h3>
+      <p>
+        After having a demo call with the assistant, you will receive an email with a detailed demo lead registration flow. 
+        This email will summarize the details of your conversation and confirm that a lead has been registered based on your input.
+      </p>
+    </div>
+  `,
+    testStep: `
+    <div style="line-height: 1.8; font-family: Arial, sans-serif; color: #333;">
+      <h3 style="color: #007BFF; margin-bottom: 10px; display: flex; align-items: center;">
+        <img src="https://img.icons8.com/?size=100&id=DUhyONw6epif&format=png&color=3955E8" style="margin-right: 8px; width: 24px; height: 24px;" alt="Icon"/> 
+        Testing Steps:
+      </h3>
+      <ol style="margin-left: 20px;">
+        <li>
+          Click the <strong>"Try Now"</strong> button to start a conversation with the assistant.
+          <ul style="margin-left: 20px; list-style: disc;">
+            <li>Schedule property viewings or consultation appointments.</li>
+            <li>Register your lead to the CRM.</li>
+            <li>Get assistance with queries.</li>
+          </ul>
+        </li>
+        <li>Provide your preferences and schedule an appointment for property viewing or meeting with staff.</li>
+        <li>
+          When scheduling, if the preferred time slot is booked, the assistant will notify you: 
+          <em style="color: #007BFF;">"The preferred time slot is already booked. Please provide another."</em>
+        </li>
+        <li>
+          Once confirmed, you’ll see: 
+          <em style="color: #007BFF;">"Your appointment has been scheduled."</em>
+        </li>
+        <li>
+          <strong style="color: #007BFF;">Lead Registration:</strong> Check the attached Google Sheet: 
+          <a href="https://docs.google.com/spreadsheets/d/1fRpAK0FmI11qhBlaiVzG5zb-NcwwESb266pi_pvpheM/edit?usp=sharing" target="_blank" style="color: #007BFF;">Lead Registration Sheet</a>
+        </li>
+        <li>Receive an email with appointment confirmation and lead details.</li>
+      </ol>
+    </div>
+  `,
   },
-  "Domus NY": {
+  "ABC Real Estate": {
     id: "Domus-NY-cJXPHulKHcOrm7kIZ-YaC",
     features: [
-      "Search properties",
-      "Book appointments",
-      "Filter preferences",
-      "Tailored recommendations",
-      "CRM integration",
-      "Efficient scheduling",
+      "Integrated Scheduling",
+      "Smart Property Filtering",
+      "Multi-Channel Communication",
+      "Lead Management and Data Logging",
+      "Availability Checks",
+      "Email Confirmation with Registration Flow",
     ],
+    desc: `
+    <div style="line-height: 1.8; font-family: Arial, sans-serif; color: #333;">
+      <h2 style="color: #007BFF; margin-bottom: 10px; display: flex; align-items: center;">
+        <img src="https://img.icons8.com/fluency/24/real-estate.png" style="margin-right: 8px;" alt="Icon"/> 
+        Real Estate Product Search and Appointment Scheduling Assistant
+      </h2>
+
+      <h3 style="color: #007BFF; margin-top: 20px;">
+        <img src="https://img.icons8.com/?size=100&id=63765&format=png&color=000000" style="width: 24px; height: 24px; margin-right: 8px;" alt="Icon"/> 
+        Purpose:
+      </h3>
+      <p>
+        The Real Estate Product Search and Appointment Scheduling Assistant is an AI-powered solution designed to streamline property searches and appointment bookings for potential buyers, sellers, or renters. 
+        It simplifies lead capture, property filtering, and scheduling while integrating seamlessly with tools like Google Calendar, email, SMS, and Airtable CRM. 
+        This assistant enhances efficiency for real estate agents and improves the customer experience by providing quick, accurate, and tailored responses.
+      </p>
+
+      <h3 style="color: #007BFF; margin-top: 20px;">
+        <img src="https://img.icons8.com/?size=100&id=20523&format=png&color=000000" style="width: 24px; height: 24px; margin-right: 8px;" alt="Icon"/> 
+        How It Works:
+      </h3>
+      <ul style="margin-left: 20px; list-style: none; padding: 0;">
+        <li>
+          <img src="https://img.icons8.com/fluency/16/form.png" style="width: 24px; height: 24px;" alt="Icon"/> 
+          <strong style="color: #007BFF;">Property Search:</strong> The assistant gathers user preferences, such as budget, location, property type, and amenities. It filters the properties based on these inputs and suggests the most relevant options.
+        </li>
+        <li>
+          <img src="https://img.icons8.com/?size=100&id=103772&format=png&color=000000" style="width: 24px; height: 24px;" alt="Icon"/> 
+          <strong style="color: #007BFF;">Lead Capture:</strong> Extracts user information (name, contact details, preferences) during the interaction. Logs these details into the integrated Airtable CRM for tracking and follow-up. Sends a confirmation email to the user with details of their lead registration.
+        </li>
+        <li>
+          <img src="https://img.icons8.com/color/16/calendar.png" style="width: 24px; height: 24px;" alt="Icon"/> 
+          <strong style="color: #007BFF;">Availability Check and Appointment Scheduling:</strong> Checks property or agent availability in real time. Schedules viewings or consultations via Google Calendar, with reminders sent through email and SMS.
+        </li>
+        <li>
+          <img src="https://img.icons8.com/color/16/communication.png" style="width: 24px; height: 24px;" alt="Icon"/> 
+          <strong style="color: #007BFF;">Follow-Up Communication:</strong> Sends personalized follow-up emails or SMS to confirm bookings or share updates.
+        </li>
+        <li>
+          <img src="https://img.icons8.com/color/16/database.png" style="width: 24px; height: 24px;" alt="Icon"/> 
+          <strong style="color: #007BFF;">Data Logging:</strong> Captures and organizes user data into Airtable for easy reference and lead management.
+        </li>
+      </ul>
+
+      <h3 style="color: #007BFF; margin-top: 20px;">
+        <img src="https://img.icons8.com/?size=100&id=13108&format=png&color=000000" style="width: 24px; height: 24px; margin-right: 8px;" alt="Icon"/> 
+        Key Features:
+      </h3>
+      <ul style="margin-left: 20px; list-style: none; padding: 0;">
+        <li><img src="https://img.icons8.com/color/16/calendar.png" style="width: 24px; height: 24px;" alt="Icon"/> <strong style="color: #007BFF;">Integrated Scheduling:</strong> Real-time appointment booking with Google Calendar, including reminders.</li>
+        <li><img src="https://img.icons8.com/?size=100&id=D6fq9I7xyv5X&format=png&color=000000" style="width: 24px; height: 24px;" alt="Icon"/> <strong style="color: #007BFF;">Multi-Channel Communication:</strong> Engages users via email, SMS, and CRM updates.</li>
+        <li><img src="https://img.icons8.com/fluency/16/filter.png" style="width: 24px; height: 24px;" alt="Icon"/> <strong style="color: #007BFF;">Smart Property Filtering:</strong> Filters properties based on user-provided criteria for a personalized experience.</li>
+        <li><img src="https://img.icons8.com/?size=100&id=103772&format=png&color=000000" style="width: 24px; height: 24px;" alt="Icon"/> <strong style="color: #007BFF;">Lead Management:</strong> Captures and organizes leads efficiently in Airtable CRM.</li>
+        <li><img src="https://img.icons8.com/?size=100&id=YW4C8924Lslq&format=png&color=000000" style="width: 24px; height: 24px;" alt="Icon"/> <strong style="color: #007BFF;">Follow-Ups:</strong> Automated follow-up messages to maintain engagement and confirm appointments.</li>
+        <li><img src="https://img.icons8.com/?size=100&id=D9RtvkuOe31p&format=png&color=000000" style="width: 24px; height: 24px;" alt="Icon"/> <strong style="color: #007BFF;">Availability Checks:</strong> Instant updates on property or agent availability to save time.</li>
+        <li><img src="https://img.icons8.com/fluency/16/email-open.png" style="width: 24px; height: 24px;" alt="Icon"/> <strong style="color: #007BFF;">Email Confirmation:</strong> Sends an email summarizing the conversation with a link to view the lead registration flow, ensuring transparency and accuracy.</li>
+      </ul>
+
+      <h3 style="color: #007BFF; margin-top: 20px;">
+        <img src="https://img.icons8.com/?size=100&id=kHG4p2DyB85t&format=png&color=000000" style="width: 24px; height: 24px; margin-right: 8px;" alt="Icon"/> 
+        Sample Questions Users Can Ask the Bot:
+      </h3>
+      <ul style="margin-left: 20px; list-style: disc;">
+        <li>Property Search: "Can you find a 2-bedroom apartment in downtown Raleigh under $2,000/month?"</li>
+        <li>Appointment Scheduling: "Can I book a viewing for the property on Elm Street this weekend?"</li>
+        <li>Follow-Up and Updates: "Can you confirm my appointment for tomorrow at 10 AM?"</li>
+        <li>General Assistance: "What amenities does the property on Oak Avenue include?"</li>
+      </ul>
+
+      <h3 style="color: #007BFF; margin-top: 20px;">
+        <img src="https://img.icons8.com/?size=100&id=13826&format=png&color=000000" style="width: 24px; height: 24px; margin-right: 8px;" alt="Icon"/> 
+        Demo Call and Email Confirmation:
+      </h3>
+      <p>
+        After having a demo call with the assistant, you will receive an email with a detailed demo lead registration flow. 
+        This email will summarize the details of your conversation and confirm that a lead has been registered based on your input.
+      </p>
+    </div>
+  `,
+    testStep: `
+    <div style="line-height: 1.8; font-family: Arial, sans-serif; color: #333;">
+      <h3 style="color: #007BFF; margin-bottom: 10px; display: flex; align-items: center;">
+        <img src="https://img.icons8.com/?size=100&id=DUhyONw6epif&format=png&color=3955E8" style="width: 24px; height: 24px; margin-right: 8px;" alt="Icon"/> 
+        Testing Steps:
+      </h3>
+      <ol style="margin-left: 20px;">
+        <li>
+          Click the <strong>"Try Now"</strong> button to start a conversation with the assistant.
+          <ul style="margin-left: 20px; list-style: disc;">
+            <li>Find the best property match based on your preferences.</li>
+            <li>Schedule property viewings or consultation appointments.</li>
+          </ul>
+        </li>
+        <li>Use property preferences from the provided Airtable link: 
+          <a href="https://airtable.com/invite/l?inviteId=invH9FxSqX1SUCtmT&inviteToken=786dca6ac8733c0c79b6d86eae9d71a28f16de17f2012fe59f0099facfa7b808&utm_medium=email&utm_source=product_team&utm_content=transactional-alerts" target="_blank" style="color: #007BFF;">Airtable Link</a>
+        </li>
+        <li>When scheduling, provide your name, contact information, and preferred time slot. If the time slot is taken, the assistant will ask you to provide another slot.</li>
+        <li>Once the time slot is confirmed, you’ll receive a message saying: 
+          <em style="color: #007BFF;">"Your appointment has been scheduled."</em>
+        </li>
+        <li>
+          <strong style="color: #007BFF;">Lead Registration:</strong> After the conversation, you can check the attached lead registration in Airtable.
+        </li>
+        <li>Two confirmation emails will be sent after the conversation: 
+          <ul style="margin-left: 20px; list-style: disc;">
+            <li>Appointment Confirmation</li>
+            <li>Property Recommendations</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+  `,
+  },
+  "SunShine Real Estate": {
+    id: "Real-estate-New-iSKHignjLL9LrPsz-8Ajb",
+    features: [
+      "Integrated Scheduling",
+      "Smart Property Filtering",
+      "Lead Management",
+      "Follow-Ups",
+      "Availability Checks",
+      "Email Confirmation with Registration Flow",
+    ],
+    desc: `<div style="line-height: 1.8; font-family: Arial, sans-serif; color: #333;">
+        <h2 style="color: #007BFF; margin-bottom: 10px; display: flex; align-items: center;">
+          <img
+            src="https://img.icons8.com/fluency/24/real-estate.png"
+            style="margin-right: 8px; width: 24px; height: 24px;"
+            alt="Icon"
+          />
+          Real Estate Product Search and Appointment Scheduling Assistant
+        </h2>
+
+        <h3 style="color: #007BFF; margin-top: 20px;">
+          <img
+            src="https://img.icons8.com/?size=100&id=63765&format=png&color=000000"
+            style="margin-right: 8px; width: 24px; height: 24px;"
+            alt="Icon"
+          />
+          Purpose:
+        </h3>
+        <p>
+          The Real Estate Product Search and Appointment Scheduling Assistant is
+          an AI-powered solution designed to streamline property searches and
+          appointment bookings for potential buyers, sellers, or renters. It
+          simplifies lead capture, property filtering, and scheduling while
+          integrating seamlessly with tools like Google Calendar, email, SMS,
+          and Google Sheets or CRM. This assistant enhances efficiency for real
+          estate agents and improves the customer experience by providing quick,
+          accurate, and tailored responses.
+        </p>
+
+        <h3 style="color: #007BFF; margin-top: 20px;">
+          <img
+            src="https://img.icons8.com/?size=100&id=20523&format=png&color=000000"
+            style="margin-right: 8px; width: 24px; height: 24px;"
+            alt="Icon"
+          />
+          How It Works:
+        </h3>
+        <ul style="margin-left: 20px; list-style: none; padding: 0;">
+          <li>
+            <img
+              src="https://img.icons8.com/fluency/16/form.png"
+              style="width: 16px; height: 16px;"
+              alt="Icon"
+            />
+            <strong style="color: #007BFF;">Property Search:</strong> The
+            assistant gathers user preferences, such as budget, plan to move-in
+            date, property type, and specific features. It filters the
+            properties based on these inputs and suggests the most relevant
+            options.
+          </li>
+          <li>
+            <img
+              src="https://img.icons8.com/fluency/16/information.png"
+              style="width: 16px; height: 16px;"
+              alt="Icon"
+            />
+            <strong style="color: #007BFF;">Property Information:</strong> The
+            assistant searches the user’s preferred resultant property and
+            assists with any queries regarding that property, providing detailed
+            information.
+          </li>
+          <li>
+            <img
+              src="https://img.icons8.com/?size=100&id=103772&format=png&color=000000"
+              style="width: 24px; height: 24px;"
+              alt="Icon"
+            />
+            <strong style="color: #007BFF;">Lead Capture:</strong> Extracts user
+            information (name, contact details, preferences) during the
+            interaction. Logs these details into Google Sheets or CRM for
+            tracking and follow-up. Sends a confirmation email to the user with
+            details of their lead registration.
+          </li>
+          <li>
+            <img
+              src="https://img.icons8.com/color/16/calendar.png"
+              style="width: 16px; height: 16px;"
+              alt="Icon"
+            />
+            <strong style="color: #007BFF;">
+              Availability Check and Appointment Scheduling:
+            </strong>
+            Checks property or agent availability in real time. Schedules
+            viewings or consultations via Google Calendar, with reminders sent
+            through email and SMS.
+          </li>
+          <li>
+            <img
+              src="https://img.icons8.com/color/16/communication.png"
+              style="width: 16px; height: 16px;"
+              alt="Icon"
+            />
+            <strong style="color: #007BFF;">Follow-Up Communication:</strong>
+            Sends personalized follow-up emails or SMS to confirm bookings or
+            share updates.
+          </li>
+          <li>
+            <img
+              src="https://img.icons8.com/color/16/database.png"
+              style="width: 16px; height: 16px;"
+              alt="Icon"
+            />
+            <strong style="color: #007BFF;">Data Logging:</strong> Captures and
+            organizes user data into Google Sheets for easy reference and lead
+            management.
+          </li>
+        </ul>
+
+        <h3 style="color: #007BFF; margin-top: 20px;">
+          <img
+            src="https://img.icons8.com/?size=100&id=13108&format=png&color=000000"
+            style="margin-right: 8px; width: 24px; height: 24px;"
+            alt="Icon"
+          />
+          Key Features:
+        </h3>
+        <ul style="margin-left: 20px; list-style: none; padding: 0;">
+          <li>
+            <img
+              src="https://img.icons8.com/color/16/calendar.png"
+              style="width: 16px; height: 16px;"
+              alt="Icon"
+            />
+            <strong style="color: #007BFF;">Integrated Scheduling:</strong>
+            Real-time appointment booking with Google Calendar, including
+            reminders.
+          </li>
+          <li>
+            <img
+              src="https://img.icons8.com/?size=100&id=D6fq9I7xyv5X&format=png&color=000000"
+              style="width: 24px; height: 24px;"
+              alt="Icon"
+            />
+            <strong style="color: #007BFF;">
+              Multi-Channel Communication:
+            </strong>
+            Engages users via email, SMS, and CRM updates.
+          </li>
+          <li>
+            <img
+              src="https://img.icons8.com/fluency/16/filter.png"
+              style="width: 16px; height: 16px;"
+              alt="Icon"
+            />
+            <strong style="color: #007BFF;">Smart Property Filtering:</strong>
+            Filters properties based on user-provided criteria for a
+            personalized experience.
+          </li>
+          <li>
+            <img
+              src="https://img.icons8.com/?size=100&id=103772&format=png&color=000000"
+              style="width: 24px; height: 24px;"
+              alt="Icon"
+            />
+            <strong style="color: #007BFF;">Lead Management:</strong> Captures
+            and organizes leads efficiently in Google Sheets or CRM.
+          </li>
+          <li>
+            <img
+              src="https://img.icons8.com/?size=100&id=YW4C8924Lslq&format=png&color=000000"
+              style="width: 24px; height: 24px;"
+              alt="Icon"
+            />
+            <strong style="color: #007BFF;">Follow-Ups:</strong> Automated
+            follow-up messages to maintain engagement and confirm appointments.
+          </li>
+          <li>
+            <img
+              src="https://img.icons8.com/?size=100&id=D9RtvkuOe31p&format=png&color=000000"
+              style="width: 24px; height: 24px;"
+              alt="Icon"
+            />
+            <strong style="color: #007BFF;">Availability Checks:</strong>
+            Instant updates on property or agent availability to save time.
+          </li>
+          <li>
+            <img
+              src="https://img.icons8.com/fluency/16/email-open.png"
+              style="width: 16px; height: 16px;"
+              alt="Icon"
+            />
+            <strong style="color: #007BFF;">Email Confirmation:</strong> Sends
+            an email summarizing the conversation with a link to view the lead
+            registration flow, ensuring transparency and accuracy.
+          </li>
+        </ul>
+
+        <h3 style="color: #007BFF; margin-top: 20px;">
+          <img
+            src="https://img.icons8.com/?size=100&id=kHG4p2DyB85t&format=png&color=000000"
+            style="margin-right: 8px; width: 24px; height: 24px;"
+            alt="Icon"
+          />
+          Sample Questions Users Can Ask the Bot:
+        </h3>
+        <ul style="margin-left: 20px; list-style: disc;">
+          <li>What amenities does Sunshine Society offer?</li>
+          <li>What are your lease terms?</li>
+          <li>Do you have any 2-unit apartments available?</li>
+          <li>
+            I’m looking for a 3-unit apartment with a gym and dedicated parking.
+            Can you help?
+          </li>
+        </ul>
+
+        <h3 style="color: #007BFF; margin-top: 20px;">
+          <img
+            src="https://img.icons8.com/?size=100&id=13826&format=png&color=000000"
+            style="margin-right: 8px; width: 24px; height: 24px;"
+            alt="Icon"
+          />
+          Demo Call and Email Confirmation:
+        </h3>
+        <p>
+          After having a demo call with the assistant, you will receive an email
+          with a detailed demo lead registration flow. This email will summarize
+          the details of your conversation and confirm that a lead has been
+          registered based on your input.
+        </p>
+      </div>`,
+    testStep: `<div style="line-height: 1.8; font-family: Arial, sans-serif; color: #333;">
+        <h3 style="color: #007BFF; margin-bottom: 10px; display: flex; align-items: center;">
+          <img
+            src="https://img.icons8.com/?size=100&id=DUhyONw6epif&format=png&color=3955E8"
+            style="margin-right: 8px; width: 24px; height: 24px;"
+            alt="Icon"
+          />
+          Testing Steps:
+        </h3>
+        <ol style="margin-left: 20px;">
+          <li>
+            Click the <strong>"Try Now"</strong> button to start a conversation
+            with the assistant.
+            <ul style="margin-left: 20px; list-style: disc;">
+              <li>Find the best property match based on your preferences.</li>
+              <li>Schedule property viewings or consultation appointments.</li>
+            </ul>
+          </li>
+          <li>
+            Use property preferences from the provided Airtable link:
+            <a
+              href="https://airtable.com/invite/l?inviteId=invH9FxSqX1SUCtmT&inviteToken=786dca6ac8733c0c79b6d86eae9d71a28f16de17f2012fe59f0099facfa7b808&utm_medium=email&utm_source=product_team&utm_content=transactional-alerts"
+              target="_blank"
+              style="color: #007BFF;"
+            >
+              Airtable Link
+            </a>
+          </li>
+          <li>
+            When scheduling, provide your name, contact information, and
+            preferred time slot. If the time slot is taken, the assistant will
+            ask you to provide another slot.
+          </li>
+          <li>
+            Once the time slot is confirmed, you’ll receive a message saying:
+            <em style="color: #007BFF;">
+              "Your appointment has been scheduled."
+            </em>
+          </li>
+          <li>
+            <strong style="color: #007BFF;">Lead Registration:</strong> After
+            the conversation, you can check the attached lead registration in
+            Google Sheets.
+          </li>
+          <li>
+            Two confirmation emails will be sent after the conversation:
+            <ul style="margin-left: 20px; list-style: disc;">
+              <li>Appointment Confirmation</li>
+              <li>Property Recommendations</li>
+            </ul>
+          </li>
+        </ol>
+      </div>`,
   },
 };
 
@@ -268,7 +771,7 @@ const LandingPage = () => {
                         <button
                           onClick={() =>
                             (window.location.href =
-                              "/assistants?isModalTrue=true#try-assistant")
+                              "/real-estate?isModalTrue=true#try-assistant")
                           }
                           className="w-full py-3 bg-green-500 text-white rounded-xl hover:bg-green-600 
                       transition-colors flex items-center justify-center"

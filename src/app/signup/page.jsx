@@ -38,7 +38,7 @@ const page = () => {
         localStorage.setItem("authToken", accessToken);
         const userProfile = { displayName, email, phoneNumber, photoURL };
         localStorage.setItem("userProfile", JSON.stringify(userProfile));
-        router.push("/assistants?isModalTrue=true#try-assistant");
+        router.push("/real-estate?isModalTrue=true#try-assistant");
       }
     } catch (err) {
       setError(err.message);
@@ -77,7 +77,7 @@ const page = () => {
 
       localStorage.setItem("authToken", data.authToken);
       localStorage.setItem("userProfile", JSON.stringify(data.profile));
-      router.push("/assistants?isModalTrue=true#try-assistant");
+      router.push("/real-estate?isModalTrue=true#try-assistant");
     } catch (err) {
       setError(err.message);
     } finally {

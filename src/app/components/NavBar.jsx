@@ -10,7 +10,7 @@ const NavBar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);
-  console.log('isl ogged in ', isLoggedIn)
+  console.log("isl ogged in ", isLoggedIn);
 
   useEffect(() => {
     setMounted(true);
@@ -38,7 +38,7 @@ const NavBar = () => {
       localStorage.removeItem("authToken");
       localStorage.removeItem("userProfile");
       setIsLoggedIn(false);
-      userLogout()
+      userLogout();
       router.push("/login");
     }
   };
@@ -51,10 +51,10 @@ const NavBar = () => {
     { name: "Home", path: "/" },
     {
       name: "Assistants",
-      path: "/assistants",
+      path: "/real-estate",
       submenu: [
         { name: "Browse All", path: "/" },
-        { name: "Featured", path: "/assistants" },
+        { name: "Featured", path: "/real-estate" },
       ],
     },
     { name: "Pricing", path: "/pricing" },
