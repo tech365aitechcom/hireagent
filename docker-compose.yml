@@ -4,8 +4,8 @@ services:
     image: hireagent
     build: ./
     ports:
-      - 3008:3008
+      - 3010:3010
     container_name: hireagent
 
     environment:
-      - PORT=3008
+      - PORT=3010
