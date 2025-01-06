@@ -95,17 +95,18 @@ export const upcomingCard = {
 };
 
 export const existingCard = {
-  "Space Real Estate": {
-    id: "Space-Real-Esta-rDUob67dmzxq-xZ8sBR90",
-    features: [
-      "Smart property filtering and search",
-      "Automated appointment scheduling",
-      "Multi-channel communication (Email, SMS)",
-      "Lead capture and CRM integration",
-      "Real-time availability checks",
-      "Automated follow-up management",
-    ],
-    desc: `
+  "PropertyMate: Your Personalized Assistant for Scheduling, Follow-Ups, and Property Matchmaking.":
+    {
+      id: "Space-Real-Esta-rDUob67dmzxq-xZ8sBR90",
+      features: [
+        "Verify Availability",
+        "Schedule an Appointment",
+        "Send a Follow-Up Email",
+        "Send a Follow-Up SMS",
+        "Capture User Information",
+        "Filter Preferred Properties",
+      ],
+      desc: `
 <div style="line-height: 1.8; font-family: Arial, sans-serif; color: #333;">
   <h2 style="color: #007BFF; margin-bottom: 10px; display: flex; align-items: center;">
     <img src="https://img.icons8.com/fluency/24/real-estate.png" style="margin-right: 8px; width: 24px; height: 24px;" alt="Icon"/> 
@@ -182,7 +183,7 @@ export const existingCard = {
 </div>
 `,
 
-    testStep: `
+      testStep: `
     <div style="line-height: 1.8; font-family: Arial, sans-serif; color: #333;">
       <h3 style="color: #007BFF; margin-bottom: 10px; display: flex; align-items: center;">
         <img src="https://img.icons8.com/?size=100&id=DUhyONw6epif&format=png&color=3955E8" style="margin-right: 8px; width: 24px; height: 24px;" alt="Icon"/> 
@@ -214,18 +215,18 @@ export const existingCard = {
       </ol>
     </div>
   `,
-  },
-  "ABC Real Estate": {
-    id: "Domus-NY-cJXPHulKHcOrm7kIZ-YaC",
-    features: [
-      "Integrated Scheduling",
-      "Smart Property Filtering",
-      "Multi-Channel Communication",
-      "Lead Management and Data Logging",
-      "Availability Checks",
-      "Email Confirmation with Registration Flow",
-    ],
-    desc: `
+    },
+  "PropConnect: Your Smart Assistant for Scheduling property consultation, and Follow-Up.":
+    {
+      id: "Domus-NY-cJXPHulKHcOrm7kIZ-YaC",
+      features: [
+        "Verify Availability",
+        "Schedule an Appointment",
+        "Send Follow-Up Email",
+        "Send Follow-Up Text Message",
+        "Capture User Information and Property Preferences",
+      ],
+      desc: `
   <div style="line-height: 1.8; font-family: Arial, sans-serif; color: #333;">
     <h2 style="color: #007BFF; margin-bottom: 10px; display: flex; align-items: center;">
       <img src="https://img.icons8.com/fluency/24/real-estate.png" style="margin-right: 8px;" alt="Icon"/> 
@@ -299,7 +300,7 @@ export const existingCard = {
     </p>
   </div>
   `,
-    testStep: `
+      testStep: `
   <div style="line-height: 1.8; font-family: Arial, sans-serif; color: #333;">
     <h3 style="color: #007BFF; margin-bottom: 10px; display: flex; align-items: center;">
       <img src="https://img.icons8.com/?size=100&id=DUhyONw6epif&format=png&color=3955E8" style="width: 24px; height: 24px; margin-right: 8px;" alt="Icon"/> 
@@ -332,18 +333,19 @@ export const existingCard = {
     </ol>
   </div>
   `,
-  },
-  "SunShine Real Estate": {
-    id: "Real-estate-New-iSKHignjLL9LrPsz-8Ajb",
-    features: [
-      "Integrated Scheduling",
-      "Smart Property Filtering",
-      "Lead Management",
-      "Follow-Ups",
-      "Availability Checks",
-      "Email Confirmation with Registration Flow",
-    ],
-    desc: `
+    },
+  "SmartSchedule Assistant: Seamlessly manage property availability, appointments booking, follow-ups, and personalized property recommendations with user-specific details about a property.":
+    {
+      id: "Real-estate-New-iSKHignjLL9LrPsz-8Ajb",
+      features: [
+        "Verify Schedule Availability",
+        "Schedule an Appointment",
+        "Send Follow-Up Email",
+        "Send Follow-Up SMS",
+        "Capture User Information and Property Preferences",
+        "Provide Property Matches and Share Preferred Property Information",
+      ],
+      desc: `
     <div style="line-height: 1.8; font-family: Arial, sans-serif; color: #333;">
       <h2 style="color: #007BFF; margin-bottom: 10px; display: flex; align-items: center;">
         <img
@@ -438,7 +440,7 @@ export const existingCard = {
       </ul>
     </div>
   `,
-    testStep: `
+      testStep: `
     <div style="line-height: 1.8; font-family: Arial, sans-serif; color: #333;">
       <h3 style="color: #007BFF; margin-bottom: 10px; display: flex; align-items: center;">
         <img
@@ -470,7 +472,7 @@ export const existingCard = {
       </ol>
     </div>
   `,
-  },
+    },
 };
 
 const LandingPage = () => {
