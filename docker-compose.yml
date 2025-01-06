@@ -1,0 +1,15 @@
+version: "3"
+services:
+  hireagent:
+    image: hireagent
+    build: ./
+    ports:
+      - 3008:3008
+    container_name: hireagent
+
+    environment:
+      - PORT=3008
+
+
+
+      
