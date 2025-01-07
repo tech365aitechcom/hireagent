@@ -12,8 +12,8 @@ const page = () => {
       <AssistantHero />
       <ROI />
       <WithWithout />
-      <TryAssistant />
       <Features />
+      <TryAssistant />
       <Testimonial />
       <GetStarted />
     </div>

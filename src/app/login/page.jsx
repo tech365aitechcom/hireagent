@@ -37,7 +37,7 @@ const LoginComp = () => {
         localStorage.setItem("authToken", accessToken);
         const userProfile = { displayName, email, phoneNumber, photoURL };
         localStorage.setItem("userProfile", JSON.stringify(userProfile));
-        router.push("/real-estate?isModalTrue=true#try-assistant");
+        router.push(`/real-estate?aiId=${aiId}#try-assistant`);
       }
     } catch (err) {
       setError(err.message);
