@@ -13,6 +13,12 @@ const TryAssistantComp = () => {
   const [authToken, setAuthToken] = useState(null);
   const [showAssistant, setShowAssistant] = useState(false);
   const [aiId, setAIId] = useState("");
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("userProfile");
+    setUser(JSON.parse(storedUser));
+  }, []);
 
   useEffect(() => {
     const storedAuthToken = localStorage.getItem("authToken");
@@ -133,6 +139,7 @@ const TryAssistantComp = () => {
                     desc={desc}
                     testStep={testStep}
                     aiId={aiId}
+                    user={user}
                   />
                 )}
               </div>
