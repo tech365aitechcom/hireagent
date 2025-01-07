@@ -1,6 +1,9 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { baseURL } from "../urls";
+import { useSearchParams } from "next/navigation";
+import { ChevronDown } from "lucide-react";
+import { existingCard } from "../page";
 
 const Check = () => (
   <svg
@@ -19,11 +22,16 @@ const Check = () => (
 );
 
 const PricingCards = () => {
+  const searchParams = useSearchParams();
+  const aiId = searchParams.get("aiId");
   const [plans, setPlans] = useState([]);
   const [selectedPlan, setSelectedPlan] = useState("free");
   const [user, setUser] = useState(null);
+  const [selectedBot, setSelectedBot] = useState(null);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const userId = user?._id || "User ID not available";
+  console.log(aiId, "raju");
 
   useEffect(() => {
     const loadRazorpayScript = () => {
@@ -132,6 +140,17 @@ const PricingCards = () => {
     fetchPlans();
   }, []);
 
+  useEffect(() => {
+    if (aiId) {
+      const matchingBot = Object.entries(existingCard).find(
+        ([_, botData]) => botData.id === aiId
+      );
+      if (matchingBot) {
+        setSelectedBot(matchingBot[0]);
+      }
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white flex items-center justify-center w-full py-14">
       <div className="w-full max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
@@ -144,7 +163,47 @@ const PricingCards = () => {
             any time.
           </p>
         </div>
+        <div className="max-w-3xl mx-auto mb-12">
+          <h3 className="text-xl font-bold text-gray-800 mb-4">
+            Select Your Real Estate AI Assistant
+          </h3>
+          <div className="relative">
+            <button
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-left flex justify-between items-center hover:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors duration-200"
+            >
+              <span className="block truncate text-gray-700">
+                {selectedBot || "Choose an AI Assistant"}
+              </span>
+              <ChevronDown
+                className={`w-5 h-5 text-gray-400 transition-transform duration-200 ${
+                  isDropdownOpen ? "transform rotate-180" : ""
+                }`}
+              />
+            </button>
 
+            {isDropdownOpen && (
+              <div className="absolute z-10 w-full mt-2 bg-white border border-gray-200 rounded-lg shadow-lg max-h-60 overflow-auto">
+                {Object.entries(existingCard).map(([name, data]) => (
+                  <div
+                    key={data.id}
+                    onClick={() => {
+                      setSelectedBot(name);
+                      setIsDropdownOpen(false);
+                    }}
+                    className={`p-4 cursor-pointer transition-all duration-200 ${
+                      selectedBot === name
+                        ? "bg-blue-50 text-blue-700"
+                        : "text-gray-800 hover:bg-gray-50"
+                    } ${selectedBot === name ? "font-medium" : ""}`}
+                  >
+                    <p className="text-left">{name}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto px-4 sm:px-6">
           {plans.map((plan) => {
             const isSelected = selectedPlan === plan.id;
@@ -231,4 +290,12 @@ const PricingCards = () => {
   );
 };
 
-export default PricingCards;
+const PricingPage = () => {
+  return (
+    <Suspense fallback={<p>Loading...</p>}>
+      <PricingCards />
+    </Suspense>
+  );
+};
+
+export default PricingPage;

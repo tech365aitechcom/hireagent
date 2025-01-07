@@ -1,6 +1,14 @@
-import { X, ArrowRight, Phone } from "lucide-react";
+import {
+  X,
+  ArrowRight,
+  Phone,
+  AudioLinesIcon,
+  ShoppingCart,
+  Calendar,
+} from "lucide-react";
 import Link from "next/link";
 import React, { useState } from "react";
+import { ScheduleMeetingModal } from "../sections/SheduleMeetingModal";
 
 const AssistantDescriptionModal = ({
   setActiveCard,
@@ -10,8 +18,10 @@ const AssistantDescriptionModal = ({
   desc,
   testStep,
   aiId,
+  user,
 }) => {
   const [activeTab, setActiveTab] = useState("description");
+  const [isScheduleModalOpen, setScheduleModalOpen] = useState(false);
 
   const TabButton = ({ id, label, isActive }) => (
     <button
@@ -100,21 +110,53 @@ const AssistantDescriptionModal = ({
               <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
             </Link>
           ) : (
-            <button
-              onClick={setShowAssistant}
-              className="w-full bg-green-500 text-white py-3 md:py-4 px-4 md:px-6 
-                rounded-xl font-semibold transition-all duration-300 hover:shadow-lg
-                hover:bg-green-600 flex items-center justify-center gap-2 text-sm md:text-base"
-            >
-              <span>Talk to Assistant</span>
-              <Phone className="w-4 h-4 md:w-5 md:h-5" />
-            </button>
+            <div className="flex flex-col space-y-4">
+              <button
+                onClick={setShowAssistant}
+                className="w-full bg-green-500 text-white py-3 md:py-4 px-4 md:px-6 
+      rounded-xl font-semibold transition-all duration-300 hover:shadow-lg
+      hover:bg-green-600 flex items-center justify-center gap-2 text-sm md:text-base"
+              >
+                <span>Try Assistant</span>
+
+                <AudioLinesIcon className="w-5 h-5" />
+              </button>
+              <div className="flex items-center justify-center gap-4">
+                <Link
+                  href={`/pricing?aiId=${aiId}`}
+                  className="w-full bg-purple-500 text-white py-3 md:py-4 px-4 md:px-6 
+        rounded-xl font-semibold transition-all duration-300 hover:shadow-lg
+        hover:bg-purple-600 flex items-center justify-center gap-2 text-sm md:text-base"
+                >
+                  <span>Purchase Assistant</span>
+                  <ShoppingCart className="w-5 h-5" />
+                </Link>
+                <button
+                  onClick={() => setScheduleModalOpen(true)}
+                  className="w-full bg-teal-500 text-white py-3 md:py-4 px-4 md:px-6 
+        rounded-xl font-semibold transition-all duration-300 hover:shadow-lg
+        hover:bg-teal-600 flex items-center justify-center gap-2 text-sm md:text-base"
+                >
+                  <span>Schedule Meeting</span>
+                  <Calendar className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
           )}
           <p className="text-center text-xs md:text-sm text-gray-500 mt-3 md:mt-4">
             Available 24/7 to help with your real estate needs
           </p>
         </div>
       </div>
+      {isScheduleModalOpen && (
+        <ScheduleMeetingModal
+          isOpen={"schedule"}
+          onClose={() => setScheduleModalOpen(false)}
+          bot={activeTab}
+          mode="schedule"
+          user={user}
+        />
+      )}
     </div>
   );
 };
