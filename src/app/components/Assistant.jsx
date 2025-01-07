@@ -205,8 +205,6 @@ const Assistant = ({ id }) => {
     console.log(`User rated: ${value} stars`);
   };
 
-  console.log(isMuted, "raju");
-
   return (
     <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50">
       <ToastContainer

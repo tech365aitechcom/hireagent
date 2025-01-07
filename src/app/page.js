@@ -1,7 +1,8 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ArrowRight, Calendar, Play } from "lucide-react";
 import { ScheduleMeetingModal } from "./sections/SheduleMeetingModal";
+import Link from "next/link";
 
 export const upcomingCard = {
   "Skills Evaluator AI": [
@@ -477,10 +478,16 @@ export const existingCard = {
 
 const LandingPage = () => {
   const [isScheduleModalOpen, setScheduleModalOpen] = useState(false);
+  const [user, setUser] = useState({});
 
   const handleScheduleMeeting = () => {
     setScheduleModalOpen(true);
   };
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("userProfile");
+    setUser(JSON.parse(storedUser));
+  }, []);
 
   return (
     <div className="min-h-screen bg-white">
@@ -563,16 +570,16 @@ const LandingPage = () => {
               cutting-edge technology.
             </p>
             <div className="flex gap-6">
-              <button
-                onClick={() => (window.location.href = "/pricing")}
+              <Link
+                href={"#available-now"}
                 className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl"
               >
                 <span className="relative z-10 flex items-center font-medium">
                   Get Started{" "}
                   <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
                 </span>
-              </button>
-              <button
+              </Link>
+              {/* <button
                 onClick={handleScheduleMeeting}
                 className="group px-8 py-4 bg-white text-gray-900 rounded-xl border-2 border-gray-200 
                       hover:border-indigo-600 transition-colors"
@@ -580,13 +587,16 @@ const LandingPage = () => {
                 <span className="flex items-center font-medium">
                   Schedule Demo <Calendar className="ml-2 w-5 h-5" />
                 </span>
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-12 md:py-24 bg-gradient-to-b from-white to-blue-50">
+      <section
+        className="py-12 md:py-24 bg-gradient-to-b from-white to-blue-50"
+        id="available-now"
+      >
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-5xl font-bold mb-10 md:mb-20 text-center">
             Available{" "}
@@ -738,6 +748,7 @@ const LandingPage = () => {
           onClose={() => setScheduleModalOpen(false)}
           bot={existingCard}
           mode="schedule"
+          user={user}
         />
       )}
     </div>

@@ -1,16 +1,17 @@
 "use client";
 import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { userLogout } from "../utils/googleLogin";
+import Link from "next/link";
 
 const NavBar = () => {
   const router = useRouter();
+  const pathName = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);
-  console.log("isl ogged in ", isLoggedIn);
 
   useEffect(() => {
     setMounted(true);
@@ -54,7 +55,7 @@ const NavBar = () => {
       path: "/real-estate",
       submenu: [
         { name: "Browse All", path: "/" },
-        { name: "Featured", path: "/real-estate" },
+        { name: "Real Estate", path: "/real-estate" },
       ],
     },
     { name: "Pricing", path: "/pricing" },
@@ -71,42 +72,43 @@ const NavBar = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <div className="flex-shrink-0 transition-transform hover:scale-105">
+          <Link
+            href={"/"}
+            className="flex-shrink-0 transition-transform hover:scale-105"
+          >
             <img src="/logo.png" alt="logo" className="w-auto h-12" />
-          </div>
-
-          {/* Desktop Navigation */}
+          </Link>
           <div className="hidden md:flex items-center space-x-8">
-            {navigationItems.map((item) => (
-              <div key={item.path} className="relative group">
-                <a
-                  href={item.path}
-                  className={`flex items-center space-x-1 ${
-                    isScrolled ? "text-indigo-600" : "text-indigo-600"
-                  } hover:text-indigo-600 text-sm font-medium transition-colors duration-200`}
-                >
-                  <span>{item.name}</span>
-                  {item.submenu && <ChevronDown className="h-4 w-4" />}
-                </a>
+            {pathName === "/" &&
+              navigationItems.map((item) => (
+                <div key={item.path} className="relative group">
+                  <a
+                    href={item.path}
+                    className={`flex items-center space-x-1 ${
+                      isScrolled ? "text-indigo-600" : "text-indigo-600"
+                    } hover:text-indigo-600 text-sm font-medium transition-colors duration-200`}
+                  >
+                    <span>{item.name}</span>
+                    {item.submenu && <ChevronDown className="h-4 w-4" />}
+                  </a>
 
-                {item.submenu && (
-                  <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                    <div className="py-1">
-                      {item.submenu.map((subItem) => (
-                        <a
-                          key={subItem.path}
-                          href={subItem.path}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-500"
-                        >
-                          {subItem.name}
-                        </a>
-                      ))}
+                  {item.submenu && (
+                    <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                      <div className="py-1">
+                        {item.submenu.map((subItem) => (
+                          <a
+                            key={subItem.path}
+                            href={subItem.path}
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-500"
+                          >
+                            {subItem.name}
+                          </a>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                )}
-              </div>
-            ))}
+                  )}
+                </div>
+              ))}
             {isLoggedIn ? (
               <button
                 onClick={handleLogout}
@@ -123,8 +125,6 @@ const NavBar = () => {
               </button>
             )}
           </div>
-
-          {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -141,8 +141,6 @@ const NavBar = () => {
           </div>
         </div>
       </div>
-
-      {/* Mobile Navigation */}
       {isOpen && (
         <div className="md:hidden bg-white shadow-xl">
           <div className="px-2 pt-2 pb-3 space-y-1">
