@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { baseURL } from "../urls";
 import { useSearchParams } from "next/navigation";
 import { ChevronDown } from "lucide-react";
@@ -290,4 +290,12 @@ const PricingCards = () => {
   );
 };
 
-export default PricingCards;
+const PricingPage = () => {
+  return (
+    <Suspense fallback={<p>Loading...</p>}>
+      <PricingCards />
+    </Suspense>
+  );
+};
+
+export default PricingPage;
