@@ -57,12 +57,10 @@ const page = () => {
     }
 
     try {
-      // Combine first and last name for backend
       const backendData = {
         ...formData,
         name: `${formData.firstName} ${formData.lastName}`.trim(),
       };
-      // Remove firstName and lastName from payload
       delete backendData.firstName;
       delete backendData.lastName;
 
@@ -77,7 +75,7 @@ const page = () => {
 
       localStorage.setItem("authToken", data.authToken);
       localStorage.setItem("userProfile", JSON.stringify(data.profile));
-      router.push("/real-estate?isModalTrue=true#try-assistant");
+      router.push("/login");
     } catch (err) {
       setError(err.message);
     } finally {
