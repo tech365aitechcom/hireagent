@@ -1,12 +1,14 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { userLogout } from "../utils/googleLogin";
 import Link from "next/link";
 
-const NavBar = () => {
+const NavComp = () => {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const loginSuccess = searchParams.get("loginSuccess");
   const pathName = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -15,7 +17,6 @@ const NavBar = () => {
 
   useEffect(() => {
     setMounted(true);
-    // Only run client-side code after component is mounted
     if (typeof window !== "undefined") {
       const authToken = localStorage.getItem("authToken");
       setIsLoggedIn(!!authToken);
@@ -27,11 +28,10 @@ const NavBar = () => {
       window.addEventListener("scroll", handleScroll);
       return () => window.removeEventListener("scroll", handleScroll);
     }
-  }, []);
+  }, [loginSuccess]);
 
-  // Don't render anything until after hydration
   if (!mounted) {
-    return null; // Return null on server-side
+    return null;
   }
 
   const handleLogout = () => {
@@ -186,6 +186,14 @@ const NavBar = () => {
         </div>
       )}
     </nav>
+  );
+};
+
+const NavBar = () => {
+  return (
+    <Suspense fallback={<p>Loading...</p>}>
+      <NavComp />
+    </Suspense>
   );
 };
 

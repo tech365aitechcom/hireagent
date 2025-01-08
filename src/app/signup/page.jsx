@@ -117,7 +117,6 @@ const page = () => {
             )}
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* First Name and Last Name */}
               <div className="space-y-1.5">
                 <label className="block text-sm font-semibold text-gray-800">
                   First Name
@@ -315,10 +314,10 @@ const page = () => {
           </p>
           <p className="text-sm text-gray-500 mt-5 text-center">
             <Link
-              href="/"
+              href="/real-estate"
               className="text-blue-600 hover:underline font-medium"
             >
-              Go to home
+              Go Back
             </Link>
           </p>
         </div>

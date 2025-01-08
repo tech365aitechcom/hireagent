@@ -37,7 +37,11 @@ const LoginComp = () => {
         localStorage.setItem("authToken", accessToken);
         const userProfile = { displayName, email, phoneNumber, photoURL };
         localStorage.setItem("userProfile", JSON.stringify(userProfile));
-        router.push(`/real-estate?aiId=${aiId}#try-assistant`);
+        router.push(
+          !aiId
+            ? `/real-estate?loginSuccess=true`
+            : `/real-estate?loginSuccess=true&aiId=${aiId}#try-assistant`
+        );
       }
     } catch (err) {
       setError(err.message);
@@ -62,7 +66,11 @@ const LoginComp = () => {
 
       localStorage.setItem("authToken", data.authToken);
       localStorage.setItem("userProfile", JSON.stringify(data.profile));
-      router.push(`/real-estate?aiId=${aiId}#try-assistant`);
+      router.push(
+        !aiId
+          ? `/real-estate?loginSuccess=true`
+          : `/real-estate?loginSuccess=true&aiId=${aiId}#try-assistant`
+      );
     } catch (err) {
       setError(err.message);
     } finally {
@@ -220,8 +228,11 @@ const LoginComp = () => {
           </Link>
         </p>
         <p className="text-sm text-gray-500 mt-5 text-center">
-          <Link href="/" className="text-blue-600 hover:underline font-medium">
-            Go to home
+          <Link
+            href="/real-estate"
+            className="text-blue-600 hover:underline font-medium"
+          >
+            Go Back
           </Link>
         </p>
       </div>
