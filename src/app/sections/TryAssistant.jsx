@@ -17,7 +17,18 @@ const TryAssistantComp = () => {
 
   useEffect(() => {
     const storedUser = localStorage.getItem("userProfile");
-    setUser(JSON.parse(storedUser));
+
+    if (storedUser) {
+      try {
+        const parsedUser = JSON.parse(storedUser);
+        setUser(parsedUser || {});
+      } catch (error) {
+        console.error("Failed to parse user profile from localStorage:", error);
+        setUser({});
+      }
+    } else {
+      setUser({});
+    }
   }, []);
 
   useEffect(() => {

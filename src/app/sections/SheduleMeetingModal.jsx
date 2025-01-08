@@ -27,7 +27,7 @@ export const ScheduleMeetingModal = ({ isOpen, onClose, bot, mode, user }) => {
     if (user) {
       setFormData((prevData) => ({
         ...prevData,
-        customerName: user.name || "",
+        customerName: user.name || user.displayName || "",
         email: user.email || "",
         phoneNumber: user.phoneNumber || "",
       }));
