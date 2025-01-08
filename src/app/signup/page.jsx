@@ -29,21 +29,21 @@ const page = () => {
     return () => unSubscribe();
   }, []);
 
-  const handleGoogleLogin = async () => {
-    try {
-      const result = await googleLogin();
-      if (result.user) {
-        const { accessToken } = result.user;
-        const { displayName, email, phoneNumber, photoURL } = result.user;
-        localStorage.setItem("authToken", accessToken);
-        const userProfile = { displayName, email, phoneNumber, photoURL };
-        localStorage.setItem("userProfile", JSON.stringify(userProfile));
-        router.push("/real-estate?isModalTrue=true#try-assistant");
-      }
-    } catch (err) {
-      setError(err.message);
-    }
-  };
+  // const handleGoogleLogin = async () => {
+  //   try {
+  //     const result = await googleLogin();
+  //     if (result.user) {
+  //       const { accessToken } = result.user;
+  //       const { displayName, email, phoneNumber, photoURL } = result.user;
+  //       localStorage.setItem("authToken", accessToken);
+  //       const userProfile = { displayName, email, phoneNumber, photoURL };
+  //       localStorage.setItem("userProfile", JSON.stringify(userProfile));
+  //       router.push("/real-estate?isModalTrue=true#try-assistant");
+  //     }
+  //   } catch (err) {
+  //     setError(err.message);
+  //   }
+  // };
 
   const handleSignUp = async (e) => {
     e.preventDefault();
@@ -57,12 +57,10 @@ const page = () => {
     }
 
     try {
-      // Combine first and last name for backend
       const backendData = {
         ...formData,
         name: `${formData.firstName} ${formData.lastName}`.trim(),
       };
-      // Remove firstName and lastName from payload
       delete backendData.firstName;
       delete backendData.lastName;
 
@@ -77,7 +75,7 @@ const page = () => {
 
       localStorage.setItem("authToken", data.authToken);
       localStorage.setItem("userProfile", JSON.stringify(data.profile));
-      router.push("/real-estate?isModalTrue=true#try-assistant");
+      router.push("/login");
     } catch (err) {
       setError(err.message);
     } finally {
@@ -265,7 +263,7 @@ const page = () => {
               )}
             </button>
 
-            <div className="relative">
+            {/* <div className="relative">
               <div className="absolute inset-0 flex items-center">
                 <div className="w-full border-t border-gray-200"></div>
               </div>
@@ -301,7 +299,7 @@ const page = () => {
                 />
               </svg>
               Sign up with Google
-            </button>
+            </button> */}
           </form>
         </div>
 
