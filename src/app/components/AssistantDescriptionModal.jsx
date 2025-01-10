@@ -9,6 +9,8 @@ import {
 import Link from "next/link";
 import React, { useState } from "react";
 import { ScheduleMeetingModal } from "../sections/SheduleMeetingModal";
+import axios from "axios";
+import { baseURL } from "../urls";
 
 const AssistantDescriptionModal = ({
   setActiveCard,
@@ -37,10 +39,24 @@ const AssistantDescriptionModal = ({
     </button>
   );
 
+  const trackBotClick = async (botName) => {
+    try {
+      const response = await axios.post(
+        `${baseURL}/api/traction/create-bot-imperssion`,
+        {
+          bot: botName,
+        }
+      );
+      console.log("Impression tracked:", response.data);
+    } catch (error) {
+      console.error("Error tracking impression:", error);
+    }
+  };
+
   return (
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-2 md:p-4 z-50">
       <div className="bg-white rounded-2xl w-full max-w-6xl p-4 md:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
-        {/* Header */}
+        {" "}
         <div className="flex justify-between items-center relative mb-4 md:mb-6">
           <div className="flex items-center gap-2 md:gap-4">
             <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-2 md:p-3 rounded-xl">
@@ -57,7 +73,6 @@ const AssistantDescriptionModal = ({
             <X className="w-5 h-5 md:w-6 md:h-6 text-gray-400 hover:text-gray-600" />
           </button>
         </div>
-
         <div className="flex flex-col lg:flex-row lg:items-end gap-6 lg:gap-12">
           <div className="w-full lg:w-1/2">
             <div className="rounded-xl md:rounded-2xl overflow-hidden shadow-lg md:shadow-2xl">
@@ -72,8 +87,6 @@ const AssistantDescriptionModal = ({
               </div>
             </div>
           </div>
-
-          {/* Description Section */}
           <div className="w-full lg:w-1/2">
             <div className="flex gap-2 mb-3 md:mb-4">
               <TabButton
@@ -96,8 +109,6 @@ const AssistantDescriptionModal = ({
             ></div>
           </div>
         </div>
-
-        {/* Footer */}
         <div className="pt-4 md:pt-6">
           {!authToken ? (
             <Link
@@ -112,7 +123,10 @@ const AssistantDescriptionModal = ({
           ) : (
             <div className="flex flex-col space-y-4">
               <button
-                onClick={setShowAssistant}
+                onClick={() => {
+                  setShowAssistant();
+                  trackBotClick(name);
+                }}
                 className="w-full bg-green-500 text-white py-3 md:py-4 px-4 md:px-6 
       rounded-xl font-semibold transition-all duration-300 hover:shadow-lg
       hover:bg-green-600 flex items-center justify-center gap-2 text-sm md:text-base"
