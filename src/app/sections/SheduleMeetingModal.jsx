@@ -12,6 +12,7 @@ import {
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
+import { baseURL } from "../urls";
 
 export const ScheduleMeetingModal = ({ isOpen, onClose, bot, mode, user }) => {
   const router = useRouter();
@@ -57,7 +58,7 @@ export const ScheduleMeetingModal = ({ isOpen, onClose, bot, mode, user }) => {
         "https://hook.eu2.make.com/rl3339ixkzqotny7zj3orkrdiaww2mra",
         webhookData
       );
-
+      await axios.post(`${baseURL}/api/users/scheduleMeeting`, formData);
       if (mode === "buy") {
         router.push("https://www.fiverr.com/s/420erVl");
       } else {
@@ -69,6 +70,7 @@ export const ScheduleMeetingModal = ({ isOpen, onClose, bot, mode, user }) => {
       toast.error("Failed to submit. Please try again.");
     }
   };
+  console.log(formData, "ar");
 
   if (!isOpen) return null;
 
