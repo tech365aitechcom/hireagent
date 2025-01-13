@@ -10,6 +10,24 @@ const AssistantHero = () => {
     setIsLoading(false);
   };
 
+  const trackVideoClick = async (videoName) => {
+    try {
+      const response = await axios.post(
+        `${baseURL}/api/traction/create-video-imperssion`,
+        {
+          video: videoName,
+        }
+      );
+      console.log("Impression tracked:", response.data);
+    } catch (error) {
+      console.error("Error tracking impression:", error);
+    }
+  };
+
+  const handleVideoPlay = () => {
+    trackVideoClick("Real Estate Video");
+  };
+
   return (
     <div className="bg-gradient-to-b from-blue-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
@@ -88,6 +106,7 @@ const AssistantHero = () => {
                 controls
                 onLoadedData={handleVideoLoad}
                 onError={() => setIsLoading(false)}
+                onPlay={handleVideoPlay}
               >
                 <source src="/dummy.mp4" type="video/mp4" />
                 Your browser does not support the video tag.

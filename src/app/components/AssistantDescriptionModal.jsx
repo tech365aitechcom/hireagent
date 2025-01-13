@@ -7,7 +7,7 @@ import {
   Calendar,
 } from "lucide-react";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { ScheduleMeetingModal } from "../sections/SheduleMeetingModal";
 import axios from "axios";
 import { baseURL } from "../urls";
@@ -22,6 +22,7 @@ const AssistantDescriptionModal = ({
   aiId,
   user,
 }) => {
+  const iframeRef = useRef(null);
   const [activeTab, setActiveTab] = useState("description");
   const [isScheduleModalOpen, setScheduleModalOpen] = useState(false);
 
@@ -53,6 +54,57 @@ const AssistantDescriptionModal = ({
     }
   };
 
+  const trackVideoClick = async (videoName) => {
+    try {
+      const response = await axios.post(
+        `${baseURL}/api/traction/create-video-imperssion`,
+        {
+          video: videoName,
+        }
+      );
+      console.log("Impression tracked:", response.data);
+    } catch (error) {
+      console.error("Error tracking impression:", error);
+    }
+  };
+
+  let player;
+  useEffect(() => {
+    const setupPlayer = () => {
+      if (!window.YT) {
+        console.error("YouTube API not loaded");
+        return;
+      }
+
+      player = new window.YT.Player(iframeRef.current, {
+        events: {
+          onStateChange: (event) => {
+            if (event.data === window.YT.PlayerState.PLAYING) {
+              const videoUrl = player.getVideoUrl();
+              trackVideoClick(videoUrl);
+            }
+          },
+        },
+      });
+    };
+
+    const loadYouTubeAPI = () => {
+      if (!window.YT) {
+        const script = document.createElement("script");
+        script.src = "https://www.youtube.com/iframe_api";
+        script.async = true;
+        script.onload = () => {
+          window.onYouTubeIframeAPIReady = setupPlayer;
+        };
+        document.body.appendChild(script);
+      } else {
+        setupPlayer();
+      }
+    };
+
+    loadYouTubeAPI();
+  }, []);
+
   return (
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-2 md:p-4 z-50">
       <div className="bg-white rounded-2xl w-full max-w-6xl p-4 md:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
@@ -78,8 +130,9 @@ const AssistantDescriptionModal = ({
             <div className="rounded-xl md:rounded-2xl overflow-hidden shadow-lg md:shadow-2xl">
               <div className="relative w-full pt-[56.25%]">
                 <iframe
+                  ref={iframeRef}
                   className="absolute inset-0 w-full h-full"
-                  src="https://www.youtube.com/embed/_HOGoZiov6k"
+                  src="https://www.youtube.com/embed/_HOGoZiov6k?enablejsapi=1"
                   title="Property Video Tour"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
