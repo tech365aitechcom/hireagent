@@ -122,13 +122,13 @@ const TryAssistantComp = () => {
 
                   {/* Footer section - fixed height */}
                   <div className="flex items-center justify-between pt-4 border-t border-gray-100 mt-6">
-                    <div className="flex items-baseline">
+                    {/* <div className="flex items-baseline">
                       <span className="text-sm text-gray-500">From</span>
                       <span className="text-2xl font-bold text-gray-900 ml-2">
                         $20
                       </span>
                       <span className="text-gray-500 ml-1">/mo</span>
-                    </div>
+                    </div> */}
                     <button
                       onClick={() =>
                         (window.location.href = `/real-estate?aiId=${id}#try-assistant`)
