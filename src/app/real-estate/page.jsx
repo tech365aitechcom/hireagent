@@ -9,6 +9,10 @@ import ROI from "../sections/ROI";
 import axios from "axios";
 import { useEffect } from "react";
 import { baseURL } from "../urls";
+import ComparisonSection from "../sections/ComparisonSection";
+import FeaturesShowcase from "../sections/FeaturesShowcase";
+import TestimonialsSection from "../sections/TestimonialsSection";
+import CalendlySectio from "../sections/CalendlySectio";
 
 const page = () => {
   useEffect(() => {
@@ -30,14 +34,18 @@ const page = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white">
-      <AssistantHero />
+    <div className="">
+      {/* <AssistantHero />
       <ROI />
       <WithWithout />
       <Features />
       <TryAssistant />
       <Testimonial />
-      <GetStarted />
+      <GetStarted /> */}
+      <CalendlySectio />
+      <ComparisonSection />
+      <FeaturesShowcase />
+      <TestimonialsSection />
     </div>
   );
 };
