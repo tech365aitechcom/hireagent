@@ -35,17 +35,17 @@ const page = () => {
 
   return (
     <div className="">
-      {/* <AssistantHero />
+      <AssistantHero />
       <ROI />
       <WithWithout />
       <Features />
       <TryAssistant />
       <Testimonial />
-      <GetStarted /> */}
-      <CalendlySectio />
+      <GetStarted />
+      {/* <CalendlySectio />
       <ComparisonSection />
       <FeaturesShowcase />
-      <TestimonialsSection />
+      <TestimonialsSection /> */}
     </div>
   );
 };

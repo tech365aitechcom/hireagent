@@ -50,6 +50,7 @@ const NavComp = () => {
 
   const navigationItems = [
     { name: "Home", path: "/" },
+    { name: "Schedule Meeting", path: "/schedule-meeting" },
     {
       name: "Assistants",
       path: "/real-estate",
