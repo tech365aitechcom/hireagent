@@ -46,53 +46,84 @@ const ComparisonSection = () => {
   ];
 
   return (
-    <div className="w-full bg-gradient-to-b from-blue-50 to-white py-16">
+    <div className="w-full bg-gradient-to-b from-blue-50 to-white py-8 md:py-16">
       <div className="max-w-6xl mx-auto px-4">
-        <h1 className="text-4xl md:text-5xl font-bold text-indigo-900 text-center mb-6">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-indigo-900 text-center mb-4 md:mb-6">
           Your AI-Powered Real Estate Partner
         </h1>
-        <p className="text-center text-lg text-indigo-700 max-w-3xl mx-auto mb-12 leading-relaxed">
+        <p className="text-center text-base md:text-lg text-indigo-700 max-w-3xl mx-auto mb-8 md:mb-12 leading-relaxed px-4">
           Transform how you handle property inquiries, scheduling, and client
           follow-ups with our intelligent real estate assistant. Built
-          specifically for real estate professionals, by real estate
-          experts.Transform how you handle property inquiries, scheduling, and
-          client follow-ups with our intelligent real estate assistant. Built
           specifically for real estate professionals, by real estate experts.
         </p>
 
         <div className="overflow-hidden rounded-2xl border border-indigo-100 shadow-xl bg-white">
-          <div className="grid grid-cols-3 bg-gradient-to-r from-indigo-900 to-blue-900 text-white">
-            <div className="p-6 font-semibold text-lg">Feature</div>
-            <div className="p-6 font-semibold text-lg border-l border-indigo-700">
+          <div className="hidden md:grid md:grid-cols-3 bg-gradient-to-r from-indigo-900 to-blue-900 text-white">
+            <div className="p-4 md:p-6 font-semibold text-base md:text-lg">
+              Feature
+            </div>
+            <div className="p-4 md:p-6 font-semibold text-base md:text-lg border-l border-indigo-700">
               HireAgent
             </div>
-            <div className="p-6 font-semibold text-lg border-l border-indigo-700">
+            <div className="p-4 md:p-6 font-semibold text-base md:text-lg border-l border-indigo-700">
               Traditional Call Services
             </div>
           </div>
 
           {features.map((feature, index) => (
-            <div
-              key={index}
-              className="grid grid-cols-3 border-t border-indigo-100 hover:bg-blue-50 transition-colors duration-200"
-            >
-              <div className="p-6 font-semibold text-indigo-900">
-                {feature.name}
-              </div>
-              <div className="p-6 border-l border-indigo-100">
-                <div className="flex items-center">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-3">
-                    <Check className="w-5 h-5 text-blue-600" />
+            <div key={index} className="border-t border-indigo-100">
+              <div className="md:hidden">
+                <div className="p-4 font-semibold text-indigo-900 bg-indigo-50">
+                  {feature.name}
+                </div>
+                <div className="p-4 border-t border-indigo-100">
+                  <div className="flex items-start mb-4">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-3 mt-1">
+                      <Check className="w-5 h-5 text-blue-600" />
+                    </div>
+                    <div>
+                      <div className="font-semibold text-blue-900 mb-1">
+                        HireAgent
+                      </div>
+                      <span className="text-blue-900">{feature.hireAgent}</span>
+                    </div>
                   </div>
-                  <span className="text-blue-900">{feature.hireAgent}</span>
+                  <div className="flex items-start">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center mr-3 mt-1">
+                      <X className="w-5 h-5 text-indigo-400" />
+                    </div>
+                    <div>
+                      <div className="font-semibold text-indigo-900 mb-1">
+                        Traditional
+                      </div>
+                      <span className="text-indigo-600">
+                        {feature.traditional}
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className="p-6 border-l border-indigo-100">
-                <div className="flex items-center">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center mr-3">
-                    <X className="w-5 h-5 text-indigo-400" />
+              <div className="hidden md:grid md:grid-cols-3 hover:bg-blue-50 transition-colors duration-200">
+                <div className="p-4 md:p-6 font-semibold text-indigo-900">
+                  {feature.name}
+                </div>
+                <div className="p-4 md:p-6 border-l border-indigo-100">
+                  <div className="flex items-center">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+                      <Check className="w-5 h-5 text-blue-600" />
+                    </div>
+                    <span className="text-blue-900">{feature.hireAgent}</span>
                   </div>
-                  <span className="text-indigo-600">{feature.traditional}</span>
+                </div>
+                <div className="p-4 md:p-6 border-l border-indigo-100">
+                  <div className="flex items-center">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center mr-3">
+                      <X className="w-5 h-5 text-indigo-400" />
+                    </div>
+                    <span className="text-indigo-600">
+                      {feature.traditional}
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
