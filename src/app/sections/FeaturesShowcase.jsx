@@ -1,5 +1,5 @@
 import React from "react";
-import { Shield, Target, TrendingUp, Zap } from "lucide-react";
+import { Check, Shield, Target, TrendingUp, Zap } from "lucide-react";
 
 const FeatureBackground = () => (
   <svg
@@ -38,19 +38,28 @@ const FeaturesShowcase = () => {
               <div className="absolute -left-4 -top-4 w-12 h-12 bg-blue-100 rounded-lg opacity-50"></div>
               <Shield className="w-12 h-12 text-blue-600 mb-6" />
               <h2 className="text-3xl font-bold text-indigo-900 mb-6">
-                Top Rated Support
+                Smart Property Matching
               </h2>
-              <p className="text-lg text-indigo-700 leading-relaxed">
-                Our dedicated team is available around the clock to ensure your
-                success. Whether you need assistance with integration, campaign
-                optimization, or technical support, we provide timely,
-                personalized assistance to address your unique needs. Access our
-                comprehensive knowledge base, including help articles, white
-                papers, and educational videos, to equip yourself with the
-                know-how to fully leverage{" "}
-                <span className="text-blue-600 font-semibold">HireAgent</span>{" "}
-                capabilities.
-              </p>
+              <div className="text-lg text-indigo-700 leading-relaxed">
+                <ul className="space-y-2">
+                  <li className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-green-600" />
+                    <span>Capture detailed property preferences</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-green-600" />
+                    <span>Instant property recommendations</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-green-600" />
+                    <span>Detailed property information sharing</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-green-600" />
+                    <span>Real-time availability updates</span>
+                  </li>
+                </ul>
+              </div>
             </div>
             <div className="order-1 md:order-2 relative">
               <div className="absolute inset-0 bg-indigo-900 rounded-2xl rotate-3 opacity-10"></div>
@@ -75,16 +84,28 @@ const FeaturesShowcase = () => {
               <div className="absolute -left-4 -top-4 w-12 h-12 bg-blue-100 rounded-lg opacity-50"></div>
               <Target className="w-12 h-12 text-blue-600 mb-6" />
               <h2 className="text-3xl font-bold text-indigo-900 mb-6">
-                Marketing Excellence
+                Seamless Scheduling
               </h2>
-              <p className="text-lg text-indigo-700 leading-relaxed">
-                Enhance your marketing efforts with{" "}
-                <span className="text-blue-600 font-semibold">HireAgent</span>'s
-                advanced AI callers that engage customers in human-like
-                conversations. From initial contact to conversion, we leverage
-                AI for automation, personalization, and data-driven insights to
-                deliver exceptional customer experiences.
-              </p>
+              <div className="text-lg text-indigo-700 leading-relaxed">
+                <ul className="space-y-2">
+                  <li className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-green-600" />
+                    <span>Google Calendar integration</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-green-600" />
+                    <span>Real-time availability checks</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-green-600" />
+                    <span>Automated appointment confirmation</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-green-600" />
+                    <span>Reminder system for viewings</span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
 
@@ -93,16 +114,28 @@ const FeaturesShowcase = () => {
               <div className="absolute -left-4 -top-4 w-12 h-12 bg-blue-100 rounded-lg opacity-50"></div>
               <TrendingUp className="w-12 h-12 text-blue-600 mb-6" />
               <h2 className="text-3xl font-bold text-indigo-900 mb-6">
-                Sales Enhancement
+                Multi-Channel Communication
               </h2>
-              <p className="text-lg text-indigo-700 leading-relaxed">
-                Boost your sales performance with AI-powered interactions that
-                understand and respond to customer needs.{" "}
-                <span className="text-blue-600 font-semibold">HireAgent</span>'s
-                intelligent system adapts to customer behavior, providing
-                personalized communication that drives conversions and fosters
-                loyalty.
-              </p>
+              <div className="text-lg text-indigo-700 leading-relaxed">
+                <ul className="space-y-2">
+                  <li className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-green-600" />
+                    <span>Automated email follow-ups</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-green-600" />
+                    <span>SMS confirmations and reminders</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-green-600" />
+                    <span>Lead capture in CRM/Google Sheets</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-green-600" />
+                    <span>Personalized communication</span>
+                  </li>
+                </ul>
+              </div>
             </div>
             <div className="order-1 md:order-2 relative">
               <div className="absolute inset-0 bg-indigo-900 rounded-2xl rotate-3 opacity-10"></div>
@@ -111,32 +144,6 @@ const FeaturesShowcase = () => {
                 alt="Sales Dashboard"
                 className="relative rounded-2xl shadow-2xl w-full transform transition-transform duration-500 hover:scale-105"
               />
-            </div>
-          </div>
-
-          <div className="relative grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative">
-              <div className="absolute inset-0 bg-blue-900 rounded-2xl -rotate-3 opacity-10"></div>
-              <img
-                src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?q=80&w=2006&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt="Operations Dashboard"
-                className="relative rounded-2xl shadow-2xl w-full transform transition-transform duration-500 hover:scale-105"
-              />
-            </div>
-            <div className="relative z-10">
-              <div className="absolute -left-4 -top-4 w-12 h-12 bg-blue-100 rounded-lg opacity-50"></div>
-              <Zap className="w-12 h-12 text-blue-600 mb-6" />
-              <h2 className="text-3xl font-bold text-indigo-900 mb-6">
-                Operational Efficiency
-              </h2>
-              <p className="text-lg text-indigo-700 leading-relaxed">
-                Streamline your operations with{" "}
-                <span className="text-blue-600 font-semibold">HireAgent</span>'s
-                scalable and cost-effective solutions. Our AI callers operate
-                24/7, handling thousands of calls simultaneously, allowing your
-                team to focus on strategic initiatives while we manage customer
-                interactions seamlessly.
-              </p>
             </div>
           </div>
         </div>

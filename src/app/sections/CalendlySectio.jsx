@@ -3,7 +3,6 @@ import React from "react";
 const CalendlySection = () => {
   return (
     <div className="h-screen relative mt-20 bg-gray-50">
-      {/* Decorative Background */}
       <div className="absolute bottom-0 left-0 right-0 h-[320px] w-full">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -29,19 +28,16 @@ const CalendlySection = () => {
         </svg>
       </div>
 
-      {/* Content */}
       <div className="relative h-full flex flex-col items-center justify-center ">
-        {/* Heading Section */}
         <div className="w-full text-center px-6">
-          <h1 className="text-4xl font-extrabold text-indigo-700 mb-4">
-            Welcome to HireAgent
+          <h1 className="text-5xl font-extrabold text-indigo-700 mb-4">
+            Transform Your Real Estate Business with <br /> AI-Powered
+            Assistance
           </h1>
-          <p className="text-lg text-gray-600 mb-6">
-            Schedule your appointment today and let’s connect!
+          <p className="text-xl font-semibold text-blue-600 mb-6">
+            Revolutionize Property Matching & Client Engagement
           </p>
         </div>
-
-        {/* Calendly Embed */}
         <div className="relative flex-1 w-full ">
           <iframe
             src="https://calendly.com/hireagent/30min?back=1&month=2025-01"
