@@ -4,34 +4,44 @@ import { Check, X } from "lucide-react";
 const ComparisonSection = () => {
   const features = [
     {
-      name: "Human-Like AI Conversations",
-      callSpot: "Engages with natural, empathetic communication",
-      traditional: "Often robotic or overly scripted interactions",
+      name: "24/7 Customer Support",
+      hireAgent: "Instant responses to inquiries, anytime",
+      traditional: "Limited to office hours",
     },
     {
-      name: "24/7 Availability",
-      callSpot: "Operates round the clock without interruptions",
-      traditional: "Limited by working hours and agent availability",
+      name: "AI-Powered Matching",
+      hireAgent: "Tailored matches based on client preferences",
+      traditional: "Manual search required",
     },
     {
-      name: "Scalability",
-      callSpot: "Effortlessly handles thousands of calls simultaneously",
-      traditional: "Requires significant hiring and resources for scaling",
+      name: "Automated Scheduling",
+      hireAgent: "Integrated calendar with instant booking capabilities",
+      traditional: "Time-consuming coordination",
     },
     {
-      name: "Cost Efficiency",
-      callSpot: "Reduces costs with AI-driven solutions",
-      traditional: "High overhead and operational expenses",
+      name: "Multi-Channel Follow-Ups",
+      hireAgent: "Seamless follow-ups via email and SMS",
+      traditional: "Inconsistent or manual processes",
     },
     {
-      name: "Personalization",
-      callSpot: "Tailored interactions based on customer data",
-      traditional: "Limited personalization capabilities",
+      name: "Advanced Lead Tracking",
+      hireAgent: "Smart lead capture with detailed preference insights",
+      traditional: "Basic data collection",
     },
     {
-      name: "Real-Time Insights",
-      callSpot: "Provides actionable analytics and feedback",
-      traditional: "Limited tracking and reporting features",
+      name: "Unlimited Scalability",
+      hireAgent: "Handles simultaneous inquiries without delays",
+      traditional: "Restricted by staff availability",
+    },
+    {
+      name: "Cost-Effective Operations",
+      hireAgent: "Predictable pricing with no extra costs",
+      traditional: "Expensive with high staffing needs",
+    },
+    {
+      name: "Integrated Data Management",
+      hireAgent: "Automatic sync with CRM and spreadsheets",
+      traditional: "Manual data input required",
     },
   ];
 
@@ -39,14 +49,15 @@ const ComparisonSection = () => {
     <div className="w-full bg-gradient-to-b from-blue-50 to-white py-16">
       <div className="max-w-6xl mx-auto px-4">
         <h1 className="text-4xl md:text-5xl font-bold text-indigo-900 text-center mb-6">
-          Compare White Label AI Solutions
+          Your AI-Powered Real Estate Partner
         </h1>
         <p className="text-center text-lg text-indigo-700 max-w-3xl mx-auto mb-12 leading-relaxed">
-          Your clients rely on you to provide innovative solutions, and{" "}
-          <span className="font-semibold text-blue-600">HireAgent</span>{" "}
-          delivers exactly that. With flexible, AI-powered solutions, built for
-          agencies and priced to scale, you can revolutionize customer
-          interactions and elevate your business growth.
+          Transform how you handle property inquiries, scheduling, and client
+          follow-ups with our intelligent real estate assistant. Built
+          specifically for real estate professionals, by real estate
+          experts.Transform how you handle property inquiries, scheduling, and
+          client follow-ups with our intelligent real estate assistant. Built
+          specifically for real estate professionals, by real estate experts.
         </p>
 
         <div className="overflow-hidden rounded-2xl border border-indigo-100 shadow-xl bg-white">
@@ -73,7 +84,7 @@ const ComparisonSection = () => {
                   <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-3">
                     <Check className="w-5 h-5 text-blue-600" />
                   </div>
-                  <span className="text-blue-900">{feature.callSpot}</span>
+                  <span className="text-blue-900">{feature.hireAgent}</span>
                 </div>
               </div>
               <div className="p-6 border-l border-indigo-100">
