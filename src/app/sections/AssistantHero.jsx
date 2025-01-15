@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import { ArrowDown, Award, CheckCircle, Play } from "lucide-react";
+import { ArrowDown, Award, Calendar, CheckCircle, Play } from "lucide-react";
+import Link from "next/link";
 
 const AssistantHero = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -62,6 +63,15 @@ const AssistantHero = () => {
                 Watch 2-Min Demo
                 <Play className="w-4 h-4 md:w-5 md:h-5 ml-2" />
               </button> */}
+              <Link
+                href={"/schedule-meeting"}
+                className="group px-6 py-3 bg-white text-gray-900 rounded-xl border-2 border-gray-200 
+                      hover:border-indigo-600 transition-colors"
+              >
+                <span className="flex items-center font-medium">
+                  Schedule Demo <Calendar className="ml-2 w-5 h-5" />
+                </span>
+              </Link>
             </div>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 text-sm text-gray-600">
               <div className="flex items-center">
