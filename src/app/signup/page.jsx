@@ -75,7 +75,7 @@ const page = () => {
 
       localStorage.setItem("authToken", data.authToken);
       localStorage.setItem("userProfile", JSON.stringify(data.profile));
-      router.push("/login");
+      router.push("/schedule-meeting?loginSuccess=true");
     } catch (err) {
       setError(err.message);
     } finally {

@@ -70,7 +70,6 @@ export const ScheduleMeetingModal = ({ isOpen, onClose, bot, mode, user }) => {
       toast.error("Failed to submit. Please try again.");
     }
   };
-  console.log(formData, "ar");
 
   if (!isOpen) return null;
 
