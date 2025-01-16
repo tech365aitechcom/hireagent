@@ -1,25 +1,5 @@
 import React from "react";
-import { Check, Shield, Target, TrendingUp, Zap } from "lucide-react";
-
-const FeatureBackground = () => (
-  <svg
-    className="absolute inset-0 w-full h-full opacity-5"
-    viewBox="0 0 100 100"
-    preserveAspectRatio="none"
-  >
-    <defs>
-      <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
-        <path
-          d="M 10 0 L 0 0 0 10"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="0.5"
-        />
-      </pattern>
-    </defs>
-    <rect width="100" height="100" fill="url(#grid)" />
-  </svg>
-);
+import { Check, Home, Calendar, MessageCircle } from "lucide-react";
 
 const FeaturesShowcase = () => {
   return (
@@ -36,7 +16,7 @@ const FeaturesShowcase = () => {
           <div className="relative grid md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1 relative z-10">
               <div className="absolute -left-4 -top-4 w-12 h-12 bg-blue-100 rounded-lg opacity-50"></div>
-              <Shield className="w-12 h-12 text-blue-600 mb-6" />
+              <Home className="w-12 h-12 text-blue-600 mb-6" />
               <h2 className="text-3xl font-bold text-indigo-900 mb-6">
                 Smart Property Matching
               </h2>
@@ -61,10 +41,10 @@ const FeaturesShowcase = () => {
                 </ul>
               </div>
             </div>
-            <div className="order-1 md:order-2 relative">
-              <div className="absolute inset-0 bg-indigo-900 rounded-2xl rotate-3 opacity-10"></div>
+            <div className="order-1 md:order-2 relative w-full max-w-sm mx-auto group">
+              <div className="absolute inset-0 bg-indigo-900 rounded-2xl rotate-3 opacity-10 transition-transform duration-500 group-hover:rotate-180"></div>
               <img
-                src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?q=80&w=2006&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src="/property.jpg"
                 alt="Support Dashboard"
                 className="relative rounded-2xl shadow-2xl w-full transform transition-transform duration-500 hover:scale-105"
               />
@@ -72,17 +52,17 @@ const FeaturesShowcase = () => {
           </div>
 
           <div className="relative grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative">
-              <div className="absolute inset-0 bg-blue-900 rounded-2xl -rotate-3 opacity-10"></div>
+            <div className="relative w-full max-w-sm mx-auto group">
+              <div className="absolute inset-0 bg-blue-900 rounded-2xl -rotate-3 opacity-10 transition-transform duration-500 group-hover:rotate-180"></div>
               <img
-                src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?q=80&w=2006&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src="/schedule.jpg"
                 alt="Marketing Dashboard"
                 className="relative rounded-2xl shadow-2xl w-full transform transition-transform duration-500 hover:scale-105"
               />
             </div>
             <div className="relative z-10">
               <div className="absolute -left-4 -top-4 w-12 h-12 bg-blue-100 rounded-lg opacity-50"></div>
-              <Target className="w-12 h-12 text-blue-600 mb-6" />
+              <Calendar className="w-12 h-12 text-blue-600 mb-6" />
               <h2 className="text-3xl font-bold text-indigo-900 mb-6">
                 Seamless Scheduling
               </h2>
@@ -112,7 +92,7 @@ const FeaturesShowcase = () => {
           <div className="relative grid md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1 relative z-10">
               <div className="absolute -left-4 -top-4 w-12 h-12 bg-blue-100 rounded-lg opacity-50"></div>
-              <TrendingUp className="w-12 h-12 text-blue-600 mb-6" />
+              <MessageCircle className="w-12 h-12 text-blue-600 mb-6" />
               <h2 className="text-3xl font-bold text-indigo-900 mb-6">
                 Multi-Channel Communication
               </h2>
@@ -137,10 +117,10 @@ const FeaturesShowcase = () => {
                 </ul>
               </div>
             </div>
-            <div className="order-1 md:order-2 relative">
-              <div className="absolute inset-0 bg-indigo-900 rounded-2xl rotate-3 opacity-10"></div>
+            <div className="order-1 md:order-2 relative w-full max-w-sm mx-auto group">
+              <div className="absolute inset-0 bg-indigo-900 rounded-2xl rotate-3 opacity-10 transition-transform duration-500 group-hover:rotate-180"></div>
               <img
-                src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?q=80&w=2006&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src="/comms.jpg"
                 alt="Sales Dashboard"
                 className="relative rounded-2xl shadow-2xl w-full transform transition-transform duration-500 hover:scale-105"
               />
