@@ -4,7 +4,7 @@ import { Play } from "lucide-react";
 
 const CalendlySection = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
 
   return (
     <div className="min-h-screen bg-[#FBFCFD] flex flex-col lg:flex-row items-center max-md:mt-20 md:mt-8">
