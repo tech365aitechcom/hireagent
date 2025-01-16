@@ -2,7 +2,7 @@ import React from "react";
 
 const CalendlySection = () => {
   return (
-    <div className="h-[100dvh] bg-[#FBFCFD] max-md:mt-10 flex flex-col">
+    <div className="h-[100dvh] bg-[#FBFCFD] max-md:mt-20 mt-10 flex flex-col">
       <div className="w-full text-center px-4 md:px-6 py-4 md:py-6">
         <h1 className="text-2xl md:text-4xl lg:text-5xl font-extrabold text-indigo-700 mb-2 md:mb-4">
           <span className="block md:inline">
