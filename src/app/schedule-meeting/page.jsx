@@ -10,7 +10,7 @@ const CalendlyEmbed = () => {
   return (
     <div className="w-full h-screen md:pt-10 sm:pt-20">
       <CalendlySection />
-      <TryAssistant2 />
+      {/* <TryAssistant2 /> */}
       <VideoPlayer />
       <ComparisonSection />
       <FeaturesShowcase />
