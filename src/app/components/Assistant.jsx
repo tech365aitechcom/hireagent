@@ -8,7 +8,7 @@ import { RealTimeAudioPlayer } from "../services/RealTimeAudioPlayer";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const Assistant = ({ id }) => {
+const Assistant = ({ id, authToken }) => {
   const router = useRouter();
   const websocketRef = useRef();
   const soundBufferRef = useRef(null);
@@ -39,6 +39,12 @@ const Assistant = ({ id }) => {
       setUser({});
     }
   }, []);
+
+  useEffect(() => {
+    if (!authToken && duration >= 60) {
+      router.push(`/login?id=${id}`);
+    }
+  }, [duration, authToken]);
 
   useEffect(() => {
     if (websocketRef.current?.readyState === WebSocket.OPEN) {
