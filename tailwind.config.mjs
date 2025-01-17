@@ -7,6 +7,12 @@ export default {
   ],
   theme: {
     extend: {
+      keyframes: {
+        wave: {
+          "0%, 100%": { transform: "scaleY(1)" },
+          "50%": { transform: "scaleY(1.5)" },
+        },
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
