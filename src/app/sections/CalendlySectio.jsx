@@ -3,6 +3,7 @@ import { AudioLinesIcon, Calendar, CheckCircle, X } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import React, { Suspense, useEffect, useState } from "react";
 import AssistantDescriptionModal2 from "../components/AssistantDescriptionModal2";
+import Assistant from "../components/Assistant";
 
 const aiBot = {
   name: "PropertyMate: Your Personalized Assistant for Scheduling, Follow-Ups, and Property Matchmaking.",
