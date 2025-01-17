@@ -216,12 +216,12 @@ const CalendlyComp = () => {
       {isScheduleModalOpen && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
           <div className="relative w-full max-w-5xl h-[85vh] bg-white rounded-2xl shadow-2xl">
-            <div className="absolute top-4 right-4">
+            <div className="absolute -top-6 -right-4 z-10">
               <button
                 onClick={() => setScheduleModalOpen(false)}
-                className="p-2 rounded-full hover:bg-gray-100 transition-colors duration-200"
+                className="p-2 bg-gray-900 hover:bg-gray-700 rounded-full transition-colors duration-200 shadow-lg"
               >
-                <X className="w-6 h-6 text-gray-400 hover:text-gray-600" />
+                <X className="w-6 h-6 text-white" />
               </button>
             </div>
             <iframe
