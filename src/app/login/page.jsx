@@ -39,8 +39,8 @@ const LoginComp = () => {
         localStorage.setItem("userProfile", JSON.stringify(userProfile));
         router.push(
           !aiId
-            ? `/real-estate?loginSuccess=true`
-            : `/real-estate?loginSuccess=true&aiId=${aiId}#try-assistant`
+            ? `/schedule-meeting?loginSuccess=true`
+            : `/schedule-meeting?loginSuccess=true&aiId=${aiId}#try-assistant`
         );
       }
     } catch (err) {
@@ -68,8 +68,8 @@ const LoginComp = () => {
       localStorage.setItem("userProfile", JSON.stringify(data.profile));
       router.push(
         !aiId
-          ? `/real-estate?loginSuccess=true`
-          : `/real-estate?loginSuccess=true&aiId=${aiId}#try-assistant`
+          ? `/schedule-meeting?loginSuccess=true`
+          : `/schedule-meeting?loginSuccess=true&aiId=${aiId}#try-assistant`
       );
     } catch (err) {
       setError(err.message);
@@ -229,7 +229,7 @@ const LoginComp = () => {
         </p>
         <p className="text-sm text-gray-500 mt-5 text-center">
           <Link
-            href="/real-estate"
+            href="/schedule-meeting"
             className="text-blue-600 hover:underline font-medium"
           >
             Go Back
