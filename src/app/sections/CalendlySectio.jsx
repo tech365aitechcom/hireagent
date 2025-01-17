@@ -1,5 +1,5 @@
 "use client";
-import { Calendar, CheckCircle, X } from "lucide-react";
+import { AudioLinesIcon, Calendar, CheckCircle, X } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import React, { Suspense, useEffect, useState } from "react";
 import AssistantDescriptionModal2 from "../components/AssistantDescriptionModal2";
@@ -157,7 +157,7 @@ const CalendlyComp = () => {
   }, []);
 
   return (
-    <div className="bg-gradient-to-b from-white to-indigo-50 flex flex-col lg:flex-row items-center justify-center py-16">
+    <div className="bg-gradient-to-b from-white to-indigo-50 flex flex-col lg:flex-row items-center justify-center py-16 max-md:mt-6">
       <div className="w-full max-w-6xl px-4 md:px-6 lg:px-8 xl:px-12">
         <div className="space-y-8 text-center">
           <div className="space-y-4">
@@ -171,9 +171,10 @@ const CalendlyComp = () => {
           <div className="flex justify-center">
             <button
               onClick={() => setActiveCard(aiBot.id)}
-              className="w-fit px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center justify-center sm:justify-start"
+              className="gap-2 font-medium text-lg w-fit px-8 py-4 bg-blue-600 text-white rounded-lg hover:text-blue-600 border-2 border-blue-600 hover:bg-white flex items-center justify-center sm:justify-start transition-colors"
             >
               Try AI Assistant for free
+              <AudioLinesIcon className="animate-[wave_1s_ease-in-out_infinite] hover:animate-[wave_1s_ease-in-out_infinite]" />
             </button>
           </div>
           {scheduleSuccess ? (
