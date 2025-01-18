@@ -1,9 +1,4 @@
-"use client";
-import React, { useState } from "react";
-
 const VideoPlayer = () => {
-  const [isLoading, setIsLoading] = useState(true);
-
   return (
     <div className="bg-blue-600 py-16 px-4">
       <div className="max-w-7xl mx-auto">
@@ -15,14 +10,7 @@ const VideoPlayer = () => {
             Watch how our AI Assistant transforms your workflow
           </p>
         </div>
-        <video
-          className={`max-w-4xl mx-auto h-full object-cover ${
-            isLoading ? "hidden" : "block"
-          }`}
-          controls
-          onLoadedData={() => setIsLoading(false)}
-          onError={() => setIsLoading(false)}
-        >
+        <video className={`max-w-4xl mx-auto h-full object-cover`} controls>
           <source src="/dummy.mp4" type="video/mp4" />
           <source src="/dummy.webm" type="video/webm" />
           Your browser does not support the video tag.
