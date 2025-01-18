@@ -15,18 +15,18 @@ const VideoPlayer = () => {
             Watch how our AI Assistant transforms your workflow
           </p>
         </div>
-        <div className="max-w-4xl mx-auto">
-          <div className="aspect-video bg-gradient-to-r from-blue-700 to-blue-600 rounded-xl overflow-hidden shadow-2xl">
-            {isLoading && (
-              <div className="w-full h-full animate-pulse bg-blue-700/50" />
-            )}
-            <video className={`w-full h-full object-cover`} controls>
-              <source src="/dummy.mp4" type="video/mp4" />
-              <source src="/dummy.webm" type="video/webm" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </div>
+        <video
+          className={`max-w-4xl mx-auto h-full object-cover ${
+            isLoading ? "hidden" : "block"
+          }`}
+          controls
+          onLoadedData={() => setIsLoading(false)}
+          onError={() => setIsLoading(false)}
+        >
+          <source src="/dummy.mp4" type="video/mp4" />
+          <source src="/dummy.webm" type="video/webm" />
+          Your browser does not support the video tag.
+        </video>
       </div>
     </div>
   );
