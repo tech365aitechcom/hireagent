@@ -5,6 +5,7 @@ import FeaturesShowcase from "../sections/FeaturesShowcase";
 import TestimonialsSection from "../sections/TestimonialsSection";
 import VideoPlayer from "../sections/VideoPlayer";
 import TryAssistant2 from "../sections/TryAssistant2";
+import GetStarted from "../sections/GetStarted";
 
 const CalendlyEmbed = () => {
   return (
@@ -15,6 +16,7 @@ const CalendlyEmbed = () => {
       <ComparisonSection />
       <FeaturesShowcase />
       <TestimonialsSection />
+      <GetStarted />
     </div>
   );
 };
