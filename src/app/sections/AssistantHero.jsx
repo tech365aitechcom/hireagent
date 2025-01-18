@@ -97,20 +97,7 @@ const AssistantHero = () => {
               <h3 className="font-semibold">See It In Action</h3>
             </div>
 
-            {isLoading && (
-              <div className="bg-gray-50 rounded-lg p-4 mb-4">
-                <div className="animate-pulse space-y-3">
-                  <div className="h-4 bg-gray-200 rounded w-3/4"></div>
-                  <div className="h-4 bg-gray-200 rounded w-1/2"></div>
-                </div>
-              </div>
-            )}
-
-            <div
-              className={`rounded-lg overflow-hidden ${
-                isLoading ? "hidden" : "block"
-              }`}
-            >
+            <div className="rounded-lg overflow-hidden ">
               <video
                 className="w-full h-auto"
                 controls
@@ -186,9 +173,7 @@ const AssistantHero = () => {
               )}
 
               <video
-                className={`aspect-video w-full object-cover ${
-                  isLoading ? "hidden" : "block"
-                }`}
+                className="aspect-video w-full object-cover "
                 controls
                 onLoadedData={() => setIsLoading(false)}
                 onError={() => setIsLoading(false)}
