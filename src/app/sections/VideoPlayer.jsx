@@ -20,15 +20,9 @@ const VideoPlayer = () => {
             {isLoading && (
               <div className="w-full h-full animate-pulse bg-blue-700/50" />
             )}
-            <video
-              className={`w-full h-full object-cover ${
-                isLoading ? "hidden" : "block"
-              }`}
-              controls
-              onLoadedData={() => setIsLoading(false)}
-              onError={() => setIsLoading(false)}
-            >
+            <video className={`w-full h-full object-cover`} controls>
               <source src="/dummy.mp4" type="video/mp4" />
+              <source src="/dummy.webm" type="video/webm" />
               Your browser does not support the video tag.
             </video>
           </div>

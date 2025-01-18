@@ -119,6 +119,7 @@ const AssistantHero = () => {
                 onPlay={handleVideoPlay}
               >
                 <source src="/dummy.mp4" type="video/mp4" />
+                <source src="/dummy.webm" type="video/webm" />
                 Your browser does not support the video tag.
               </video>
             </div>
@@ -193,6 +194,7 @@ const AssistantHero = () => {
                 onError={() => setIsLoading(false)}
               >
                 <source src="/dummy.mp4" type="video/mp4" />
+                <source src="/dummy.webm" type="video/webm" />
                 Your browser does not support the video tag.
               </video>
             </div>
