@@ -10,7 +10,10 @@ const VideoPlayer = () => {
             Watch how our AI Assistant transforms your workflow
           </p>
         </div>
-        <video className={`max-w-4xl mx-auto h-full object-cover`} controls>
+        <video
+          className="max-w-4xl mx-auto h-full object-cover rounded-lg"
+          controls
+        >
           <source src="/dummy.mp4" type="video/mp4" />
           <source src="/dummy.webm" type="video/webm" />
           Your browser does not support the video tag.
