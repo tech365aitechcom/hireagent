@@ -11,7 +11,7 @@ const VideoPlayer = () => {
           </p>
         </div>
         <video
-          className="max-w-4xl mx-auto h-full object-cover rounded-lg"
+          className="lg:max-w-4xl w-full mx-auto h-full object-cover rounded-lg"
           controls
         >
           <source src="/dummy.mp4" type="video/mp4" />
