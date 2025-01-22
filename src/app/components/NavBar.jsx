@@ -49,7 +49,7 @@ const NavComp = () => {
   };
 
   const navigationItems = [
-    { name: "Home", path: "/" },
+    { name: "Home", path: "/new-home" },
     { name: "Schedule Meeting", path: "/schedule-meeting" },
     {
       name: "Assistants",
@@ -66,6 +66,14 @@ const NavComp = () => {
   // Determine background color based on scroll position and mounted state
   const navBackground =
     mounted && isScrolled ? "bg-white shadow-lg" : "bg-transparent";
+
+  if (
+    pathName === "/new-home" ||
+    pathName === "/all-agents" ||
+    pathName === "/ai-details"
+  ) {
+    return null;
+  }
 
   return (
     <nav
