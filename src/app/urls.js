@@ -1,5 +1,5 @@
-export const baseURL = "https://configstaging.trainright.fit";
-// export const baseURL = "http://localhost:7009";
+// export const baseURL = "https://configstaging.trainright.fit";
+export const baseURL = "http://localhost:7009";
 export const ASSISTANT_SERVER_URL =
   "https://voicestaging.trainright.fit/play-ai";
 export const GOOGLE_CLIENT_ID =

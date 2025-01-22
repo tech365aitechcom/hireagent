@@ -17,6 +17,7 @@ const page = () => {
   // Goggle login related function start here
   useEffect(() => {
     const unSubscribe = subscribeToAuthState((currentUser) => {
+      console.log("current user", currentUser)
       setUser(currentUser);
       setLoading(false);
     });
@@ -34,7 +35,26 @@ const page = () => {
         // Extracting necessary user details
         const { accessToken } = result.user;
         const { displayName, email, phoneNumber, photoURL } = result.user;
-  
+
+         // Create the user data object to send to the backend
+      const userData = {
+        name: displayName,
+        email,
+        phoneNumber: phoneNumber || null, // Handle cases where phoneNumber might be null
+        photo: photoURL || null, // Handle cases where photoURL might be null
+        roleId: "674ebf13a09352dfb54b2942", // Mandatory role ID
+      };
+
+       // Send user data to the backend
+       const res = await fetch(`${baseURL}/api/users/googleUser`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(userData),
+      });
+
+      const data = await res.json();
+      console.log('data from be', data)
+      if (!res.ok) throw new Error(data.message || "Failed to login");
         // Storing accessToken in localStorage
         localStorage.setItem("authToken", accessToken);
   
@@ -42,7 +62,6 @@ const page = () => {
         const userProfile = { displayName, email, phoneNumber, photoURL };
         localStorage.setItem("userProfile", JSON.stringify(userProfile));
         router.push("/assistants?isModalTrue=true#try-assistant");
-         
         
       }
     } catch (err) {
@@ -50,8 +69,8 @@ const page = () => {
     }
   };
 
-
   // Goggle login related function end here
+
 
   const handleLogin = async (e) => {
     e.preventDefault();
