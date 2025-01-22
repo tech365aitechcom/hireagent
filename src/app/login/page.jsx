@@ -27,6 +27,18 @@ const LoginComp = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const unSubscribe = subscribeToAuthState((currentUser) => {
+      console.log("current user", currentUser);
+      setUser(currentUser);
+      setLoading(false);
+    });
+
+    return () => {
+      unSubscribe();
+    };
+  }, []);
+
   const handleGoogleLogin = async () => {
     try {
       const result = await googleLogin();
@@ -34,7 +46,25 @@ const LoginComp = () => {
       if (result.user) {
         const { accessToken } = result.user;
         const { displayName, email, phoneNumber, photoURL } = result.user;
+
+        const userData = {
+          name: displayName,
+          email,
+          phoneNumber: phoneNumber || null,
+          photo: photoURL || null,
+          roleId: "674ebf13a09352dfb54b2942",
+        };
+        const res = await fetch(`${baseURL}/api/users/googleUser`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(userData),
+        });
+
+        const data = await res.json();
+        console.log("data from be", data);
+        if (!res.ok) throw new Error(data.message || "Failed to login");
         localStorage.setItem("authToken", accessToken);
+
         const userProfile = { displayName, email, phoneNumber, photoURL };
         localStorage.setItem("userProfile", JSON.stringify(userProfile));
         router.push(
