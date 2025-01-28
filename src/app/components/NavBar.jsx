@@ -88,36 +88,35 @@ const NavComp = () => {
             <img src="/logo.png" alt="logo" className="w-auto h-12" />
           </Link>
           <div className="hidden md:flex items-center space-x-8">
-            {pathName === "/" &&
-              navigationItems.map((item) => (
-                <div key={item.path} className="relative group">
-                  <a
-                    href={item.path}
-                    className={`flex items-center space-x-1 ${
-                      isScrolled ? "text-indigo-600" : "text-indigo-600"
-                    } hover:text-indigo-600 text-sm font-medium transition-colors duration-200`}
-                  >
-                    <span>{item.name}</span>
-                    {item.submenu && <ChevronDown className="h-4 w-4" />}
-                  </a>
+            {navigationItems.map((item) => (
+              <div key={item.path} className="relative group">
+                <a
+                  href={item.path}
+                  className={`flex items-center space-x-1 ${
+                    isScrolled ? "text-indigo-600" : "text-indigo-600"
+                  } hover:text-indigo-600 text-sm font-medium transition-colors duration-200`}
+                >
+                  <span>{item.name}</span>
+                  {item.submenu && <ChevronDown className="h-4 w-4" />}
+                </a>
 
-                  {item.submenu && (
-                    <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                      <div className="py-1">
-                        {item.submenu.map((subItem) => (
-                          <a
-                            key={subItem.path}
-                            href={subItem.path}
-                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-500"
-                          >
-                            {subItem.name}
-                          </a>
-                        ))}
-                      </div>
+                {item.submenu && (
+                  <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                    <div className="py-1">
+                      {item.submenu.map((subItem) => (
+                        <a
+                          key={subItem.path}
+                          href={subItem.path}
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-500"
+                        >
+                          {subItem.name}
+                        </a>
+                      ))}
                     </div>
-                  )}
-                </div>
-              ))}
+                  </div>
+                )}
+              </div>
+            ))}
             {isLoggedIn ? (
               <button
                 onClick={handleLogout}
