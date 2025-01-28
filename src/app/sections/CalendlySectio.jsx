@@ -4,6 +4,7 @@ import { useSearchParams } from "next/navigation";
 import React, { Suspense, useEffect, useState } from "react";
 import AssistantDescriptionModal2 from "../components/AssistantDescriptionModal2";
 import Assistant from "../components/Assistant";
+import Script from "next/script";
 
 const aiBot = {
   name: "PropertyMate: Your Personalized Assistant for Scheduling, Follow-Ups, and Property Matchmaking.",
@@ -157,96 +158,121 @@ const CalendlyComp = () => {
     setAuthToken(storedAuthToken);
   }, []);
 
+  const handleClick = () => {
+    if (typeof window !== "undefined" && window.gtag_report_conversion) {
+      window.gtag_report_conversion();
+    }
+    setScheduleModalOpen(true);
+  };
+
   return (
-    <div className="bg-gradient-to-b from-white to-indigo-50 flex flex-col lg:flex-row items-center justify-center py-16 max-md:mt-6">
-      <div className="w-full max-w-6xl px-4 md:px-6 lg:px-8 xl:px-12">
-        <div className="space-y-8 text-center">
-          <div className="space-y-4">
-            <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-indigo-700 to-blue-600 leading-tight">
-              Transform Your Real Estate Business with AI-Powered Assistance
-            </h1>
-            <p className="text-base md:text-lg lg:text-xl font-semibold text-blue-600/90">
-              Revolutionize Property Matching & Client Engagement
-            </p>
-          </div>
-          <div className="flex justify-center">
-            <button
-              onClick={() => setActiveCard(aiBot.id)}
-              className="gap-2 font-medium text-lg w-fit px-8 py-4 bg-blue-600 text-white rounded-lg hover:text-blue-600 border-2 border-blue-600 hover:bg-white flex items-center justify-center sm:justify-start transition-colors"
-            >
-              Try AI Assistant for free
-              <AudioLinesIcon className="animate-[wave_1s_ease-in-out_infinite] hover:animate-[wave_1s_ease-in-out_infinite]" />
-            </button>
-          </div>
-          {scheduleSuccess ? (
-            <div className="flex justify-center">
-              <div className="max-w-2xl w-full bg-transparent rounded-2xl p-8 text-center space-y-6">
-                <div className="flex justify-center">
-                  <CheckCircle className="w-20 h-20 text-blue-500" />
-                </div>
-
-                <h1 className="text-4xl font-bold text-indigo-900 mb-4">
-                  Thank You!
-                </h1>
-
-                <p className="text-xl text-blue-800 leading-relaxed">
-                  Your meeting has been setup successfully. We appreciate your
-                  time and will get back to you shortly.
-                </p>
-              </div>
+    <>
+      <Script id="conversion-tracking" strategy="lazyOnload">
+        {`
+          function gtag_report_conversion(url) {
+            var callback = function () {
+              if (typeof(url) != 'undefined') {
+                window.location = url;
+              }
+            };
+            gtag('event', 'conversion', {
+              'send_to': 'AW-11501804029/HSauCLvMnJYaEP2zvuwq',
+              'event_callback': callback
+            });
+            return false;
+          }
+        `}
+      </Script>
+      <div className="bg-gradient-to-b from-white to-indigo-50 flex flex-col lg:flex-row items-center justify-center py-16 max-md:mt-6">
+        <div className="w-full max-w-6xl px-4 md:px-6 lg:px-8 xl:px-12">
+          <div className="space-y-8 text-center">
+            <div className="space-y-4">
+              <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-indigo-700 to-blue-600 leading-tight">
+                Transform Your Real Estate Business with AI-Powered Assistance
+              </h1>
+              <p className="text-base md:text-lg lg:text-xl font-semibold text-blue-600/90">
+                Revolutionize Property Matching & Client Engagement
+              </p>
             </div>
-          ) : (
             <div className="flex justify-center">
               <button
-                onClick={() => setScheduleModalOpen(true)}
-                className="group relative px-8 py-4 bg-white text-gray-900 rounded-xl border-2 border-gray-200 
+                onClick={() => setActiveCard(aiBot.id)}
+                className="gap-2 font-medium text-lg w-fit px-8 py-4 bg-blue-600 text-white rounded-lg hover:text-blue-600 border-2 border-blue-600 hover:bg-white flex items-center justify-center sm:justify-start transition-colors"
+              >
+                Try AI Assistant for free
+                <AudioLinesIcon className="animate-[wave_1s_ease-in-out_infinite] hover:animate-[wave_1s_ease-in-out_infinite]" />
+              </button>
+            </div>
+            {scheduleSuccess ? (
+              <div className="flex justify-center">
+                <div className="max-w-2xl w-full bg-transparent rounded-2xl p-8 text-center space-y-6">
+                  <div className="flex justify-center">
+                    <CheckCircle className="w-20 h-20 text-blue-500" />
+                  </div>
+
+                  <h1 className="text-4xl font-bold text-indigo-900 mb-4">
+                    Thank You!
+                  </h1>
+
+                  <p className="text-xl text-blue-800 leading-relaxed">
+                    Your meeting has been setup successfully. We appreciate your
+                    time and will get back to you shortly.
+                  </p>
+                </div>
+              </div>
+            ) : (
+              <div className="flex justify-center">
+                <button
+                  onClick={handleClick}
+                  className="group relative px-8 py-4 bg-white text-gray-900 rounded-xl border-2 border-gray-200 
                         hover:border-indigo-600 hover:shadow-lg hover:shadow-indigo-100 
                         transition-all duration-300 ease-in-out transform hover:-translate-y-1"
-              >
-                <span className="flex items-center font-medium text-lg">
-                  Schedule Meeting
-                  <Calendar className="ml-3 w-5 h-5 group-hover:text-indigo-600 transition-colors" />
-                </span>
-              </button>
-            </div>
-          )}
-        </div>
-      </div>
-
-      {isScheduleModalOpen && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-          <div className="relative w-full max-w-5xl h-[85vh] bg-white rounded-2xl shadow-2xl">
-            <div className="absolute -top-6 -right-4 z-10">
-              <button
-                onClick={() => setScheduleModalOpen(false)}
-                className="p-2 bg-gray-900 hover:bg-gray-700 rounded-full transition-colors duration-200 shadow-lg"
-              >
-                <X className="w-6 h-6 text-white" />
-              </button>
-            </div>
-            <iframe
-              src="https://calendly.com/hireagent/30min?back=1&month=2025-01"
-              className="w-full h-full rounded-2xl border-0"
-              title="Calendly Scheduling Page"
-              loading="lazy"
-            />
+                >
+                  <span className="flex items-center font-medium text-lg">
+                    Schedule Meeting
+                    <Calendar className="ml-3 w-5 h-5 group-hover:text-indigo-600 transition-colors" />
+                  </span>
+                </button>
+              </div>
+            )}
           </div>
         </div>
-      )}
-      {activeCard === aiBot.id && (
-        <AssistantDescriptionModal2
-          setActiveCard={() => setActiveCard(null)}
-          setShowAssistant={() => setShowAssistant(true)}
-          name={aiBot.name}
-          authToken={authToken}
-          desc={aiBot.desc}
-          testStep={aiBot.testStep}
-          aiId={aiBot.id}
-          user={user}
-        />
-      )}
-      {showAssistant && <Assistant id={aiBot.id} authToken={authToken} />}
-    </div>
+
+        {isScheduleModalOpen && (
+          <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+            <div className="relative w-full max-w-5xl h-[85vh] bg-white rounded-2xl shadow-2xl">
+              <div className="absolute -top-6 -right-4 z-10">
+                <button
+                  onClick={() => setScheduleModalOpen(false)}
+                  className="p-2 bg-gray-900 hover:bg-gray-700 rounded-full transition-colors duration-200 shadow-lg"
+                >
+                  <X className="w-6 h-6 text-white" />
+                </button>
+              </div>
+              <iframe
+                src="https://calendly.com/hireagent/30min?back=1&month=2025-01"
+                className="w-full h-full rounded-2xl border-0"
+                title="Calendly Scheduling Page"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        )}
+        {activeCard === aiBot.id && (
+          <AssistantDescriptionModal2
+            setActiveCard={() => setActiveCard(null)}
+            setShowAssistant={() => setShowAssistant(true)}
+            name={aiBot.name}
+            authToken={authToken}
+            desc={aiBot.desc}
+            testStep={aiBot.testStep}
+            aiId={aiBot.id}
+            user={user}
+          />
+        )}
+        {showAssistant && <Assistant id={aiBot.id} authToken={authToken} />}
+      </div>
+    </>
   );
 };
 
