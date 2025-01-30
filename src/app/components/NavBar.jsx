@@ -70,7 +70,8 @@ const NavComp = () => {
   if (
     pathName === "/new-home" ||
     pathName === "/all-agents" ||
-    pathName === "/ai-details"
+    pathName === "/ai-details" ||
+    pathName === "/clientlanding"
   ) {
     return null;
   }
