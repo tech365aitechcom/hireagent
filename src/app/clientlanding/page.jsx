@@ -65,7 +65,7 @@ const Page = () => {
       icon: Phone,
       title: "Priority Care",
       description:
-        "Immediate assistance for dental emergencies with priority scheduling",
+        "Immediate assistance for emergencies with priority scheduling",
     },
   ];
 
@@ -84,13 +84,13 @@ const Page = () => {
               Practice<span className="text-blue-600">Agent</span>
             </h1>
             <p className="mb-6 md:mb-10 text-lg md:text-xl text-gray-600">
-              Experience the future of dental appointment scheduling
+              Experience the future of appointment scheduling
             </p>
             <button
               onClick={() => setShowAssistant(true)}
-              className="px-6 md:px-10 py-3 md:py-5 text-base md:text-lg font-semibold text-white transition-all bg-gradient-to-r from-blue-600 to-blue-700 rounded-full hover:shadow-lg hover:scale-105"
+              className="px-6 md:px-10 py-2 md:py-5 text-base md:text-lg font-semibold text-white transition-all bg-gradient-to-r from-blue-600 to-blue-700 rounded-full hover:shadow-lg hover:scale-105"
             >
-              Try AI Bot Now
+              Try Now
             </button>
           </div>
 
