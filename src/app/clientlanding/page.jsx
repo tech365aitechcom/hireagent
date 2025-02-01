@@ -49,7 +49,7 @@ const PhoneVerification = ({ onClose }) => {
         `${baseURL}/api/plan/make-call`,
         {
           callTo: phone,
-          assistantId: "Dentist--J4688teFHbm8CN2OXpAP_",
+          assistantId: "f2989be0-dca7-4377-93fe-39abc0bced7d",
         },
         {
           headers: {
