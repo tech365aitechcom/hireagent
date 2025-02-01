@@ -1,8 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Calendar, Clock, MessageCircle, Phone } from "lucide-react";
-import Assistant from "../components/Assistant";
+import { Calendar, Clock, MessageCircle, Phone, X } from "lucide-react";
 import ClientAssistant from "../components/ClientAssistant";
+import { baseURL } from "../urls";
+import axios from "axios";
 
 const FloatingBlob = ({ className }) => (
   <svg
@@ -33,9 +34,158 @@ const FeatureCard = ({ icon: Icon, title, description }) => (
   </div>
 );
 
+const PhoneVerification = ({ onClose }) => {
+  const [phone, setPhone] = useState("");
+  const [isVerified, setIsVerified] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleSubmit = async () => {
+    setIsLoading(true);
+    setError("");
+
+    try {
+      await axios.post(
+        `${baseURL}/api/plan/make-call`,
+        {
+          callTo: phone,
+          assistantId: "Dentist--J4688teFHbm8CN2OXpAP_",
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      setIsVerified(true);
+    } catch (err) {
+      setError(
+        err.response?.data?.message ||
+          err.message ||
+          "Something went wrong. Please try again."
+      );
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handlePhoneChange = (e) => {
+    setPhone(e.target.value);
+  };
+
+  return (
+    <div className="fixed inset-0 z-50 overflow-y-auto">
+      <div className="flex items-center justify-center min-h-screen p-4">
+        <div
+          className="fixed inset-0 bg-black/50 transition-opacity"
+          onClick={onClose}
+        />
+
+        <div className="relative bg-white rounded-2xl shadow-xl w-full max-w-md p-6 transform transition-all">
+          <button
+            onClick={onClose}
+            className="absolute right-4 top-4 text-gray-400 hover:text-gray-600 transition-colors"
+          >
+            <X className="w-5 h-5" />
+          </button>
+
+          <div className="text-center mb-6">
+            <h2 className="text-2xl font-bold text-gray-900">
+              Provide Your Phone
+            </h2>
+            <p className="mt-2 text-sm text-gray-500">We'll get back to you</p>
+          </div>
+
+          {error && (
+            <div className="mb-4 p-3 bg-red-50 border border-red-200 text-red-600 text-sm rounded-lg">
+              {error}
+            </div>
+          )}
+
+          {!isVerified ? (
+            <div className="space-y-4">
+              <div>
+                <label
+                  htmlFor="phone"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
+                  Phone Number
+                </label>
+                <input
+                  id="phone"
+                  type="tel"
+                  placeholder="Enter Phone No"
+                  value={phone}
+                  onChange={handlePhoneChange}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                  disabled={isLoading}
+                />
+              </div>
+              <button
+                onClick={handleSubmit}
+                disabled={isLoading}
+                className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isLoading ? (
+                  <span className="flex items-center justify-center">
+                    <svg
+                      className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      ></circle>
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                      ></path>
+                    </svg>
+                    Processing...
+                  </span>
+                ) : (
+                  "Call Me"
+                )}
+              </button>
+            </div>
+          ) : (
+            <div className="text-center space-y-4">
+              <div className="flex items-center justify-center w-16 h-16 mx-auto bg-green-100 rounded-full">
+                <svg
+                  className="w-8 h-8 text-green-500"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+              </div>
+              <p className="text-gray-600">We'll call you shortly!</p>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const Page = () => {
   const [showAssistant, setShowAssistant] = useState(false);
   const [authToken, setAuthToken] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const storedAuthToken = localStorage.getItem("authToken");
@@ -86,12 +236,20 @@ const Page = () => {
             <p className="mb-6 md:mb-10 text-lg md:text-xl text-gray-600">
               Experience the future of appointment scheduling
             </p>
-            <button
-              onClick={() => setShowAssistant(true)}
-              className="px-6 md:px-10 py-2 md:py-5 text-base md:text-lg font-semibold text-white transition-all bg-gradient-to-r from-blue-600 to-blue-700 rounded-full hover:shadow-lg hover:scale-105"
-            >
-              Try Now
-            </button>
+            <div className="flex justify-center gap-2 items-center">
+              <button
+                onClick={() => setShowAssistant(true)}
+                className="px-6 md:px-10 py-2 md:py-4 text-base md:text-lg font-semibold text-white transition-all bg-gradient-to-r from-blue-600 to-blue-700 rounded-full hover:shadow-lg hover:scale-105"
+              >
+                Try Now
+              </button>
+              <button
+                onClick={() => setIsOpen(true)}
+                className="px-6 md:px-10 py-2 md:py-4 text-base md:text-lg font-semibold text-white transition-all bg-gradient-to-r from-blue-600 to-blue-700 rounded-full hover:shadow-lg hover:scale-105"
+              >
+                Schedule a Call
+              </button>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
@@ -108,6 +266,7 @@ const Page = () => {
           authToken={authToken}
         />
       )}
+      {isOpen && <PhoneVerification onClose={() => setIsOpen(false)} />}
     </div>
   );
 };
