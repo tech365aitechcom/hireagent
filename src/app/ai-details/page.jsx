@@ -118,8 +118,6 @@ const PropertyMateLanding = () => {
           </div>
         </div>
       </section>
-
-      {/* Core Features */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-12">
@@ -184,8 +182,6 @@ const PropertyMateLanding = () => {
           </div>
         </div>
       </section>
-
-      {/* Integrations */}
       <section className="bg-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-12">
@@ -207,8 +203,6 @@ const PropertyMateLanding = () => {
           </div>
         </div>
       </section>
-
-      {/* How to Use */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-12">How to Use</h2>
