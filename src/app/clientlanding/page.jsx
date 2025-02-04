@@ -4,6 +4,7 @@ import { Calendar, Clock, MessageCircle, Phone, X } from "lucide-react";
 import ClientAssistant from "../components/ClientAssistant";
 import { baseURL } from "../urls";
 import axios from "axios";
+import VapiAssistant from "../components/VapiAssistant";
 
 const FloatingBlob = ({ className }) => (
   <svg
@@ -186,6 +187,7 @@ const Page = () => {
   const [showAssistant, setShowAssistant] = useState(false);
   const [authToken, setAuthToken] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
+  const [isVapiCall, setIsVapiCall] = useState(false);
 
   useEffect(() => {
     const storedAuthToken = localStorage.getItem("authToken");
@@ -249,6 +251,7 @@ const Page = () => {
               >
                 Schedule a Call
               </button>
+              <VapiAssistant />
             </div>
           </div>
 

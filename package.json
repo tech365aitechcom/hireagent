@@ -11,6 +11,7 @@
   "dependencies": {
     "@firebase/app": "^0.10.17",
     "@next/third-parties": "^15.1.4",
+    "@vapi-ai/web": "^2.2.2",
     "axios": "^1.7.9",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
