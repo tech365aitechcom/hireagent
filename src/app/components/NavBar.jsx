@@ -71,7 +71,8 @@ const NavComp = () => {
     pathName === "/new-home" ||
     pathName === "/all-agents" ||
     pathName === "/ai-details" ||
-    pathName === "/clientlanding"
+    pathName === "/clientlanding" ||
+    pathName.includes("/all-agents")
   ) {
     return null;
   }
