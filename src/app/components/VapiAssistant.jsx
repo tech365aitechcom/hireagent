@@ -98,7 +98,9 @@ const VapiAssistant = ({ setIsVapiCall }) => {
       <div className="flex flex-col md:w-[500px] h-fit bg-gradient-to-br from-indigo-200 via-blue-200 to-indigo-300 rounded-3xl shadow-2xl backdrop-blur-lg">
         <header className="bg-white bg-opacity-80 p-4 rounded-t-3xl">
           <div className="container flex justify-between items-center">
-            <h1 className="text-3xl font-bold text-indigo-700">Vapi AI</h1>
+            <h1 className="text-3xl font-bold text-indigo-700">
+              Inbound Booking agent
+            </h1>
             <div className="flex items-center space-x-2">
               <Clock size={20} className="text-indigo-600" />
               <span className="text-indigo-600 font-medium">

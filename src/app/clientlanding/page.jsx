@@ -239,12 +239,12 @@ const Page = () => {
               Experience the future of appointment scheduling
             </p>
             <div className="flex justify-center gap-2 items-center">
-              <button
+              {/* <button
                 onClick={() => setShowAssistant(true)}
                 className="px-6 md:px-10 py-2 md:py-4 text-base md:text-lg font-semibold text-white transition-all bg-gradient-to-r from-blue-600 to-blue-700 rounded-full hover:shadow-lg hover:scale-105"
               >
                 Try Now
-              </button>
+              </button> */}
               <button
                 onClick={() => setIsOpen(true)}
                 className="px-6 md:px-10 py-2 md:py-4 text-base md:text-lg font-semibold text-white transition-all bg-gradient-to-r from-blue-600 to-blue-700 rounded-full hover:shadow-lg hover:scale-105"
