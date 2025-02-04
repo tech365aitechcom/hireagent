@@ -251,7 +251,12 @@ const Page = () => {
               >
                 Schedule a Call
               </button>
-              <VapiAssistant />
+              <button
+                onClick={() => setIsVapiCall(true)}
+                className="px-6 md:px-10 py-2 md:py-4 text-base md:text-lg font-semibold text-white transition-all bg-gradient-to-r from-blue-600 to-blue-700 rounded-full hover:shadow-lg hover:scale-105"
+              >
+                Try Inbound call
+              </button>
             </div>
           </div>
 
@@ -269,6 +274,7 @@ const Page = () => {
           authToken={authToken}
         />
       )}
+      {isVapiCall && <VapiAssistant setIsVapiCall={setIsVapiCall} />}
       {isOpen && <PhoneVerification onClose={() => setIsOpen(false)} />}
     </div>
   );
