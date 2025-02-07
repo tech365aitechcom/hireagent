@@ -7,7 +7,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import SoundWave from "./SoundWave";
 
-const vapi = new Vapi("a276ca5f-59fd-489e-af17-e79d12b6d391");
+const vapi = new Vapi("79dfc8a2-6dc4-496e-9088-e892dd8f5e3d");
 
 const VapiAssistant = ({ setIsVapiCall }) => {
   const [connecting, setConnecting] = useState(false);
@@ -57,7 +57,7 @@ const VapiAssistant = ({ setIsVapiCall }) => {
 
   const startCall = () => {
     setConnecting(true);
-    vapi.start("1e78b3a4-0014-47b7-9e28-9dfce3f4c18d");
+    vapi.start("8dd98a65-03f8-4fea-87e3-97a9f1954f26");
   };
 
   const endCall = () => {
