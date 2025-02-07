@@ -50,7 +50,7 @@ const PhoneVerification = ({ onClose }) => {
         `${baseURL}/api/plan/make-call`,
         {
           callTo: phone,
-          assistantId: "f2989be0-dca7-4377-93fe-39abc0bced7d",
+          assistantId: "53e547eb-4b18-4d36-8ff1-cd39d79865ae",
         },
         {
           headers: {
