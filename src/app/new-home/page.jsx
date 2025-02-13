@@ -19,19 +19,16 @@ const MarketStats = () => {
       value: "1,000+",
       label: "AI Agents",
       icon: <Zap className="h-6 w-6 text-blue-600" />,
-      gradient: "from-blue-50 to-slate-50",
     },
     {
       value: "50K+",
       label: "Active Users",
-      icon: <Users className="h-6 w-6 text-slate-600" />,
-      gradient: "from-slate-50 to-indigo-50",
+      icon: <Users className="h-6 w-6 text-blue-600" />,
     },
     {
       value: "$2M+",
       label: "Creator Earnings",
-      icon: <BarChart className="h-6 w-6 text-indigo-600" />,
-      gradient: "from-indigo-50 to-blue-50",
+      icon: <BarChart className="h-6 w-6 text-blue-600" />,
     },
   ];
 
@@ -40,10 +37,10 @@ const MarketStats = () => {
       {stats.map((stat, index) => (
         <div
           key={index}
-          className={`bg-gradient-to-br ${stat.gradient} backdrop-blur-sm rounded-lg p-8 hover:shadow-md transition-all duration-300 group relative overflow-hidden`}
+          className="bg-gradient-to-br from-white to-blue-50 rounded-lg p-8 hover:shadow-lg transition-all duration-300 group relative overflow-hidden border border-blue-100"
         >
           {/* Decorative background pattern */}
-          <div className="absolute inset-0 opacity-40">
+          <div className="absolute inset-0 opacity-20">
             <svg
               className="w-full h-full"
               viewBox="0 0 100 100"
@@ -60,7 +57,7 @@ const MarketStats = () => {
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="0.2"
-                  className="text-slate-300"
+                  className="text-blue-200"
                 />
               </pattern>
               <rect width="100" height="100" fill={`url(#grid-${index})`} />
@@ -68,14 +65,14 @@ const MarketStats = () => {
           </div>
 
           <div className="flex items-center space-x-6 relative">
-            <div className="bg-white/80 rounded-lg p-4 shadow-sm transform group-hover:scale-105 transition-transform duration-300">
+            <div className="bg-white rounded-lg p-4 shadow-sm transform group-hover:scale-105 transition-transform duration-300 border border-blue-50">
               {stat.icon}
             </div>
             <div>
-              <p className="text-3xl font-light tracking-tight text-slate-900 mb-1">
+              <p className="text-3xl font-light tracking-tight text-blue-900 mb-1">
                 {stat.value}
               </p>
-              <p className="text-slate-600 tracking-wide text-sm">
+              <p className="text-blue-600 tracking-wide text-sm font-medium">
                 {stat.label}
               </p>
             </div>
@@ -86,12 +83,9 @@ const MarketStats = () => {
   );
 };
 
-// CategoryCard Component
-const CategoryCard = ({ title, count, color, icon: Icon }) => (
-  <div className="bg-white/80 backdrop-blur-sm rounded-lg border border-slate-200 p-6 hover:shadow-md transition-all duration-300 group flex items-center space-x-4">
-    <div
-      className={`${color} w-12 h-12 rounded-lg flex items-center justify-center relative transform group-hover:scale-105 transition-transform duration-300`}
-    >
+const CategoryCard = ({ title, count, icon: Icon }) => (
+  <div className="bg-gradient-to-br from-white to-blue-50 rounded-lg border border-blue-100 p-6 hover:shadow-lg transition-all duration-300 group flex items-center space-x-4">
+    <div className="bg-blue-600 w-12 h-12 rounded-lg flex items-center justify-center relative transform group-hover:scale-105 transition-transform duration-300 shadow-sm">
       {/* Decorative background pattern */}
       <div className="absolute inset-0 rounded-lg opacity-20">
         <svg
@@ -122,23 +116,21 @@ const CategoryCard = ({ title, count, color, icon: Icon }) => (
     </div>
 
     <div className="space-y-1">
-      <h3 className="font-light text-lg tracking-tight text-slate-900">
+      <h3 className="font-light text-lg tracking-tight text-blue-900">
         {title}
       </h3>
-      <p className="text-sm text-slate-600 tracking-wide">
+      <p className="text-sm text-blue-600 tracking-wide font-medium">
         {count.toLocaleString()} agents
       </p>
     </div>
   </div>
 );
 
-// CreatorCard Component
-
 const CreatorCard = ({ name, expertise, image, rating, agents }) => (
-  <div className="bg-white/80 backdrop-blur-sm rounded-lg border border-slate-200 p-8 hover:shadow-md transition-all duration-300 group">
+  <div className="bg-gradient-to-br from-white to-blue-50 rounded-lg border border-blue-100 p-8 hover:shadow-lg transition-all duration-300 group">
     <div className="flex items-center space-x-6 mb-6">
       <div className="relative">
-        <div className="absolute inset-0 bg-slate-100 rounded-full transform -translate-x-1 -translate-y-1 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-300" />
+        <div className="absolute inset-0 bg-blue-100 rounded-full transform -translate-x-1 -translate-y-1 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-300" />
         <img
           src={image}
           alt={name}
@@ -146,26 +138,28 @@ const CreatorCard = ({ name, expertise, image, rating, agents }) => (
         />
       </div>
       <div>
-        <h3 className="font-light text-xl tracking-tight text-slate-900 mb-1">
+        <h3 className="font-light text-xl tracking-tight text-blue-900 mb-1">
           {name}
         </h3>
-        <p className="text-slate-600 text-sm tracking-wide">{expertise}</p>
+        <p className="text-blue-600 text-sm tracking-wide font-medium">
+          {expertise}
+        </p>
       </div>
     </div>
 
     <div className="space-y-4">
-      <div className="flex items-center space-x-2 pb-4 border-b border-slate-100">
-        <Star className="h-4 w-4 text-slate-700 fill-current" />
-        <span className="text-sm text-slate-600 tracking-wide">
+      <div className="flex items-center space-x-2 pb-4 border-b border-blue-100">
+        <Star className="h-4 w-4 text-blue-600 fill-current" />
+        <span className="text-sm text-blue-600 tracking-wide font-medium">
           {rating} creator rating
         </span>
       </div>
 
       <div className="flex justify-between items-center">
-        <span className="text-sm text-slate-600 tracking-wide">
+        <span className="text-sm text-blue-600 tracking-wide font-medium">
           {agents} published agents
         </span>
-        <button className="text-sm text-slate-900 font-medium hover:text-slate-700 transition-colors">
+        <button className="text-sm text-blue-900 font-medium hover:text-blue-700 transition-colors">
           View Profile →
         </button>
       </div>
@@ -183,7 +177,6 @@ const HeroSlider = () => {
         "Join the leading marketplace for AI agents. Turn your expertise into recurring revenue.",
       cta: "Start Creating Today",
       ctaLink: "#",
-      gradient: "from-slate-50 to-blue-50",
     },
     {
       title: "Transform Your Business with AI",
@@ -191,7 +184,6 @@ const HeroSlider = () => {
         "Access premium AI agents built by experts. Automate and scale with verified solutions.",
       cta: "Explore Agents",
       ctaLink: "#",
-      gradient: "from-slate-50 to-indigo-50",
     },
     {
       title: "Join Our Creator Community",
@@ -199,7 +191,6 @@ const HeroSlider = () => {
         "Connect with AI experts, share knowledge, and build the future together.",
       cta: "Join Community",
       ctaLink: "#",
-      gradient: "from-blue-50 to-slate-50",
     },
   ];
 
@@ -221,13 +212,18 @@ const HeroSlider = () => {
   const slide = slides[currentSlide];
 
   return (
-    <div
-      className={`relative min-h-[600px] bg-gradient-to-br ${slide.gradient} flex items-center justify-center overflow-hidden`}
-    >
-      {/* Elegant SVG Background */}
+    <div className="relative min-h-[600px] bg-gradient-to-br from-white to-blue-50 flex items-center justify-center overflow-hidden">
+      {/* Floating Blobs */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/4 -left-48 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob" />
+        <div className="absolute top-1/3 -right-48 w-96 h-96 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000" />
+        <div className="absolute -bottom-48 left-1/2 w-96 h-96 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-4000" />
+      </div>
+
+      {/* Elegant Grid Background */}
       <div className="absolute inset-0 z-0">
         <svg
-          className="absolute w-full h-full opacity-30"
+          className="absolute w-full h-full opacity-20"
           viewBox="0 0 100 100"
           preserveAspectRatio="none"
         >
@@ -242,7 +238,7 @@ const HeroSlider = () => {
               fill="none"
               stroke="currentColor"
               strokeWidth="0.2"
-              className="text-slate-300"
+              className="text-blue-200"
             />
           </pattern>
           <rect width="100" height="100" fill="url(#grid)" />
@@ -250,7 +246,7 @@ const HeroSlider = () => {
 
         {/* Subtle Animated Lines */}
         <svg
-          className="absolute w-full h-full opacity-20"
+          className="absolute w-full h-full opacity-10"
           viewBox="0 0 100 100"
           preserveAspectRatio="none"
         >
@@ -261,7 +257,7 @@ const HeroSlider = () => {
             y2="15"
             stroke="currentColor"
             strokeWidth="0.1"
-            className="text-slate-400"
+            className="text-blue-400"
           >
             <animate
               attributeName="y1"
@@ -287,28 +283,28 @@ const HeroSlider = () => {
       <div className="absolute inset-x-4 top-1/2 -translate-y-1/2 flex justify-between z-10">
         <button
           onClick={prevSlide}
-          className="p-3 rounded-full bg-white/90 hover:bg-white shadow-sm transition-colors"
+          className="p-3 rounded-full bg-white/80 hover:bg-white backdrop-blur-sm shadow-sm transition-all hover:shadow-md"
         >
-          <ArrowLeft className="h-5 w-5 text-slate-600" />
+          <ArrowLeft className="h-5 w-5 text-blue-600" />
         </button>
         <button
           onClick={nextSlide}
-          className="p-3 rounded-full bg-white/90 hover:bg-white shadow-sm transition-colors"
+          className="p-3 rounded-full bg-white/80 hover:bg-white backdrop-blur-sm shadow-sm transition-all hover:shadow-md"
         >
-          <ArrowRight className="h-5 w-5 text-slate-600" />
+          <ArrowRight className="h-5 w-5 text-blue-600" />
         </button>
       </div>
 
       {/* Main Content */}
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
         <div className="flex flex-col items-center justify-center text-center max-w-3xl mx-auto">
-          <h1 className="text-5xl font-light text-slate-900 mb-6 transition-all duration-500 tracking-tight">
+          <h1 className="text-5xl font-light text-blue-900 mb-6 transition-all duration-500 tracking-tight">
             {slide.title}
           </h1>
-          <p className="text-lg text-slate-600 mb-8 transition-all duration-500 leading-relaxed">
+          <p className="text-lg text-blue-600 mb-8 transition-all duration-500 leading-relaxed font-medium">
             {slide.subtitle}
           </p>
-          <button className="bg-slate-900 text-white px-8 py-3 rounded-lg hover:bg-slate-800 transition-colors text-sm font-medium tracking-wide">
+          <button className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-all shadow-sm hover:shadow-md text-sm font-medium tracking-wide">
             {slide.cta}
           </button>
         </div>
@@ -322,8 +318,8 @@ const HeroSlider = () => {
             onClick={() => setCurrentSlide(index)}
             className={`transition-all duration-300 ${
               index === currentSlide
-                ? "w-8 h-1 bg-slate-900"
-                : "w-2 h-1 bg-slate-400"
+                ? "w-8 h-1 bg-blue-600"
+                : "w-2 h-1 bg-blue-200"
             }`}
           />
         ))}
@@ -332,31 +328,26 @@ const HeroSlider = () => {
   );
 };
 
-// Main Landing Page Component
 const LandingPage = () => {
   const categories = [
     {
       title: "Customer Service",
       count: "150+",
-      color: "bg-slate-700",
       icon: Users,
     },
     {
       title: "Data Analysis",
       count: "200+",
-      color: "bg-slate-800",
       icon: Zap,
     },
     {
       title: "Content Creation",
       count: "180+",
-      color: "bg-slate-700",
       icon: Star,
     },
     {
       title: "Sales & Marketing",
       count: "120+",
-      color: "bg-slate-800",
       icon: Award,
     },
   ];
@@ -365,7 +356,8 @@ const LandingPage = () => {
     {
       name: "Sarah Chen",
       expertise: "ML/AI Specialist",
-      image: "/api/placeholder/150/150",
+      image:
+        "https://unsplash.com/photos/a-man-with-a-bald-head-wearing-glasses-paYQUpAiBqs",
       rating: 4.9,
       agents: "12",
     },
@@ -393,32 +385,31 @@ const LandingPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white">
-      {/* Navigation */}
-      <nav className="bg-white/80 backdrop-blur-sm border-b border-slate-200 sticky top-0 z-50">
+    <div className="min-h-screen bg-gradient-to-br from-white to-blue-50">
+      <nav className="bg-white/80 backdrop-blur-sm border-b border-blue-100 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-20 items-center">
             <div className="flex items-center">
-              <span className="text-2xl font-light tracking-tight text-slate-900">
+              <span className="text-2xl font-light tracking-tight text-blue-900">
                 AIMarket
               </span>
               <div className="hidden md:block ml-12">
                 <div className="flex space-x-8">
                   <Link
                     href="/all-agents"
-                    className="text-slate-600 hover:text-slate-900 transition-colors text-sm tracking-wide"
+                    className="text-blue-600 hover:text-blue-900 transition-colors text-sm tracking-wide font-medium"
                   >
                     Browse Agents
                   </Link>
                   <Link
                     href="#"
-                    className="text-slate-600 hover:text-slate-900 transition-colors text-sm tracking-wide"
+                    className="text-blue-600 hover:text-blue-900 transition-colors text-sm tracking-wide font-medium"
                   >
                     Sell Agents
                   </Link>
                   <Link
                     href="#"
-                    className="text-slate-600 hover:text-slate-900 transition-colors text-sm tracking-wide"
+                    className="text-blue-600 hover:text-blue-900 transition-colors text-sm tracking-wide font-medium"
                   >
                     Community
                   </Link>
@@ -426,25 +417,21 @@ const LandingPage = () => {
               </div>
             </div>
             <div className="flex items-center space-x-6">
-              <button className="text-slate-600 hover:text-slate-900 transition-colors text-sm tracking-wide">
+              <button className="text-blue-600 hover:text-blue-900 transition-colors text-sm tracking-wide font-medium">
                 Sign In
               </button>
-              <button className="bg-slate-900 text-white px-6 py-2.5 rounded-lg hover:bg-slate-800 transition-colors text-sm tracking-wide">
+              <button className="bg-blue-600 text-white px-6 py-2.5 rounded-lg hover:bg-blue-700 transition-all shadow-sm hover:shadow-md text-sm tracking-wide">
                 Become a Creator
               </button>
             </div>
           </div>
         </div>
       </nav>
-
-      {/* Hero Slider */}
       <HeroSlider />
-
-      {/* Search Section */}
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-10">
-        <div className="bg-white/80 backdrop-blur-sm rounded-lg shadow-md p-6 border border-slate-200">
+        <div className="bg-white/90 backdrop-blur-sm rounded-lg shadow-md p-6 border border-blue-100">
           <div className="flex">
-            <button className="flex items-center space-x-2 bg-slate-50 border border-r-0 border-slate-200 rounded-l-lg px-4 py-3 text-sm tracking-wide text-slate-600">
+            <button className="flex items-center space-x-2 bg-blue-50 border border-r-0 border-blue-100 rounded-l-lg px-4 py-3 text-sm tracking-wide text-blue-600 font-medium">
               <span>All Categories</span>
               <ChevronDown className="h-4 w-4" />
             </button>
@@ -452,24 +439,20 @@ const LandingPage = () => {
               <input
                 type="text"
                 placeholder="Search AI agents..."
-                className="w-full px-4 py-3 border border-slate-200 rounded-r-lg focus:outline-none focus:ring-2 focus:ring-slate-200 text-sm"
+                className="w-full px-4 py-3 border border-blue-100 rounded-r-lg focus:outline-none focus:ring-2 focus:ring-blue-100 text-sm"
               />
               <button className="absolute right-3 top-1/2 transform -translate-y-1/2">
-                <Search className="h-5 w-5 text-slate-400" />
+                <Search className="h-5 w-5 text-blue-400" />
               </button>
             </div>
           </div>
         </div>
       </div>
-
-      {/* Market Stats */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <MarketStats />
       </div>
-
-      {/* Categories Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <h2 className="text-2xl font-light text-slate-900 mb-8 tracking-tight">
+        <h2 className="text-2xl font-light text-blue-900 mb-8 tracking-tight">
           Popular Categories
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -478,15 +461,13 @@ const LandingPage = () => {
           ))}
         </div>
       </div>
-
-      {/* Featured Creators */}
-      <div className="bg-gradient-to-br from-slate-50 to-blue-50 py-20">
+      <div className="bg-gradient-to-br from-white to-blue-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-light text-slate-900 mb-4 tracking-tight">
+            <h2 className="text-3xl font-light text-blue-900 mb-4 tracking-tight">
               Meet Our Top Creators
             </h2>
-            <p className="text-slate-600 max-w-2xl mx-auto text-lg leading-relaxed">
+            <p className="text-blue-600 max-w-2xl mx-auto text-lg leading-relaxed font-medium">
               Learn from the best in the industry. Our top creators are building
               the future of AI automation.
             </p>
@@ -498,20 +479,18 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
-
-      {/* Bottom CTA */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-        <h2 className="text-3xl font-light text-slate-900 mb-4 tracking-tight">
+        <h2 className="text-3xl font-light text-blue-900 mb-4 tracking-tight">
           Ready to Start?
         </h2>
-        <p className="text-slate-600 max-w-2xl mx-auto mb-10 text-lg leading-relaxed">
+        <p className="text-blue-600 max-w-2xl mx-auto mb-10 text-lg leading-relaxed font-medium">
           Whether you're building or buying, join our community today.
         </p>
         <div className="flex justify-center space-x-6">
-          <button className="bg-slate-900 text-white px-8 py-3 rounded-lg hover:bg-slate-800 transition-colors text-sm tracking-wide">
+          <button className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-all shadow-sm hover:shadow-md text-sm tracking-wide">
             Become a Creator
           </button>
-          <button className="bg-slate-100 text-slate-900 px-8 py-3 rounded-lg hover:bg-slate-200 transition-colors text-sm tracking-wide">
+          <button className="bg-blue-50 text-blue-900 px-8 py-3 rounded-lg hover:bg-blue-100 transition-colors text-sm tracking-wide border border-blue-100">
             Browse Agents
           </button>
         </div>
