@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import axios from "axios";
 import {
@@ -21,7 +21,6 @@ const AIDetailsPage = () => {
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
 
-  // Same supplementary data structure as before
   const supplementaryData = {
     features: [
       {
@@ -63,7 +62,6 @@ const AIDetailsPage = () => {
     ],
   };
 
-  // Same useEffect as before
   useEffect(() => {
     const fetchAssistant = async () => {
       try {
@@ -141,41 +139,6 @@ const AIDetailsPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-      {/* Navigation */}
-      <nav className="bg-white/90 backdrop-blur-sm border-b border-blue-100 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-20 items-center">
-            <div className="flex items-center">
-              <span className="text-2xl font-light tracking-tight text-blue-900">
-                AIMarket
-              </span>
-              <div className="hidden md:block ml-12">
-                <div className="flex space-x-8">
-                  {["Browse Agents", "Sell Agents", "Community"].map((item) => (
-                    <Link
-                      key={item}
-                      href="#"
-                      className="text-blue-600 hover:text-blue-800 transition-colors text-sm tracking-wide"
-                    >
-                      {item}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <div className="flex items-center space-x-6">
-              <button className="text-blue-600 hover:text-blue-800 transition-colors text-sm tracking-wide">
-                Sign In
-              </button>
-              <button className="bg-blue-600 text-white px-6 py-2.5 rounded-lg hover:bg-blue-700 transition-colors text-sm tracking-wide">
-                Become a Creator
-              </button>
-            </div>
-          </div>
-        </div>
-      </nav>
-
-      {/* Breadcrumb */}
       <div className="border-b border-blue-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <nav className="flex items-center text-sm text-blue-500">
@@ -187,10 +150,8 @@ const AIDetailsPage = () => {
           </nav>
         </div>
       </div>
-
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Left Column */}
           <div className="space-y-8">
             <div className="space-y-8">
               <div
@@ -205,8 +166,6 @@ const AIDetailsPage = () => {
                 ></iframe>
               </div>
             </div>
-
-            {/* Stats */}
             <div className="grid grid-cols-3 gap-4 p-6 bg-blue-50 rounded-xl shadow-sm">
               <div className="text-center">
                 <div className="flex items-center justify-center space-x-1">
@@ -236,8 +195,6 @@ const AIDetailsPage = () => {
                 <p className="text-sm text-blue-600 mt-1">Support</p>
               </div>
             </div>
-
-            {/* Core Features */}
             <div>
               <h2 className="text-xl font-semibold text-blue-900 mb-4">
                 Core Features
@@ -257,8 +214,6 @@ const AIDetailsPage = () => {
               </div>
             </div>
           </div>
-
-          {/* Right Column */}
           <div className="space-y-8">
             <div>
               <h1 className="text-3xl font-bold text-blue-900 mb-4">
@@ -266,8 +221,6 @@ const AIDetailsPage = () => {
               </h1>
               <p className="text-lg text-blue-600">{assistant.description}</p>
             </div>
-
-            {/* Pricing */}
             <div className="border-t border-b border-blue-100 py-6">
               <div className="flex items-center justify-between mb-6">
                 <span className="text-3xl font-bold text-blue-900">
@@ -282,8 +235,6 @@ const AIDetailsPage = () => {
                 {assistant.creator.stats.support} support
               </p>
             </div>
-
-            {/* Integrations */}
             <div>
               <h2 className="text-xl font-semibold text-blue-900 mb-4">
                 Integrations
@@ -305,8 +256,6 @@ const AIDetailsPage = () => {
                 ))}
               </div>
             </div>
-
-            {/* How to Use */}
             <div>
               <h2 className="text-xl font-semibold text-blue-900 mb-4">
                 How to Use
@@ -332,8 +281,6 @@ const AIDetailsPage = () => {
                 ))}
               </div>
             </div>
-
-            {/* Creator Info */}
             <div>
               <h2 className="text-xl font-semibold text-blue-900 mb-4">
                 About the Creator
@@ -356,4 +303,12 @@ const AIDetailsPage = () => {
   );
 };
 
-export default AIDetailsPage;
+const page = () => {
+  return (
+    <Suspense fallback={<p>Loading...</p>}>
+      <AIDetailsPage />
+    </Suspense>
+  );
+};
+
+export default page;
