@@ -19,17 +19,26 @@ const NavBar = () => {
               </Link>
               <div className="hidden md:block ml-12">
                 <div className="flex space-x-8">
-                  {["Browse Agents", "Sell Agents", "Community"].map(
-                    (item, index) => (
-                      <Link
-                        key={item}
-                        href={index === 0 ? "all-agents" : "#"}
-                        className="text-blue-600 hover:text-blue-900 transition-colors text-sm tracking-wide font-medium"
-                      >
-                        {item}
-                      </Link>
-                    )
-                  )}
+                  {[
+                    "Browse Agents",
+                    "integrations",
+                    "Sell Agents",
+                    "Community",
+                  ].map((item, index) => (
+                    <Link
+                      key={item}
+                      href={
+                        index === 0
+                          ? "all-agents"
+                          : index === 1
+                          ? "integrations"
+                          : "#"
+                      }
+                      className="text-blue-600 hover:text-blue-900 transition-colors text-sm tracking-wide font-medium"
+                    >
+                      {item}
+                    </Link>
+                  ))}
                 </div>
               </div>
             </div>
