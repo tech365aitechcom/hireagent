@@ -11,7 +11,7 @@ const AssistantCard = ({ assistant, setScheduleModalOpen }) => {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+    <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-100 flex flex-col h-full">
       <div className="relative h-48 overflow-hidden">
         <img
           src={assistant.image || "/api/placeholder/400/320"}
@@ -25,7 +25,7 @@ const AssistantCard = ({ assistant, setScheduleModalOpen }) => {
         </div>
       </div>
 
-      <div className="p-6">
+      <div className="p-6 flex-grow">
         <div className="flex items-start justify-between mb-4">
           <h2 className="text-xl font-semibold text-gray-900 truncate">
             {assistant.name}
@@ -67,7 +67,7 @@ const AssistantCard = ({ assistant, setScheduleModalOpen }) => {
         </div>
       </div>
 
-      <div className="p-6 pt-0 flex gap-4">
+      <div className="p-6 pt-0 flex gap-4 mt-auto">
         <Link
           href={`/all-agents/${generateSlug(assistant.name)}?id=${
             assistant._id

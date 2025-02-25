@@ -21,7 +21,7 @@ const NavBar = () => {
                 <div className="flex space-x-8">
                   {[
                     "Browse Agents",
-                    "integrations",
+                    "Integrations",
                     "Sell Agents",
                     "Community",
                   ].map((item, index) => (
