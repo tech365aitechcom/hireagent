@@ -120,7 +120,7 @@ const AICatalog = () => {
           </div>
         </div>
       </div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex gap-8">
           <div className="w-64 flex-shrink-0">
             <div className="sticky top-8 space-y-6">
@@ -170,7 +170,7 @@ const AICatalog = () => {
             </div>
           </div>
           <div className="flex-1">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {filteredAssistants.map((assistant) => (
                 <AssisstantCard
                   assistant={assistant}
