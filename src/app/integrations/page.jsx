@@ -13,7 +13,26 @@ import {
   MessageSquare,
   Database,
   Phone,
+  Sparkles,
+  LayoutGrid,
+  Search,
 } from "lucide-react";
+import {
+  SiGooglecalendar,
+  SiN8N,
+  SiGmail,
+  SiCalendly,
+  SiGooglesheets,
+  SiMake,
+  SiZoho,
+  SiTwilio,
+  SiAirtable,
+} from "react-icons/si";
+import { AiOutlineOpenAI } from "react-icons/ai";
+import { RiClaudeFill } from "react-icons/ri";
+import { FaHubspot } from "react-icons/fa";
+import { FaSlack, FaTelegramPlane } from "react-icons/fa";
+import { PiWaveformBold } from "react-icons/pi";
 
 const IntegrationCatalog = () => {
   const [integrations, setIntegrations] = useState([]);
@@ -44,14 +63,33 @@ const IntegrationCatalog = () => {
     return acc;
   }, {});
 
+  const integrationIcons = {
+    n8n: <SiN8N size={24} />,
+    "Google Calendar": <SiGooglecalendar size={24} />,
+    Calendly: <SiCalendly size={24} />,
+    Gmail: <SiGmail size={24} />,
+    "Google Sheets": <SiGooglesheets size={24} />,
+    OpenAI: <AiOutlineOpenAI size={24} />,
+    DeepSeek: <Search size={24} />,
+    Claude: <RiClaudeFill size={24} />,
+    "Make.com": <SiMake size={24} />,
+    HubSpot: <FaHubspot size={24} />,
+    Zoho: <SiZoho size={24} />,
+    Slack: <FaSlack size={24} />,
+    Telegram: <FaTelegramPlane size={24} />,
+    Twilio: <SiTwilio size={24} />,
+    Airtable: <SiAirtable size={24} />,
+    VAPI: <PiWaveformBold size={24} />,
+  };
+
   const typeIcons = {
     All: <Grid2X2 size={20} />,
-    Connectors: <Grid2X2 size={20} />,
+    Connectors: <LayoutGrid size={20} />,
     Productivity: <Box size={20} />,
     Scheduling: <Calendar size={20} />,
     Email: <Mail size={20} />,
     AI: <Brain size={20} />,
-    "AI & Voice": <Brain size={20} />,
+    "AI & Voice": <Sparkles size={20} />,
     Automation: <Workflow size={20} />,
     CRM: <Users size={20} />,
     "Business Tools": <Box size={20} />,
@@ -204,8 +242,8 @@ const IntegrationCatalog = () => {
         </div>
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="flex gap-8">
-          <div className="w-64 flex-shrink-0">
+        <div className="flex flex-col md:flex-row gap-8">
+          <div className="w-full md:w-64 flex-shrink-0">
             <div className="bg-white/80 backdrop-blur-sm rounded-lg shadow-sm border border-gray-200 p-4 sticky top-8">
               <h2 className="text-lg font-semibold text-gray-900 mb-4">
                 Categories
@@ -262,7 +300,7 @@ const IntegrationCatalog = () => {
                       {displayedIntegrations.length} integrations
                     </span>
                   </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {displayedIntegrations.map((integration) => (
                       <div
                         key={integration.name}
@@ -271,11 +309,10 @@ const IntegrationCatalog = () => {
                         <div className="p-6">
                           <div className="flex items-center gap-4 mb-4">
                             <div className="h-12 w-12 flex items-center justify-center bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg text-white">
-                              <img
-                                src="/api/placeholder/48/48"
-                                alt={integration.name}
-                                className="w-8 h-8"
-                              />
+                              {integrationIcons[integration.name] ||
+                                typeIcons[integration.type] || (
+                                  <Box size={24} />
+                                )}
                             </div>
                             <div>
                               <h3 className="text-lg font-semibold text-gray-900">
