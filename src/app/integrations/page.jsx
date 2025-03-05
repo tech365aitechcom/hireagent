@@ -241,7 +241,7 @@ const IntegrationCatalog = () => {
           </div>
         </div>
       </div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col md:flex-row gap-8">
           <div className="w-full md:w-64 flex-shrink-0">
             <div className="bg-white/80 backdrop-blur-sm rounded-lg shadow-sm border border-gray-200 p-4 sticky top-8">
@@ -327,11 +327,11 @@ const IntegrationCatalog = () => {
                             {integration.description}
                           </p>
                         </div>
-                        <div className="px-6 py-3 bg-gradient-to-r from-blue-50 to-transparent border-t border-gray-100">
+                        {/* <div className="px-6 py-3 bg-gradient-to-r from-blue-50 to-transparent border-t border-gray-100">
                           <button className="text-blue-600 text-sm font-medium hover:text-blue-700 transition-colors flex items-center gap-1">
                             Learn more <ChevronRight size={16} />
                           </button>
-                        </div>
+                        </div> */}
                       </div>
                     ))}
                   </div>
