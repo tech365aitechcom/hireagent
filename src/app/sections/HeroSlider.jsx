@@ -12,7 +12,7 @@ const HeroSlider = () => {
       subtitle:
         "Join the leading marketplace for AI agents. Turn your expertise into recurring revenue.",
       cta: "Start Creating Today",
-      ctaLink: "#",
+      ctaLink: "/become-creator",
     },
     {
       title: "Transform Your Business with AI",
