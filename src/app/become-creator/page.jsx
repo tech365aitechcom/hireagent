@@ -1,11 +1,36 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import EnquiryFormModal from "../components/EnquiryForm";
 import CreatorRegisterModal from "../components/CreatorRegisterModal";
+import { baseURL } from "../urls";
+import axios from "axios";
+import { UserCircle, Trophy, Star, Package } from "lucide-react";
+import Link from "next/link";
 
 const CreatorLandingPage = () => {
   const [isModalOpen1, setIsModalOpen1] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [creators, setCreators] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchCreators = async () => {
+      try {
+        setLoading(true);
+        const response = await axios.get(
+          `${baseURL}/api/assistants/getTopCreators`
+        );
+        setCreators(response.data);
+        setLoading(false);
+      } catch (err) {
+        setError("Failed to load creators data");
+        setLoading(false);
+      }
+    };
+
+    fetchCreators();
+  }, []);
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
@@ -43,6 +68,22 @@ const CreatorLandingPage = () => {
       avatar: "/api/placeholder/64/64",
     },
   ];
+
+  if (loading) {
+    return (
+      <div className="w-full flex items-center justify-center py-16">
+        <div className="w-12 h-12 rounded-full border-4 border-blue-500 border-t-transparent animate-spin"></div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="w-full bg-red-50 text-red-500 p-4 rounded-lg text-center">
+        {error}
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
@@ -281,6 +322,104 @@ const CreatorLandingPage = () => {
           </div>
         </div>
       </div>
+      <section className="w-full bg-gradient-to-br from-blue-50 to-white py-16">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">
+              Our Elite Creators
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Meet the brilliant minds behind our most impressive products and
+              services, consistently delivering excellence to our clients.
+            </p>
+          </div>
+          <div className="relative">
+            <div className="absolute -top-6 -left-6 w-16 h-16 bg-blue-100 rounded-full opacity-70"></div>
+            <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-blue-200 rounded-full opacity-50"></div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
+              {creators.map((creator, index) => (
+                <div
+                  key={creator._id}
+                  className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group"
+                >
+                  <div className="bg-blue-600 h-3 w-full"></div>
+                  <div className="p-6">
+                    <div className="flex items-center mb-4">
+                      <div className="bg-blue-100 p-3 rounded-full mr-4">
+                        <UserCircle className="h-10 w-10 text-blue-600" />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-semibold text-blue-900 group-hover:text-blue-600 transition-colors duration-300">
+                          {creator._id}
+                        </h3>
+                        <p className="text-blue-500 text-sm">
+                          {index === 0 ? "Lead Creator" : "Featured Creator"}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-3 gap-4 mb-4">
+                      <div className="bg-blue-50 rounded-lg p-3 text-center">
+                        <Package className="h-6 w-6 text-blue-600 mx-auto mb-1" />
+                        <p className="text-xs text-blue-700 font-medium">
+                          Products
+                        </p>
+                        <p className="text-lg font-bold text-blue-900">
+                          {creator.productsCount}
+                        </p>
+                      </div>
+                      <div className="bg-blue-50 rounded-lg p-3 text-center">
+                        <Star className="h-6 w-6 text-blue-600 mx-auto mb-1" />
+                        <p className="text-xs text-blue-700 font-medium">
+                          Rating
+                        </p>
+                        <p className="text-lg font-bold text-blue-900">
+                          {creator.avgRating || "New"}
+                        </p>
+                      </div>
+                      <div className="bg-blue-50 rounded-lg p-3 text-center">
+                        <Trophy className="h-6 w-6 text-blue-600 mx-auto mb-1" />
+                        <p className="text-xs text-blue-700 font-medium">
+                          Clients
+                        </p>
+                        <p className="text-lg font-bold text-blue-900">
+                          {creator.totalClients}
+                        </p>
+                      </div>
+                    </div>
+                    <button className="w-full py-2 px-4 bg-blue-100 hover:bg-blue-200 text-blue-800 rounded-lg transition-colors duration-300 font-medium text-sm flex items-center justify-center">
+                      View Profile
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-4 w-4 ml-2"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 5l7 7-7 7"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-12 text-center">
+            <Link
+              href={"/all-creators"}
+              className="bg-blue-600 hover:bg-blue-700 text-white py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 font-medium"
+            >
+              Explore All Creators
+            </Link>
+          </div>
+        </div>
+      </section>
       <div className="w-full py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">

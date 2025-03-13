@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { PlusCircle, Edit2, Trash2, X } from "lucide-react";
 import { baseURL } from "../urls";
+import Cookies from "js-cookie";
 
 const AssistantManagement = () => {
   const [assistants, setAssistants] = useState([]);
@@ -10,6 +11,16 @@ const AssistantManagement = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [currentAssistant, setCurrentAssistant] = useState(null);
   const [availableIntegrations, setAvailableIntegrations] = useState([]);
+  const [creatorData, setCreatorData] = useState(null);
+
+  useEffect(() => {
+    const creator = Cookies.get("creator");
+    if (creator) {
+      setCreatorData(JSON.parse(creator));
+    }
+  }, []);
+
+  console.log(creatorData, "raju");
   const [formData, setFormData] = useState({
     name: "",
     category: "",
